@@ -1,0 +1,128 @@
+@import "__mix";
+/* RESPONSIVE */
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+body {
+    @include transition-property(all);
+    @include transition-duration(0.25s);
+
+    @media (max-width: 1600px) {
+        zoom: 1;
+    }
+    @media (max-width: 950px) {
+        zoom: 0.9;
+    }
+    @media (max-width: 850px) {
+        zoom: 0.8;
+    }
+    @media (max-width: 750px) {
+        zoom: 0.7;
+    }
+    @media (max-width: 650px) {
+        zoom: 0.6;
+    }
+    @media (max-width: 550px) {
+        zoom: 0.5;
+    }
+    @media (max-width: 450px) {
+        zoom: 0.4;
+    }
+    @media (max-width: 350px) {
+        zoom: 0.3;
+    }
+}
+html.no-mobile.no-ie body {
+    @media (orientation: landscape) and (min-width: 1600px) {
+        zoom: 1.5;
+    }
+}
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+// NORMAL
+@media (min-width: 749px ) {
+    #Page {
+        .col1 {
+            display: none;
+        }
+        #Content > div {
+            aside {
+                vertical-align: top;
+                width: 33%;
+            }
+            article {
+                width: 95%;
+            }
+            .offer {
+                img {
+                    float: right;
+                }
+            }
+        }
+    }
+}
+// SMALL
+@media (max-width: 750px) {
+    #Page {
+        font-size: 130%;
+        .col1 {
+            display: block;
+        }
+        .col2 {
+            display: none;
+        }
+        header {
+            img {
+                height: 6em;
+            }
+        }
+        #Content > div {
+            width: 100%;
+            .teasers {
+                margin-top: 0;
+            }
+            aside, article {
+                display: block;
+                vertical-align: top;
+                width: 100%;
+            }
+            .feature img {
+                width: 100%;
+            }
+            .offer {
+                img {
+                    width: 100%;
+                }
+                .left {
+                    float: left;
+                    clear: left;
+                }
+                .rite {
+                    float: right;
+                    clear: right;
+                }
+            }
+        }
+        .flag .point {
+            background-size: 100% 100%;
+        }
+        .teasers .flag .text p {
+            font-size: 1.5em;
+        }
+        .tips aside img,
+        .connect aside img {
+            height: 66px;
+        }
+    }
+}
+// TINY
+@media (max-width: 450px) {
+    #Page {
+        font-size: 140%;
+        header {
+            margin-bottom: 1em;
+        }
+        .teasers .flag .text p {
+            top: 0.7em;
+        }
+    }
+}
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */

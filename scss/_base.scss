@@ -1,0 +1,30 @@
+@import "__mix";
+/* BASE */
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+html {
+    font-size: 10px;
+    font-family: Verdana;
+    line-height: 1;
+}
+h1, h2, h3, h4, h5 {
+    font-family: Times, Archer;
+    font-weight: 500;
+}
+body {
+    background-color: #e7eef1;
+    background-size: 100% 100%;
+    @include background-image( linear-gradient(top, #9b3737 0%, rgb(226, 140, 11) 100%) );
+    zoom: 1;
+}
+img {
+    -webkit-user-drag: none;
+    @include user-select(none);
+}
+td {
+    vertical-align: top;
+}
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+// [min|max]- width * height
+// [min|max]- device-width * device-height
+// [min|max]- aspect-ratio * device-aspect-ratio
+// orientation :[port|land]

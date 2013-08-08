@@ -1,0 +1,44 @@
+@import "_reset";
+@import "_base";
+@import "_layout";
+@import "_flag";
+@import "_misc";
+@import "_text";
+
+@import "__mix";
+//  triangle(side, size, color, ratio)
+@mixin trigTest(){
+    $mag: .5;
+    $size: 10em;
+    $side: bottom;
+
+    #trig1 {
+        $num: 4; $fact: $num * $mag;
+        @include triangle($side, $size, $fact, red);
+        left: $size * $num; top: $size;
+    }
+    #trig2 {
+        $num: 3; $fact: $num * $mag;
+        @include triangle($side, $size, $fact, green);
+        left: $size * $num; top: $size;
+    }
+    #trig3 {
+        $num: 2; $fact: $num * $mag;
+        @include triangle($side, $size, $fact, blue);
+        left: $size * $num; top: $size;
+    }
+    #trig4 {
+        $num: 1; $fact: $num * $mag;
+        @include triangle($side, $size, $fact, yellow);
+        left: $size * $num; top: $size;
+    }
+    .trig {
+        position: absolute;
+        width: 0;
+        z-index: 1;
+    }
+}
+
+@if $debug > 1 {
+    //@include trigTest();
+}

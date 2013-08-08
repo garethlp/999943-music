@@ -1,0 +1,19 @@
+@import "__mix";
+/* IE */
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+.badbrowser {
+    &::before {
+        content: 'scold';
+    }
+    &::after {
+        content: 'spank';
+    }
+}
+#Popup {
+    background-image: url("../images/bkgr/masq.png");
+}
+#Page #Content .pager {
+    left: -9em;
+    top: 0;
+}
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
