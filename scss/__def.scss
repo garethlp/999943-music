@@ -16,6 +16,8 @@ $plum1: #821A61;    $plum2: #4F0F3B;
 $purple1: #4A2E66;  $purple2: #2E1C3F;
 $teal1: #146A8C;    $teal2: #0A4257;
 
+$brown: #8a3604;
+
 //shade
 
 $lite: rgb( 250, 250, 250 );   // lite-lite
@@ -24,11 +26,4 @@ $gryM: rgb( 155, 155, 155 );   // dark-midd
 $gryD: rgb( 111, 111, 111 );   // dark-gray
 $dark: rgb(  55,  55,  55 );   // dark-dark
 
-//transition
-
-$default-transition-delay   : false;
-$default-transition-duration: 0.5s;
-$default-transition-property: all;
-$default-transition-function: ease-in;
-$default-transform: translate3d(0,0,0);
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */

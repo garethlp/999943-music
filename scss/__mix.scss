@@ -10,7 +10,7 @@ $debug: 1;
     @include vgrad( #fff, #eee);
 }
 @mixin textshadow() {
-    text-shadow: 0px 1px 1px gray;
+    text-shadow: 1px 1px 1px black;
 }
 @mixin outline($color: $hilite, $width: 4){
     outline: {
@@ -18,6 +18,8 @@ $debug: 1;
         width: $width * 1px;
     }
 }
-
+@mixin buttongrad(){
+    @include background-image( linear-gradient(top, $button1 50%, $button2 53%) );
+}
 
 //* >^º!º^< */

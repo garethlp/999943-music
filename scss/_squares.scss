@@ -13,7 +13,6 @@
             background-image: url(../images/colors/cgray.png);
 
             h3 {
-                font-style: italic;
                 font-weight: 100;
                 margin-bottom: 0.5rem;
             }
@@ -59,6 +58,32 @@
         &.reveal {
             background-image: url(../images/reveals/b5.png);
             height: 258px;
+
+            h3 {
+                color: $red1;
+                font-size: 190%;
+            }
+            .text {
+                padding: 0;
+                position: absolute;
+            }
+            .txt5a {
+                border: 1px solid pink;
+                left: 1.5rem; top: 5.5rem;
+                width: 15em;
+            }
+            .txt5b {
+                border: 1px solid pink;
+                color: black;
+                font-size: 14.5px;
+                left: 27rem; top: 7rem;
+                width: 22em;
+            }
+            button {
+                float: right;
+                margin-top: 2em;
+                margin-right: 11em;
+            }
         }
         &.filler {
             background-image: url(../images/photos/filler.png);
