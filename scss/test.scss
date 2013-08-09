@@ -1,0 +1,129 @@
+html {
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 15px;
+    line-height: 1;
+}
+body {
+    margin: 0;
+    padding: 0;
+}
+#Page {
+    h1, h2, h3, h4, h5, h6 {
+        margin: 0;
+        padding: 0;
+    }
+    h1 {
+        font-size: 1px;
+    }
+    div.aturitmo {
+        background-image: url(../images/header/aturitmo.png);
+        height: 40px;
+        left: 34px;
+        position: absolute;
+        top: 31px;
+        width: 315px;
+    }
+    div.logo {
+        background-image: url(../images/header/logo.png);
+        height: 55px;
+        left: 943px;
+        position: absolute;
+        top: 15px;
+        width: 55px;
+    }
+    button.orange {
+        background-color: #CE4C12;
+        border: 1px solid black;
+        border-radius: 4px;
+        color: white;
+        display: inline-block;
+        font-size: 12px;
+        letter-spacing: 1px;
+        padding: 7px 13px;
+        text-shadow: 1px 1px 1px black;
+    }
+}
+#Layout {
+    background-image: url(../xtra/bkgr.png);
+    background-position: -24px -86px;
+    background-repeat: no-repeat;
+    border-spacing: 10px;
+    height: 172px;
+    left: 24px;
+    position: absolute;
+    top: 86px;
+    width: 984px;
+
+    td {
+        background-image: none !important;
+        background-repeat: no-repeat;
+        height: 152px;
+        opacity: 0.5;
+        position: relative;
+        vertical-align: top;
+        width: 152px;
+
+        &.teal {
+            background-image: url(../images/colors/teal.png);
+        }
+        &.plum {
+            background-image: url(../images/colors/plum.png);
+        }
+        &.amber {
+            background-image: url(../images/colors/amber.png);
+        }
+        &.freek {
+            background-image: url(../images/photos/freek.png);
+        }
+        &.purple {
+            background-image: url(../images/colors/purple.png);
+        }
+        &.green {
+            background-image: url(../images/colors/green.png);
+        }
+        &.phones {
+            background-image: url(../images/photos/phones.png);
+        }
+        &.red {
+            background-image: url(../images/colors/red.png);
+        }
+        &.dude {
+            background-image: url(../images/photos/dude.png);
+        }
+        &.cgray {
+            background-image: url(../images/colors/cgray.png);
+        }
+        &.babe {
+            background-image: url(../images/photos/babe.png);
+        }
+        img {
+            bottom: 0;
+            float: right;
+            right: 0;
+        }
+        &.reveal {
+            height: 258px;
+        }
+        &.filler {
+            height: 315px;
+        }
+    }
+}
+div.text {
+    color: white;
+    padding: 1em;
+
+    p {
+        line-height: 1.5rem;
+        margin: 0;
+    }
+    h2 {
+        font-family: Verdana, Geneva, sans-serif;
+        font-weight: normal;
+    }
+    h3 {
+        font-family: "Archer Light", Georgia, "Times New Roman", Times, serif;
+        font-size: 1.7rem;
+        font-weight: normal;
+    }
+}
