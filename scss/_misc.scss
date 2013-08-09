@@ -26,20 +26,4 @@ img.tilted {
 .show {
     display: initial !important;
 }
-button.orange {
-    @include buttongrad1();
-    @include textshadow();
-
-    border: 1px solid $brown;
-    border-radius: 4px;
-    box-shadow: 0 0 3px $shad1;
-    color: white;
-    display: inline-block;
-    font-size: 12px;
-    letter-spacing: 1px;
-    padding: 7px 13px;
-    &:hover {
-        @include buttongrad2();
-    }
-}
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */

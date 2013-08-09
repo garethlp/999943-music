@@ -1,20 +1,85 @@
 @import "__mix";
+@import "_base";
 /* LAYOUT */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+%myriad {
+    font-family: "Myriad Pro", Verdana, Geneva, sans-serif;
+}
+%archer {
+    font-family: "Archer", Georgia, Times, serif;
+}
 #Page {
-    #Content {
-    }
-}
+    background-color: white;
+    box-shadow: 3px 333px 333px $shad1;
+    margin: auto;
+    position: relative;
+    width: 984px;
 
-@media (max-width: 460px) {
-    html {
-        font-size: inherit;
+    div.aturitmo {
+        background-image: url(../images/header/aturitmo.png);
+        height: 40px;
+        left: 10px;
+        position: absolute;
+        top: 26px;
+        width: 315px;
     }
-    #mobile-page body {
-        zoom: 0.65;
+    div.logo {
+        background-image: url(../images/header/logo.png);
+        height: 55px;
+        right: 10px;
+        position: absolute;
+        top: 10px;
+        width: 55px;
     }
-    #Popup h3 img {
-        display: none;
+    h1 {
+        font-size: 1px;
+    }
+    h2 {
+        @extend %myriad;
+        font-size: 210%;
+    }
+    h3 {
+        @extend %archer;
+        font-size: 160%;
+        font-style: italic;
     }
 }
-/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+#Layout {
+    border-collapse: separate;
+    border-spacing: 10px;
+    margin-bottom: 80px;
+    position: relative;
+    padding-top: 80px;
+
+    td {
+        background-repeat: no-repeat;
+        height: 152px;
+        position: relative;
+        vertical-align: top;
+        width: 152px;
+
+        img {
+            bottom: 0;
+            position: absolute;
+            right: 0;
+
+            &:hover {
+                opacity: 0.5;
+            }
+        }
+    }
+}
+div.text {
+    color: white;
+    font-size: 18px;
+    line-height: 1.4;
+    padding: 1rem;
+
+    p {
+        @extend %myriad;
+        margin: 0;
+        margin-right: 1em;
+    }
+}
+@import "_squares";
+@import "_misc";
