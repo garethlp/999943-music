@@ -81,5 +81,12 @@ div.text {
         margin-right: 1em;
     }
 }
-@import "_squares";
-@import "_misc";
+footer {
+    color: gray;
+    font-size: 11px;
+    position: absolute;
+    bottom: -2rem;
+    vertical-align: baseline;
+    width: 100%;
+}
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
