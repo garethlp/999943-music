@@ -1,0 +1,53 @@
+@import "__mix";
+/* SQUARES */
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+#Layout {
+    td {
+        &.teal {
+            background-image: url(../images/colors/teal.png);
+        }
+        &.plum {
+            background-image: url(../images/colors/plum.png);
+        }
+        &.amber {
+            background-image: url(../images/colors/amber.png);
+        }
+        &.freek {
+            background-image: url(../images/photos/freek.png);
+        }
+        &.purple {
+            background-image: url(../images/colors/purple.png);
+        }
+        &.green {
+            background-image: url(../images/colors/green.png);
+        }
+        &.phones {
+            background-image: url(../images/photos/phones.png);
+        }
+        &.red {
+            background-image: url(../images/colors/red.png);
+        }
+        &.dude {
+            background-image: url(../images/photos/dude.png);
+        }
+        &.cgray {
+            background-image: url(../images/colors/cgray.png);
+        }
+        &.babe {
+            background-image: url(../images/photos/babe.png);
+        }
+        img {
+            bottom: 0;
+            float: right;
+            right: 0;
+        }
+        &.reveal {
+            height: 258px;
+        }
+        &.filler {
+            height: 315px;
+        }
+    }
+}
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */

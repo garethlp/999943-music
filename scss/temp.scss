@@ -66,68 +66,24 @@ body {
         position: relative;
         vertical-align: top;
         width: 152px;
-
-        &.teal {
-            background-image: url(../images/colors/teal.png);
-        }
-        &.plum {
-            background-image: url(../images/colors/plum.png);
-        }
-        &.amber {
-            background-image: url(../images/colors/amber.png);
-        }
-        &.freek {
-            background-image: url(../images/photos/freek.png);
-        }
-        &.purple {
-            background-image: url(../images/colors/purple.png);
-        }
-        &.green {
-            background-image: url(../images/colors/green.png);
-        }
-        &.phones {
-            background-image: url(../images/photos/phones.png);
-        }
-        &.red {
-            background-image: url(../images/colors/red.png);
-        }
-        &.dude {
-            background-image: url(../images/photos/dude.png);
-        }
-        &.cgray {
-            background-image: url(../images/colors/cgray.png);
-        }
-        &.babe {
-            background-image: url(../images/photos/babe.png);
-        }
-        img {
-            bottom: 0;
-            float: right;
-            right: 0;
-        }
-        &.reveal {
-            height: 258px;
-        }
-        &.filler {
-            height: 315px;
-        }
     }
 }
 div.text {
     color: white;
-    padding: 1em;
+    padding: 0.8rem;
 
     p {
         line-height: 1.5rem;
         margin: 0;
     }
     h2 {
-        font-family: Verdana, Geneva, sans-serif;
+        font-family: "Myriad Pro", Verdana, Geneva, sans-serif;
         font-weight: normal;
     }
     h3 {
-        font-family: "Archer Light", Georgia, "Times New Roman", Times, serif;
+        font-family: "Archer", Georgia, Times, serif;
         font-size: 1.7rem;
         font-weight: normal;
     }
 }
+@import "_squares";
