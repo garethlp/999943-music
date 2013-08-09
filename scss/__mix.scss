@@ -7,7 +7,7 @@ $debug: 1;
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - //
 @mixin graygrad(){
-    @include vgrad( #fff, #eee);
+    @include vgrad( #fefefe, #ddd);
 }
 @mixin textshadow() {
     text-shadow: 1px 1px 1px black;
