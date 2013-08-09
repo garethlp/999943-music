@@ -1,0 +1,61 @@
+@import "compass/css3/user-interface";
+
+@mixin dpix($prop, $rem){
+    #{$prop}: $rem * 1px;
+    #{$prop}: $rem * 1rem;
+}
+
+@mixin vgrad($C1: white, $C2: black){
+    @include background-image( linear-gradient(top, $C1 33%, $C2 100%) );
+}
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - //
+@mixin bluegrad(){
+    @include vgrad( $blue1, $blue2);
+}
+@mixin graygrad(){
+    @include vgrad( $gray1, $gray2);
+}
+@mixin greengrad(){
+    @include vgrad( $green1, $green2);
+}
+@mixin redgrad(){
+    @include vgrad( $red1, $red2);
+}
+@mixin bargrad(){
+    @include background-image( linear-gradient(top, $bar1 0%, $bar2 100%) );
+}
+@mixin bodygrad () {
+    @include background-image( linear-gradient(bottom left, #dcb, #f2f2f2, #eee, #f2f2f2, #def) );
+    background-attachment: fixed;
+}
+@mixin stagegrad(){
+    @include background-image( linear-gradient(left, $shad2 0%, $shad1 5%, transparent 15%, transparent 85%, $shad1 95%, $shad2 100%) );
+}
+@mixin thinshadow() {
+    text-shadow: 0px 1px 1px gray;
+}
+@mixin thickshadow() {
+    text-shadow: 1px 1px 3px black;
+}
+@mixin hornup(){
+    color: white;
+    text-transform: uppercase;
+    &:before {
+        content: '< ';
+    }
+    &:after {
+        content: ' >';
+    }
+}
+@mixin clearfix(){
+    &:after {
+        clear: both;
+        content: "";
+        display: table;
+        /* clearfix */
+    }
+}
+@mixin nosel(){
+    -webkit-user-drag: none;
+    @include user-select(none);
+}
