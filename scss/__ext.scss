@@ -1,13 +1,17 @@
-@import "__mix";
+@import "__def";
+@import "__fun";
 /* EXTENDS */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 %ani {
-    @include transform( scale(1) translate3d(0,0,0) );
-    @include transform-style( preserve-3d );
-    @include perspective( 1000 );
     @include backface-visibility( hidden );
+    @include perspective( 1000 );
+    @include transform( scale(1) translate3d(0,0,0) rotate(0) );
+    @include transform-style( preserve-3d );
+    @include transition( all 0.5s ease-in-out 0 );
 }
-
+%control {
+    @include nosel();
+}
 //font
 
 %lolax0 { font-family: 'Lola Light'            ; }
@@ -34,9 +38,4 @@
     font-family: "FS Lola Bold", FSLola-Bold;
 }
 
-//etc
-
-.imgcache {
-    @extend %cacher;
-}
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */

@@ -87,6 +87,10 @@ body {
             bottom: 0;
             position: absolute;
             right: 0;
+
+            &:hover {
+                opacity: 0.5;
+            }
         }
     }
 }
@@ -103,3 +107,4 @@ div.text {
     }
 }
 @import "_squares";
+@import "_misc";
