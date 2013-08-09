@@ -1,13 +1,23 @@
-@import "__def";
 @import "__fun";
-@import "compass/css3";
 
-$default-transition-delay   : false;
-$default-transition-duration: 0.5s;
-$default-transition-property: all;
-$default-transition-function: ease-in;
-
+$layers: '../images/layers';
 $resp: 800px;
 $debug: 1;
+
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - //
+@mixin graygrad(){
+    @include vgrad( #fff, #eee);
+}
+@mixin textshadow() {
+    text-shadow: 0px 1px 1px gray;
+}
+@mixin outline($color: $hilite, $width: 4){
+    outline: {
+        color: $color;
+        width: $width * 1px;
+    }
+}
+
 
 //* >^º!º^< */

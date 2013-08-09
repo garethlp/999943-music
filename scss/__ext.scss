@@ -7,26 +7,20 @@
     @include perspective( 1000 );
     @include backface-visibility( hidden );
 }
-%vue {
-    min-height: $minHeight;
-    width: 100%;
-}
-%push {
-    @include transition( all 0.125s);
-    opacity: 0.8;
-    &:hover {
-        opacity: 1;
-    }
-    &:active {
-        @include transform( translate(0, 1px) scale(0.9) );
-    }
-}
-%noresize {
-    height: initial;
-    max-height: none;
-    max-width: none;
-    width: initial;
-}
+
+//font
+
+%lolax0 { font-family: 'Lola Light'            ; }
+%lolax1 { font-family: 'Lola Regular'          ; }
+%lolax2 { font-family: 'Lola Medium'           ; }
+%lolax3 { font-family: 'Lola Bold'             ; }
+%lolax4 { font-family: 'Lola ExtraBold'        ; }
+%lolay0 { font-family: 'Lola Light Italic'     ; }
+%lolay1 { font-family: 'Lola Regular Italic'   ; }
+%lolay2 { font-family: 'Lola Medium Italic'    ; }
+%lolay3 { font-family: 'Lola Bold Italic'      ; }
+%lolay4 { font-family: 'Lola ExtraBold Italic' ; }
+
 %normal {
     @extend %lolax1;
     font-family: "FS Lola", FSLola;
@@ -40,46 +34,8 @@
     font-family: "FS Lola Bold", FSLola-Bold;
 }
 
-%cacher {
-    background-position: top left;
-    height: 1px;
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 1px;
-}
+//etc
 
-%lolax0 { font-family: 'Lola Light'            ; }
-%lolax1 { font-family: 'Lola Regular'          ; }
-%lolax2 { font-family: 'Lola Medium'           ; }
-%lolax3 { font-family: 'Lola Bold'             ; }
-%lolax4 { font-family: 'Lola ExtraBold'        ; }
-%lolay0 { font-family: 'Lola Light Italic'     ; }
-%lolay1 { font-family: 'Lola Regular Italic'   ; }
-%lolay2 { font-family: 'Lola Medium Italic'    ; }
-%lolay3 { font-family: 'Lola Bold Italic'      ; }
-%lolay4 { font-family: 'Lola ExtraBold Italic' ; }
-
-.bkgr {
-    @extend %vue;
-
-    background-repeat: repeat-x;
-    color: $shad;
-    left: 0;
-    position: absolute;
-    top: 0;
-}
-.scrl {
-    @extend %vue;
-
-    height: $maxHeight;
-    overflow: hidden;
-    overflow-x: scroll;
-}
-.backscrl {
-    @extend .bkgr;
-    @extend .scrl;
-}
 .imgcache {
     @extend %cacher;
 }

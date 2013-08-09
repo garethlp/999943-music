@@ -1,51 +1,17 @@
-@import "compass/css3/user-interface";
+/* fun */
+@import "__def";
+
+//functional
+
+@function gM($num: 1){
+    @return $rem * $num;
+}
+
+//fundamental
 
 @mixin dpix($prop, $rem){
     #{$prop}: $rem * 1px;
     #{$prop}: $rem * 1rem;
-}
-
-@mixin vgrad($C1: white, $C2: black){
-    @include background-image( linear-gradient(top, $C1 33%, $C2 100%) );
-}
-// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - //
-@mixin bluegrad(){
-    @include vgrad( $blue1, $blue2);
-}
-@mixin graygrad(){
-    @include vgrad( $gray1, $gray2);
-}
-@mixin greengrad(){
-    @include vgrad( $green1, $green2);
-}
-@mixin redgrad(){
-    @include vgrad( $red1, $red2);
-}
-@mixin bargrad(){
-    @include background-image( linear-gradient(top, $bar1 0%, $bar2 100%) );
-}
-@mixin bodygrad () {
-    @include background-image( linear-gradient(bottom left, #dcb, #f2f2f2, #eee, #f2f2f2, #def) );
-    background-attachment: fixed;
-}
-@mixin stagegrad(){
-    @include background-image( linear-gradient(left, $shad2 0%, $shad1 5%, transparent 15%, transparent 85%, $shad1 95%, $shad2 100%) );
-}
-@mixin thinshadow() {
-    text-shadow: 0px 1px 1px gray;
-}
-@mixin thickshadow() {
-    text-shadow: 1px 1px 3px black;
-}
-@mixin hornup(){
-    color: white;
-    text-transform: uppercase;
-    &:before {
-        content: '< ';
-    }
-    &:after {
-        content: ' >';
-    }
 }
 @mixin clearfix(){
     &:after {
@@ -59,3 +25,18 @@
     -webkit-user-drag: none;
     @include user-select(none);
 }
+@mixin vgrad($clr1: white, $clr2: black){
+    @include background-image( linear-gradient(top, $clr1 33%, $clr2 100%) );
+}
+
+// GENERIC FONT HELPER
+
+$fontServ1: '../../../lib/fonts/';
+$fontServ2: 'http://10.89.101.100/lib/fonts/';
+$fontServ3: 'http://www.wellsfargomedia.com/lib/fonts/';
+
+@function woffSrc( $nom: 'Foo', $src: './' ){
+    @return local($nom), url( $src + $nom + '.woff') format('woff');
+}
+
+//

@@ -1,50 +1,73 @@
 @import "__mix";
 /* TEXT */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-article.feature h1 {
-    color: $clrB;
-    font-family: Archer, Times;
-    font-size: 3.8em;
+// LOLA SPECIFIC
+
+$lolaUrl: $fontServ3 + 'lola/';
+
+@function lolaSrc( $nom: 'FSLola' ){
+    @return woffSrc($nom, $lolaUrl);
+}
+
+@font-face {
+    font-family: 'Lola Regular' ;
+    font-style: normal;
+    font-weight: 400;
+    src: lolaSrc('FSLola');
+}
+@font-face {
+    font-family: 'Lola Bold' ;
+    font-style: normal;
+    font-weight: 600;
+    src: lolaSrc('FSLola-Bold');
+}
+@font-face {
+    font-family: 'Lola Light' ;
+    font-style: normal;
+    font-weight: 200;
+    src: lolaSrc('FSLola-Light');
+}
+@font-face {
+    font-family: 'Lola Medium' ;
+    font-style: normal;
     font-weight: 500;
-    line-height: 1em;
-    margin-top: 0.25em;
-    margin-bottom: 0.25em;
+    src: lolaSrc('FSLola-Medium');
 }
-
-.plain {
-    font-family: Verdana;
-    font-weight: normal;
-    line-height: 1.3em;
+@font-face {
+    font-family: 'Lola ExtraBold' ;
+    font-style: normal;
+    font-weight: 800;
+    src: lolaSrc('FSLola-ExtraBold');
 }
-
-h3 {
-    @extend .plain;
-    color: $dark;
-    font-size: 1.7em;
-    margin: 0.3em 0;
+@font-face {
+    font-family: 'Lola Regular Italic' ;
+    font-style: normal;
+    font-weight: 400;
+    src: lolaSrc('FSLola-Italic');
 }
-p {
-    @extend .plain;
-    color: $dark;
-    font-size: 1.1em;
-    margin: 0.7em 0;
+@font-face {
+    font-family: 'Lola Bold Italic' ;
+    font-style: normal;
+    font-weight: 600;
+    src: lolaSrc('FSLola-BoldItalic');
 }
-
-a {
-    text-decoration: none;
-    font-size: 1.1em;
-    font-weight: bold;
-    color: $link;
+@font-face {
+    font-family: 'Lola Light Italic' ;
+    font-style: normal;
+    font-weight: 200;
+    src: lolaSrc('FSLola-LightItalic');
 }
-.teasers p {
-    margin: 1.7em 0 0.7em;
+@font-face {
+    font-family: 'Lola Medium Italic' ;
+    font-style: normal;
+    font-weight: 500;
+    src: lolaSrc('FSLola-MediumItalic');
 }
-
-footer p {
-    color: $gryD;
-    font-size: 0.9em;
-    line-height: 1.3em;
-    margin-top: 0.8em;
+@font-face {
+    font-family: 'Lola ExtraBold Italic' ;
+    font-style: normal;
+    font-weight: 800;
+    src: lolaSrc('FSLola-ExtraBoldItalic');
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
