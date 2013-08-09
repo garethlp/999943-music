@@ -18,8 +18,11 @@ $debug: 1;
         width: $width * 1px;
     }
 }
-@mixin buttongrad(){
+@mixin buttongrad1(){
     @include background-image( linear-gradient(top, $button1 50%, $button2 53%) );
+}
+@mixin buttongrad2(){
+    @include background-image( linear-gradient(top, $button2 50%, $button1 53%) );
 }
 
 //* >^º!º^< */

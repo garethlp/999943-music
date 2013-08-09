@@ -43,18 +43,6 @@
         font-size: 160%;
         font-style: italic;
     }
-    button.orange {
-        @include buttongrad();
-        @include textshadow();
-
-        border: 1px solid $brown;
-        border-radius: 4px;
-        color: white;
-        display: inline-block;
-        font-size: 12px;
-        letter-spacing: 1px;
-        padding: 7px 13px;
-    }
 }
 #Layout {
     border-collapse: separate;
