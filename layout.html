@@ -4,6 +4,17 @@
         <meta charset="UTF-8">
         <title>test</title>
         <link href="styles/temp.css" media="screen" rel="stylesheet" type="text/css">
+        <script src="/lib/jquery/1.8.2/jquery.js"></script>
+        <script>
+        function decache() {
+            $('img.cache').each(function () {
+                var me = $(this);
+                me.attr('src', me.data().src);
+            });
+        }
+        $(decache);
+        console.debug('decache');
+        </script>
     </head>
     <body id="Page">
         <div class="aturitmo">
@@ -64,22 +75,23 @@
             </tr>
             <tr>
                 <td class="reveal" colspan="6"><div style="display:none;">
-                        <img src="./images/reveals/b1.png" alt="B1">
-                        <img src="./images/reveals/b2.png" alt="B2">
-                        <img src="./images/reveals/b3.png" alt="B3">
-                        <img src="./images/reveals/b4.png" alt="B4">
-                        <img src="./images/reveals/b5.png" alt="B5">
-                        <img src="./images/reveals/f1.png" alt="F1">
-                        <img src="./images/reveals/f2.png" alt="F2">
-                        <img src="./images/reveals/f3.png" alt="F3">
-                        <img src="./images/reveals/f4.png" alt="F4">
-                        <img src="./images/reveals/f5.png" alt="F5">
+                        <img class="cache" src="" data-src="./images/reveals/b1.png" alt="B1">
+                        <img class="cache" src="" data-src="./images/reveals/b2.png" alt="B2">
+                        <img class="cache" src="" data-src="./images/reveals/b3.png" alt="B3">
+                        <img class="cache" src="" data-src="./images/reveals/b4.png" alt="B4">
+                        <img class="cache" src="" data-src="./images/reveals/b5.png" alt="B5">
+                        <img class="cache" src="" data-src="./images/reveals/f1.png" alt="F1">
+                        <img class="cache" src="" data-src="./images/reveals/f2.png" alt="F2">
+                        <img class="cache" src="" data-src="./images/reveals/f3.png" alt="F3">
+                        <img class="cache" src="" data-src="./images/reveals/f4.png" alt="F4">
+                        <img class="cache" src="" data-src="./images/reveals/f5.png" alt="F5">
                     </div>
                     <div class="taext">
                         <p>Soluciones para pequeños negocios</p>
                     </div>
                     <div class="taext">
-                        <p>Te ofrecemos Paquetes de Cuenta de Cheques Comerciales que te ayudan a manejar tu negocio eficientemente.</p>
+                        <p>Te ofrecemos Paquetes de Cuenta de Cheques Comerciales
+                            que te ayudan a manejar tu negocio eficientemente.</p>
                     </div><button class="orange">Más información</button>
                 </td>
             </tr>
