@@ -55,33 +55,6 @@
 
         // next row
 
-        &.reveal {
-            background-image: url(../images/reveals/b0.png);
-            height: 258px;
-
-            h3 {
-                color: $red1;
-                font-size: 200%;
-            }
-            .text {
-                padding: 0;
-                position: absolute;
-            }
-            .txt5a {
-                left: 1.5rem; top: 5.5rem;
-                width: 15em;
-            }
-            .txt5b {
-                color: gray;
-                font-size: 15px;
-                left: 27rem; top: 7rem;
-                width: 22em;
-            }
-            button {
-                float: right;
-                margin: 2em;
-            }
-        }
         &.filler {
             background-image: url(../images/photos/filler.png);
             height: 315px;
