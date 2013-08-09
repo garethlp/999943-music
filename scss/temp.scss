@@ -1,9 +1,16 @@
 @import "__mix";
 /* temp */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+%myriad {
+    font-family: "Myriad Pro", Verdana, Geneva, sans-serif;
+}
+%archer {
+    font-family: "Archer", Georgia, Times, serif;
+}
+
 html {
     font-family: Verdana, Geneva, sans-serif;
-    font-size: 15px;
+    font-size: 12px;
     line-height: 1;
 }
 body {
@@ -13,11 +20,20 @@ body {
 }
 #Page {
     h1, h2, h3, h4, h5, h6 {
+        line-height: 1.0;
         margin: 0;
         padding: 0;
     }
     h1 {
         font-size: 1px;
+    }
+    h2 {
+        @extend %myriad;
+        font-size: 210%;
+    }
+    h3 {
+        @extend %archer;
+        font-size: 160%;
     }
     div.aturitmo {
         background-image: url(../images/header/aturitmo.png);
@@ -59,31 +75,30 @@ body {
     width: 984px;
 
     td {
-        background-image: none !important;
         background-repeat: no-repeat;
         height: 152px;
         opacity: 0.5;
         position: relative;
         vertical-align: top;
         width: 152px;
+
+        img {
+            bottom: 0;
+            position: absolute;
+            right: 0;
+        }
     }
 }
 div.text {
     color: white;
-    padding: 0.8rem;
+    font-size: 18px;
+    line-height: 1.4;
+    padding: 1rem;
 
     p {
-        line-height: 1.5rem;
+        @extend %myriad;
         margin: 0;
-    }
-    h2 {
-        font-family: "Myriad Pro", Verdana, Geneva, sans-serif;
-        font-weight: normal;
-    }
-    h3 {
-        font-family: "Archer", Georgia, Times, serif;
-        font-size: 1.7rem;
-        font-weight: normal;
+        margin-right: 1em;
     }
 }
 @import "_squares";

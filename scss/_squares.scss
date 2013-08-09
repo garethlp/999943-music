@@ -1,51 +1,67 @@
 @import "__mix";
 /* SQUARES */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-
 #Layout {
     td {
-        &.teal {
-            background-image: url(../images/colors/teal.png);
-        }
-        &.plum {
-            background-image: url(../images/colors/plum.png);
-        }
-        &.amber {
-            background-image: url(../images/colors/amber.png);
-        }
-        &.freek {
-            background-image: url(../images/photos/freek.png);
-        }
-        &.purple {
-            background-image: url(../images/colors/purple.png);
-        }
-        &.green {
-            background-image: url(../images/colors/green.png);
-        }
-        &.phones {
-            background-image: url(../images/photos/phones.png);
-        }
-        &.red {
-            background-image: url(../images/colors/red.png);
+        &.babe {
+            background-image: url(../images/photos/babe.png);
         }
         &.dude {
             background-image: url(../images/photos/dude.png);
         }
         &.cgray {
             background-image: url(../images/colors/cgray.png);
+
+            h3 {
+                font-style: italic;
+                font-weight: 100;
+                margin-bottom: 0.5rem;
+            }
+            p {
+                font-size: 1.25rem;
+            }
         }
-        &.babe {
-            background-image: url(../images/photos/babe.png);
+        &.red {
+            background-image: url(../images/colors/red.png);
+
+            h2 {
+                font-weight: 100;
+                line-height: 1.1;
+            }
         }
-        img {
-            bottom: 0;
-            float: right;
-            right: 0;
+        &.phones {
+            background-image: url(../images/photos/phones.png);
         }
+
+        // next row
+
+        &.green {
+            background-image: url(../images/colors/green.png);
+        }
+        &.purple {
+            background-image: url(../images/colors/purple.png);
+        }
+        &.freek {
+            background-image: url(../images/photos/freek.png);
+        }
+        &.amber {
+            background-image: url(../images/colors/amber.png);
+        }
+        &.plum {
+            background-image: url(../images/colors/plum.png);
+        }
+        &.teal {
+            background-image: url(../images/colors/teal.png);
+        }
+
+        // next row
+
         &.reveal {
+            background-image: url(../images/reveals/b5.png);
             height: 258px;
         }
         &.filler {
+            background-image: url(../images/photos/filler.png);
             height: 315px;
         }
     }
