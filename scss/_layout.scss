@@ -26,8 +26,8 @@
     div.logo {
         background-image: url(../images/header/logo.png);
         height: 55px;
-        right: 10px;
         position: absolute;
+        right: 10px;
         top: 10px;
         width: 55px;
     }
@@ -48,8 +48,8 @@
     border-collapse: separate;
     border-spacing: 10px;
     margin-bottom: 80px;
-    position: relative;
     padding-top: 80px;
+    position: relative;
 
     td {
         background-repeat: no-repeat;
@@ -72,7 +72,7 @@
 div.text {
     color: white;
     font-size: 18px;
-    line-height: 1.4;
+    line-height: 1.35;
     padding: 1rem;
 
     p {

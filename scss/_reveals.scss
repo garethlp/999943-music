@@ -2,49 +2,94 @@
 /* SQUARES */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 #Layout {
-    td {
-        &.reveal1 {
-            background-image: url(../images/reveals/b0.png);
-            height: 257px;
+    td.reveal {
+        background-image: url(../images/reveals/b0.png);
+        height: 257px;
 
-            h3 {
-                color: $red1;
-                font-size: 200%;
-            }
-            .text {
-                padding: 0;
-                position: absolute;
-            }
-            .txt5a {
-                left: 1.5rem; top: 5.5rem;
-                width: 15em;
-            }
-            .txt5b {
-                color: gray;
-                font-size: 15px;
-                left: 27rem; top: 7rem;
-                width: 22em;
-            }
-            button {
-                float: right;
-                margin: 2em;
-            }
+        h3 {
+            color: $red;
+            font-size: 200%;
+        }
+        .text {
+            padding: 0;
+            position: absolute;
+        }
+        button {
+            float: right;
+            margin: 2em;
         }
 
         // next row
 
-        &.reveal2 {
-            background-image: url(../images/reveals/b0.png);
-            height: 257px;
-
-            h3 {
-                color: $red1;
-                font-size: 200%;
+        // TXT 1
+        &.upper {
+/*            background-image: url(../images/reveals/t1.png);*/
+            .txt1a {
+                left: 1.5rem; top: 5.5rem;
+                width: 18em;
             }
-            .text {
-                padding: 0;
-                position: absolute;
+            .txt1b {
+                color: gray;
+                font-size: 14.5px;
+                left: 27rem; top: 3.4rem;
+                width: 22em;
             }
+        }
+        // TXT 1
+        &.lower {
+            .txt1a {
+                left: 1.5rem; top: 5.5rem;
+                width: 15em;
+            }
+            .txt2b {
+                color: gray;
+                font-size: 15px;
+                left: 27rem; top: 7rem;
+                width: 22em;
+            }
+        }
+        // TXT 2
+        &.lower {
+            .txt2a {
+                left: 1.5rem; top: 5.5rem;
+                width: 15em;
+            }
+            .txt2b {
+                color: gray;
+                font-size: 15px;
+                left: 27rem; top: 7rem;
+                width: 22em;
+            }
+        }
+        // TXT 3
+        &.lower {
+            .txt3a {
+                left: 1.5rem; top: 5.5rem;
+                width: 15em;
+            }
+            .txt3b {
+                color: gray;
+                font-size: 15px;
+                left: 27rem; top: 7rem;
+                width: 22em;
+            }
+        }
+        // TXT 4
+        &.lower {
+            .txt4a {
+                left: 1.5rem; top: 5.5rem;
+                width: 15em;
+            }
+            .txt4b {
+                color: gray;
+                font-size: 15px;
+                left: 27rem; top: 7rem;
+                width: 22em;
+            }
+        }
+        // TXT 5
+        &.lower {
+/*            background-image: url(../images/reveals/b5.png);*/
             .txt5a {
                 left: 1.5rem; top: 5.5rem;
                 width: 15em;
@@ -54,10 +99,6 @@
                 font-size: 15px;
                 left: 27rem; top: 7rem;
                 width: 22em;
-            }
-            button {
-                float: right;
-                margin: 2em;
             }
         }
     }
