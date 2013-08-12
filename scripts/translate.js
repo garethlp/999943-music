@@ -5,15 +5,14 @@ var Translate;
 
 (function (W) { //IIFE
     var name = 'Translate',
-        self = new Global(name, '(extract verbiage)'),
+        self = new Global(name, '(detect and insert verbiage)'),
         C = W.console,
         Df;
 
     Df = { // DEFAULTS
         dat: {},
+        current: 'esp',
         partsUrl: 'data.html',
-        // cycle
-        keyList: ['cgray', 'red', 'green', 'purple', 'amber', 'plum', 'teal', 'legal', 'exit'],
     };
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
     /// INTERNAL
@@ -28,41 +27,47 @@ var Translate;
         });
     }
 
-    function _parse($load) {
-        // make a data var
-        var D = Df.dat;
-        // for each in keylist
-        $.each(Df.keyList, function (i, sect) {
-            var sectO = {},
-                row$;
+    function _retile() {
+        var eles,
+            data = Extract.data();
+            console.debug(name, data);
 
-            // search new html for rows with that section key
-            row$ = $load.find('.' + sect).removeClass(sect);
+        eles = $('.head, .text');
 
-            row$.each(function () { // ie "red" section
-                var $row = $(this),
-                    type = $row.attr('class').trim(),
-                    typeO = {};
-                // new obj for remaining class name (ie "red tile" => tile)
-                $row.find('td').each(function () {
-                    var me = $(this),
-                        lang = me.attr('class').trim();
-                    // prop: lang{string} takes html from that cell
-                    typeO[lang] = me.html();
-                });
-                sectO[type] = typeO;
-            });
-            D[sect] = sectO;
+        eles.each(function () {
+            var me = $(this),
+                txt = _deref(data, clarr(me));
+            debug > 0 && console.debug(name, txt);
         });
     }
 
+    function clarr(jq) {
+        var a0 = jq.parent().attr('class').split(' '),
+            a1 = jq.attr('class').split(' '),
+            arr;
+        arr = [a0.pop(), a1.pop()];
+        if (Df.current) {
+            arr.push(Df.current);
+        }
+        debug > 1 && console.debug(name, arr);
+        return arr;
+    }
+
+    function _deref(obj, arr) {
+        var foo = obj;
+        $.each(arr, function (i, e) {
+            foo = typeof foo === 'object' ? foo[e] : foo;
+            debug > 1 && console.debug(name, 'dechain', e);
+        });
+        return foo;
+    }
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
     function _init() {
         if (self.inited(true)) {
             return null;
         }
-        _load(_parse);
+        _retile();
         return self;
     }
 
@@ -72,7 +77,6 @@ var Translate;
         },
         init: _init,
         data: function () {
-            return Df.dat;
         },
     });
 

@@ -1,5 +1,5 @@
 /*jslint es5:true, white:false */
-/*globals $, Global, window */
+/*globals $, Global, Translate, window */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 var Extract;
 
@@ -65,6 +65,7 @@ var Extract;
             });
             Df.dat[sect] = sectO;
         });
+        $(Translate.init);
     }
 
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
