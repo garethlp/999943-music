@@ -1,20 +1,21 @@
 <!DOCTYPE HTML>
-<html>
+<html class="dbug">
     <head>
         <meta charset="UTF-8">
+        <meta content="NOINDEX, NOFOLLOW" name="ROBOTS">
+        <meta content="IE=8; IE=EDGE" http-equiv="X-UA-Compatible">
+        <script>location.href.match(/\.com.*(\/[^\.\/]+)+$/)&&(location.href+='/')</script>
         <title>test</title>
-        <link href="styles/screen.css" media="screen" rel="stylesheet" type="text/css">
-        <script src="/lib/jquery/1.8.2/jquery.js"></script>
-        <script src="/lib/js/console.js"></script>
+        <link href="./styles/screen.css" media="all" rel="stylesheet" type="text/css">
+        <link href="./styles/print.css" media="print" rel="stylesheet" type="text/css">
+        <script src="/lib/jquery/jquery-1.8.2.js"></script>
+        <script src="/lib/modernizr/modernizr.js"></script>
         <script src="/lib/js/global.js"></script>
-        <script src="scripts/decache.js"></script>
-        <script src="scripts/extract.js"></script>
-        <script src="scripts/translate.js"></script>
-        <script>
-            $(Decache.init);
-            $(Extract.init);
-            $(Translate.init);
-        </script>
+        <!--[if IE]>
+          <script> $(function(){ $('html').addClass('msie'); }); </script>
+          <link href="styles/ie.css" media="all" rel="stylesheet" type="text/css">
+        <![endif]-->
+        <script src="./scripts/main.js"></script>
     </head>
     <body>
         <div id="Page">
@@ -24,7 +25,7 @@
             <div class="logo">
                 &nbsp;
             </div>
-            <table border="0" cellpadding="0" cellspacing="10" id="Layout">
+            <table id="Layout">
                 <tr>
                     <td class="tile babe" colspan="2" rowspan="2">&nbsp;</td>
                     <td class="tile cgray" colspan="3">
@@ -126,7 +127,7 @@
                     © 2013 Wells Fargo Bank, N.A. All rights reserved. ECG-999943
                 </span>
                 <span class ="right">
-                    <button>Disclosures</button> | <button>English</button>
+                    <button class="disclose">Disclosures</button> | <button class="fliplang">English</button>
                 </span>
             </footer>
         </div>

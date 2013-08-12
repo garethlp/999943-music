@@ -1,48 +1,93 @@
-/*global console, clog, jQuery, $  */
-/*jslint es5:true, white:false  */
+/*jslint es5:true, white:false */
+/*globals $, Global, Main, Map, Modernizr, console, debug, window */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+var Data, CDN, W = (W || window);
 
-function Args(nom){
-    var A = location.search.slice(1).split('&')
-    ,   O = {}
-    ;
-    $.each(A, function(i, e){
-        var x = e.split('=');
-        O[x[0]] = x[1];
-    });
-    return nom ? O[nom] : O;
+W.debug = 1;
+
+if ($.now() > 137548e7) {
+    W.debug--;
 }
 
-function init() {
-    var respond = function () {
-        var w = document.documentElement.clientWidth, // good god -- the only way to get width in IE?
-            i = !!(location.href.match('index')),
-            r = $('html').is('.retina');
-        if (w < 650) {
-            $('#index-page header img').eq(0).attr('src','slices/header/wferm-sm.png');
-        } else {
-            $('#index-page header img').eq(0).attr('src','slices/header/wferm.png');
+CDN = {
+    self: '/',
+    disk: 'file:///',
+    bithon: '../../../',
+    webdev: 'http://10.89.101.100/',
+    mython: 'http://10.89.101.81:8000/',
+    python: 'http://localhost:8000/',
+}.bithon;
+
+Modernizr.load([
+{
+    test: W.isIE,
+    yep: [
+        CDN + 'lib/ie/split.js', //     string.regexp polyfill
+        CDN + 'lib/ie/html5shiv.js',
+        CDN + 'lib/ie/nwmatcher.min.js',
+        CDN + 'lib/ie/selectivizr-min.js',
+    ],
+    both: [
+        CDN + 'lib/underscore/js-1.4.4/underscore.js',
+        CDN + 'lib/js/console.js',
+    ],
+    complete: function () {
+        Data = new Global('Data', '(catchall data fixture)');
+    },
+},
+{
+    both: [
+        './scripts/decache.js',
+        './scripts/extract.js',
+        './scripts/translate.js',
+    ],
+    complete: function () {
+        Main(W).init();
+    },
+},
+{
+    test: !W.debug,
+    yep: [
+        CDN + 'lib/js/ecg-ga.js',
+    ],
+},
+]);
+
+function Main(W) {
+    var name = 'Main',
+        self = new Global(name, '(kicker and binder)'),
+        C = W.console,
+        Df;
+
+    Df = { // DEFAULTS
+    };
+    /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+    /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+    function _init() {
+        debug > 1 && C.error('init @ ' + Date());
+        if (self.inited(true)) {
+            return null;
         }
-        if ((w <= 500 && i && !r) || (w <= 900 && i && r)) {
-            location.href='mobile.html';
-        } else if ((w > 500 && !i && !r) || (w > 900 && !i && r)) {
-            location.href='index.html';
-        }
+        $(Decache.init);
+        $(Extract.init);
     }
-    $('a[href="#"], a.ext').bind('click', function (evt) {
-        evt.preventDefault();
-        Popup.open(evt);
-        return;
+
+    W[name] = $.extend(true, self, {
+        _: function () {
+            return Df;
+        },
+        init: _init,
     });
-    $(window).bind('resize orientationchange', respond);
-    respond();
+    return self;
 }
-$(init);
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
 /*
 
-    mp3 text size tweaks on mobile
-    make sure alert images are gone
+
+
 
  */
