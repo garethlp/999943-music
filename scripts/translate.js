@@ -1,10 +1,10 @@
 /*jslint es5:true, white:false */
 /*globals $, Global, window */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-var Extract;
+var Translate;
 
 (function (W) { //IIFE
-    var name = 'Extract',
+    var name = 'Translate',
         self = new Global(name, '(extract verbiage)'),
         C = W.console,
         Df;
@@ -19,7 +19,7 @@ var Extract;
     /// INTERNAL
 
     function _load(cb) {
-        C.debug('Extract._load');
+        C.debug('Translate._load');
         Df.jqCache = $('<div>').load(Df.partsUrl, function (html, stat) {
             if (stat !== 'success') {
                 throw new Error('Cannot load from parts.html');
@@ -80,7 +80,33 @@ var Extract;
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 /*
-find text and tiles
+
+Track current lang
+    - current
+    + fill(ele, clas)
+            uses current lang (seeks class of ele)
+    + set (lang)
+    + change button
+    + findAll()
+        - what is eligible
+
+find tiles
+    transplant para
+
+find reveals
+    deal head and text
+    add class for sect
+
+activate tiles automatically
+    run fill on each
+
+when activating reveal
+    fill(this)
+
+tranlate wants to know
+    clas ... if not given, find from current
+
+
 
 
 */

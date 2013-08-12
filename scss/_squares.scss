@@ -2,7 +2,7 @@
 /* SQUARES */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 #Layout {
-    td {
+    td:not(.reveal)  {
         &.babe {
             background-image: url(../images/photos/babe.png);
         }

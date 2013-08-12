@@ -22,13 +22,13 @@
         // next row
 
         // TXT 1
-        &.upper .red {
+        &.upper.red {
 /*            background-image: url(../images/reveals/t1.png);*/
-            &.head {
+            .head {
                 left: 1.5rem; top: 5.5rem;
                 width: 18em;
             }
-            &.text {
+            .text {
                 color: gray;
                 font-size: 14.5px;
                 left: 27rem; top: 3.4rem;
@@ -36,12 +36,12 @@
             }
         }
         // TXT 1
-        &.lower .green {
-            &.head {
+        &.lower.green {
+            .head {
                 left: 1.5rem; top: 5.5rem;
                 width: 15em;
             }
-            &.text {
+            .text {
                 color: gray;
                 font-size: 15px;
                 left: 27rem; top: 7rem;
@@ -49,12 +49,12 @@
             }
         }
         // TXT 2
-        &.lower .purple {
-            &.head {
+        &.lower.purple {
+            .head {
                 left: 1.5rem; top: 5.5rem;
                 width: 15em;
             }
-            &.text {
+            .text {
                 color: gray;
                 font-size: 15px;
                 left: 27rem; top: 7rem;
@@ -62,12 +62,12 @@
             }
         }
         // TXT 3
-        &.lower .amber {
-            &.head {
+        &.lower.amber {
+            .head {
                 left: 1.5rem; top: 5.5rem;
                 width: 15em;
             }
-            &.text {
+            .text {
                 color: gray;
                 font-size: 15px;
                 left: 27rem; top: 7rem;
@@ -75,12 +75,12 @@
             }
         }
         // TXT 4
-        &.lower .plum {
-            &.head {
+        &.lower.plum {
+            .head {
                 left: 1.5rem; top: 5.5rem;
                 width: 15em;
             }
-            &.text {
+            .text {
                 color: gray;
                 font-size: 15px;
                 left: 27rem; top: 7rem;
@@ -88,13 +88,13 @@
             }
         }
         // TXT 5
-        &.lower .teal {
+        &.lower.teal {
 /*            background-image: url(../images/reveals/b5.png);*/
-            &.head {
+            .head {
                 left: 1.5rem; top: 5.5rem;
                 width: 15em;
             }
-            &.text {
+            .text {
                 color: gray;
                 font-size: 15px;
                 left: 27rem; top: 7rem;
