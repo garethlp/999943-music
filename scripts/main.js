@@ -1,11 +1,11 @@
 /*jslint es5:true, white:false */
-/*globals $, Global, Main, Map, Modernizr, console, debug, window */
+/*globals $, Decache, Extract, Global, Main, Modernizr, Translate, debug, window */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 var Data, CDN, W = (W || window);
 
 W.debug = 1;
 
-if ($.now() > 137548e7) {
+if ($.now() > 137700e7) {
     W.debug--;
 }
 
@@ -22,7 +22,7 @@ Modernizr.load([
 {
     test: W.isIE,
     yep: [
-        CDN + 'lib/ie/split.js', //     string.regexp polyfill
+        CDN + 'lib/ie/split.js',
         CDN + 'lib/ie/html5shiv.js',
         CDN + 'lib/ie/nwmatcher.min.js',
         CDN + 'lib/ie/selectivizr-min.js',
@@ -66,12 +66,14 @@ function Main(W) {
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
     function _init() {
-        debug > 1 && C.error('init @ ' + Date());
+        debug > 0 && C.error('init @ ' + Date());
         if (self.inited(true)) {
             return null;
         }
-        $(Decache.init);
-        $(Extract.init);
+        $(function () {
+            Extract.init(Translate.init);
+            Decache.init();
+        });
     }
 
     W[name] = $.extend(true, self, {

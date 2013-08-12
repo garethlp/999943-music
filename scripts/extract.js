@@ -18,13 +18,14 @@ var Extract;
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
     /// INTERNAL
 
-    function _load(cb) {
+    function _load(cb, notify) {
         C.debug('Extract._load');
         Df.jqCache = $('<div>').load(Df.partsUrl, function (html, stat) {
             if (stat !== 'success') {
                 throw new Error('Cannot load from parts.html');
             }
             cb($(html));
+            notify();
         });
     }
 
@@ -65,16 +66,15 @@ var Extract;
             });
             Df.dat[sect] = sectO;
         });
-        $(Translate.init);
     }
 
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-    function _init() {
+    function _init(cb) {
         if (self.inited(true)) {
             return null;
         }
-        _load(_parse);
+        _load(_parse, cb);
         return self;
     }
 

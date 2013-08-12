@@ -14,12 +14,13 @@ var Decache;
     };
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
     /// INTERNAL
+
     function _decache() {
         $('img.cache').each(function () {
             var me = $(this);
             me.attr('src', me.data().src);
         });
-        console.debug('decache');
+        C.debug('decache');
     }
 
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
