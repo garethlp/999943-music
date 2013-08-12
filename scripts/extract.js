@@ -28,9 +28,20 @@ var Extract;
         });
     }
 
+    function _link2button() {
+        var jq = $(this),
+            neo = $('<button>').addClass('orange').text(jq.text());
+        jq.html(neo);
+    }
+
+    function _linkButtons(jq) {
+        var refs = jq.find('a');
+        refs.each(_link2button);
+    }
+
     function _parse($load) {
-        // make a data var
-        var D = Df.dat;
+        _linkButtons($load);
+
         // for each in keylist
         $.each(Df.keyList, function (i, sect) {
             var sectO = {},
@@ -52,7 +63,7 @@ var Extract;
                 });
                 sectO[type] = typeO;
             });
-            D[sect] = sectO;
+            Df.dat[sect] = sectO;
         });
     }
 
