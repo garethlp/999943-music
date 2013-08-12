@@ -10,7 +10,7 @@
             color: $red;
             font-size: 200%;
         }
-        .text {
+        .head, .text {
             padding: 0;
             position: absolute;
         }
@@ -22,13 +22,13 @@
         // next row
 
         // TXT 1
-        &.upper {
+        &.upper .red {
 /*            background-image: url(../images/reveals/t1.png);*/
-            .txt1a {
+            &.head {
                 left: 1.5rem; top: 5.5rem;
                 width: 18em;
             }
-            .txt1b {
+            &.text {
                 color: gray;
                 font-size: 14.5px;
                 left: 27rem; top: 3.4rem;
@@ -36,12 +36,12 @@
             }
         }
         // TXT 1
-        &.lower {
-            .txt1a {
+        &.lower .green {
+            &.head {
                 left: 1.5rem; top: 5.5rem;
                 width: 15em;
             }
-            .txt2b {
+            &.text {
                 color: gray;
                 font-size: 15px;
                 left: 27rem; top: 7rem;
@@ -49,12 +49,12 @@
             }
         }
         // TXT 2
-        &.lower {
-            .txt2a {
+        &.lower .purple {
+            &.head {
                 left: 1.5rem; top: 5.5rem;
                 width: 15em;
             }
-            .txt2b {
+            &.text {
                 color: gray;
                 font-size: 15px;
                 left: 27rem; top: 7rem;
@@ -62,12 +62,12 @@
             }
         }
         // TXT 3
-        &.lower {
-            .txt3a {
+        &.lower .amber {
+            &.head {
                 left: 1.5rem; top: 5.5rem;
                 width: 15em;
             }
-            .txt3b {
+            &.text {
                 color: gray;
                 font-size: 15px;
                 left: 27rem; top: 7rem;
@@ -75,12 +75,12 @@
             }
         }
         // TXT 4
-        &.lower {
-            .txt4a {
+        &.lower .plum {
+            &.head {
                 left: 1.5rem; top: 5.5rem;
                 width: 15em;
             }
-            .txt4b {
+            &.text {
                 color: gray;
                 font-size: 15px;
                 left: 27rem; top: 7rem;
@@ -88,13 +88,13 @@
             }
         }
         // TXT 5
-        &.lower {
+        &.lower .teal {
 /*            background-image: url(../images/reveals/b5.png);*/
-            .txt5a {
+            &.head {
                 left: 1.5rem; top: 5.5rem;
                 width: 15em;
             }
-            .txt5b {
+            &.text {
                 color: gray;
                 font-size: 15px;
                 left: 27rem; top: 7rem;
