@@ -4,6 +4,7 @@
 button.orange {
     @include buttongrad1();
     @include textshadow();
+    @include nosel();
 
     border: 1px solid $brown;
     border-radius: 4px;
@@ -29,4 +30,46 @@ footer button {
     color: gray;
     text-decoration: underline;
 }
+img.control {
+    &.tilted {
+        opacity: 0.5;
+    }
+    &.tilted:hover {
+        opacity: 1;
+    }
+    &.tilt {
+        @extend %ani;
+        @include transform( rotate(0deg)  );
+        @include transform-origin( 34% 36% 0 );
+
+        &:hover {
+            @include animation(wiggly .3s ease-in-out 9);
+        }
+        &.big:hover {
+            @include animation(thumpy .5s ease-in-out 9);
+        }
+        &:active {
+            @include animation(none!important);
+            @include transform( rotate(90deg) );
+        }
+    }
+    &.tilted {
+        @extend %ani;
+        @include transform( rotate(0deg)  );
+        @include transform-origin( 34% 36% 0 );
+
+        &:active {
+            @include transform( rotate(-90deg) );
+        }
+    }
+}
+@include keyframes(thumpy) {
+    70% { @include transform( rotate(-1deg) ); }
+    80% { @include transform( rotate(2deg) scale(0.95) ); }
+}
+@include keyframes(wiggly) {
+    40% { @include transform( rotate(-5deg) ); }
+    80% { @include transform( rotate(5deg) ); }
+}
+
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */

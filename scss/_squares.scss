@@ -3,6 +3,8 @@
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 #Layout {
     td:not(.reveal)  {
+        @include nosel();
+
         &.babe {
             background-image: url(../images/photos/babe.png);
         }

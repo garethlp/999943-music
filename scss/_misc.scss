@@ -5,24 +5,6 @@
 .cache {
     display: none;
 }
-img.tilt {
-    @extend %ani;
-    @include transform( rotate(0deg)  );
-    @include transform-origin( 34% 36% 0 );
-
-    &:active {
-        @include transform( rotate(90deg) );
-    }
-}
-img.tilted {
-    @extend %ani;
-    @include transform( rotate(0deg)  );
-    @include transform-origin( 34% 36% 0 );
-
-    &:active {
-        @include transform( rotate(-90deg) );
-    }
-}
 .show {
     display: initial !important;
 }
@@ -32,4 +14,5 @@ img.tilted {
 .right {
     float: right;
 }
+
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
