@@ -20,7 +20,6 @@ var Decache;
             var me = $(this);
             me.attr('src', me.data().src);
         });
-        C.debug('decache');
     }
 
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */

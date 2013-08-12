@@ -60,9 +60,12 @@ function Main(W) {
         Df;
 
     Df = { // DEFAULTS
+        flip: '.fliplang',
     };
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-
+    function _binding() {
+    //    wireup fliplang to listen and switch
+    }
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
     function _init() {
@@ -70,10 +73,10 @@ function Main(W) {
         if (self.inited(true)) {
             return null;
         }
-        $(function () {
-            Extract.init(Translate.init);
-            Decache.init();
-        });
+
+        Extract.init(Translate.init);
+        Decache.init();
+        _binding();
     }
 
     W[name] = $.extend(true, self, {

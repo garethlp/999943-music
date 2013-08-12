@@ -12,6 +12,7 @@ var Translate;
     Df = { // DEFAULTS
         dat: {},
         current: 'esp',
+        flip: '.fliplang',
         partsUrl: 'data.html',
     };
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
@@ -19,36 +20,52 @@ var Translate;
 
     function _deref(obj, arr) {
         var foo = obj;
+
         $.each(arr, function (i, e) {
-            foo = typeof foo === 'object' ? foo[e] : foo;
-            debug > 1 && C.debug(name, '_deref', e);
+            // drill or stay put
+            foo = (typeof foo === 'object' ? foo[e] : foo);
         });
         return foo;
     }
 
-    function _clarr(jq) {
+    function _classify(jq) {
+        // constuct array for drilling path
         var a0 = jq.parent().attr('class').split(' '),
             a1 = jq.attr('class').split(' '),
             arr;
-        arr = [a0.pop(), a1.pop()];
-        if (Df.current) {
-            arr.push(Df.current);
+        if (a0[0] === 'tile') {
+            a1[1] = 'tile'; // tile text
         }
-        debug > 1 && C.debug('_clarr', name, arr);
+        arr = [a0.slice(-1).pop(), a1.slice(-1).pop()];
+        arr.push(Df.current); // include language tag
         return arr;
     }
 
     function _retile() {
         var eles, data = Extract.data();
 
-        C.debug(name, data);
+        debug > 0 && C.debug(name, data);
         eles = $('.head, .text');
 
         eles.each(function () {
             var me = $(this),
-                txt = _deref(data, _clarr(me));
-            debug > 0 && C.debug('_retile', name, txt);
+                txt = _deref(data, _classify(me));
+            me.html(txt);
         });
+    }
+
+    function _setLang(str) {
+        Df.current = str;
+        Df.flip.text( str === 'eng' ? 'Spanish' : 'English' );
+        _retile();
+    }
+
+    function _change() {
+        if (Df.current === 'eng') {
+            _setLang('esp')
+        } else {
+            _setLang('eng');
+        }
     }
 
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
@@ -58,6 +75,9 @@ var Translate;
             return null;
         }
         _retile();
+        Df.flip = $(Df.flip);
+        Df.flip.on('click', _change);
+
         return self;
     }
 
@@ -67,6 +87,7 @@ var Translate;
         },
         init: _init,
         run: _retile,
+        change: _change,
     });
 
 }(window));
