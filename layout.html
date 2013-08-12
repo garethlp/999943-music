@@ -5,15 +5,19 @@
         <title>test</title>
         <link href="styles/screen.css" media="screen" rel="stylesheet" type="text/css">
         <script src="/lib/jquery/1.8.2/jquery.js"></script>
+        <script src="/lib/js/console.js"></script>
+        <script src="/lib/js/global.js"></script>
+        <script src="scripts/extract.js"></script>
         <script>
             function decache() {
                 $('img.cache').each(function () {
                     var me = $(this);
                     me.attr('src', me.data().src);
                 });
+                console.debug('decache');
             }
             $(decache);
-            console.debug('decache');
+            $(Extract.init);
         </script>
     </head>
     <body>
@@ -28,7 +32,7 @@
                 <tr>
                     <td class="babe" colspan="2" rowspan="2">&nbsp;</td>
                     <td class="cgray" colspan="3">
-                        <div class="text">
+                        <div class="tile">
                             <h3>Pon en marcha tus metas financieras al ritmo de tu música favorita</h3>
                             <p>Te queremos dar la bienvenida presentándote la enorme variedad de productos,
                                 servicios y ventajas a las que tendrás acceso como nuestro cliente. ¡Descúbrelos! </p>
@@ -38,7 +42,7 @@
                 </tr>
                 <tr>
                     <td class="red" colspan="2">
-                        <div class="text">
+                        <div class="tile">
                             <h2>Descarga <br> tus canciones <br>
                                 aquí</h2>
                         </div>
@@ -64,32 +68,32 @@
                 </tr>
                 <tr>
                     <td class="green">
-                        <div class="text">
+                        <div class="tile">
                             <p>Beneficios de los Paquetes de Cuenta de Cheques</p>
                         </div>
                         <img class="tilt" alt="Right" src="./images/controls/right.png">
                     </td>
                     <td class="purple">
-                        <div class="text">
+                        <div class="tile">
                             <p>Recursos de Banca Móvil</p>
                         </div>
                         <img class="tilt" alt="Right" src="./images/controls/right.png">
                     </td>
                     <td class="freek">&nbsp;</td>
                     <td class="amber">
-                        <div class="text">
+                        <div class="tile">
                             <p>Recursos de Banca por Internet</p>
                         </div>
                         <img class="tilt" alt="Right" src="./images/controls/right.png">
                     </td>
                     <td class="plum">
-                        <div class="text">
+                        <div class="tile">
                             <p>Educación Financiera</p>
                         </div>
                         <img class="tilt" alt="Right" src="./images/controls/right.png">
                     </td>
                     <td class="teal">
-                        <div class="text">
+                        <div class="tile">
                             <p>Paquetes de Cuenta de Cheques Comerciales</p>
                         </div>
                         <img class="tilted" alt="Down" src="./images/controls/down.png">
