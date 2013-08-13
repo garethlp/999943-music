@@ -30,6 +30,7 @@ Modernizr.load([
     both: [
         CDN + 'lib/underscore/js-1.4.4/underscore.js',
         CDN + 'lib/js/console.js',
+        'lib/drt.cellophy.js'
     ],
     complete: function () {
         Data = new Global('Data', '(catchall data fixture)');
@@ -65,7 +66,9 @@ function Main(W) {
     };
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
     function _binding() {
-    //    wireup fliplang to listen and switch
+        if ($.browser.mozilla) {
+            $('td').drt_cellophy()
+        }
     }
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
@@ -78,7 +81,7 @@ function Main(W) {
         Extract.init(Translate.init);
         Decache.init();
         Control.init();
-        _binding();
+        W.setTimeout(_binding, 999);
     }
 
     W[name] = $.extend(true, self, {
