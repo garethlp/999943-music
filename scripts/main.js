@@ -74,6 +74,10 @@ function Main(W) {
             return null;
         }
 
+        $('.control.tilt.big').click(function (){
+            Translate.open('.reveal.upper');
+        })
+
         Extract.init(Translate.init);
         Decache.init();
         _binding();

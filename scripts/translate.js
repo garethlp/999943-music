@@ -45,12 +45,31 @@ var Translate;
         var eles, data = Extract.data();
 
         debug > 0 && C.debug(name, data);
+        _resetReveals();
         eles = $('.head, .text');
 
         eles.each(function () {
             var me = $(this),
                 txt = _deref(data, _classify(me));
-            me.html(txt);
+            me.fadeOut(function () {
+                $(this).html(txt).fadeIn();
+            });
+        });
+    }
+
+    function _resetReveals(b) {
+        $('.reveal').animate({
+            height: '33px',
+        }, function () {
+            $(this).parent().hide();
+            if (b) {
+                _resetReveals();
+                $(b).parent().show().end().animate({
+                    height: '257px',
+                }, function () {
+                    $(this);
+                });
+            }
         });
     }
 
@@ -77,7 +96,6 @@ var Translate;
         _retile();
         Df.flip = $(Df.flip);
         Df.flip.on('click', _change);
-
         return self;
     }
 
@@ -88,6 +106,7 @@ var Translate;
         init: _init,
         run: _retile,
         change: _change,
+        open: _resetReveals,
     });
 
 }(window));
