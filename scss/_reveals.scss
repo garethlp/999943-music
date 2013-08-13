@@ -6,6 +6,13 @@
         background-image: url(../images/features/_bkgr.png);
         height: 257px;
 
+        & > div > img {
+            display: none;
+        }
+        button {
+            float: right;
+            margin: 2em;
+        }
         h3 {
             color: $red;
             font-size: 200%;
@@ -14,13 +21,11 @@
             padding: 0;
             position: absolute;
         }
-        button {
-            float: right;
-            margin: 2em;
+        .text {
+            color: gray;
+            font-size: 15px;
         }
-        & > div > img {
-            display: none;
-        }
+
         // next row
 
         // TXT 1
@@ -33,7 +38,6 @@
                 width: 18em;
             }
             .text {
-                color: gray;
                 font-size: 14.5px;
                 left: 27rem; top: 3.4rem;
                 width: 22em;
@@ -49,10 +53,12 @@
                 width: 15em;
             }
             .text {
-                color: gray;
-                font-size: 15px;
-                left: 27rem; top: 7rem;
-                width: 22em;
+                left: 27.4rem; top: 1.8rem;
+                width: 26rem;
+            }
+            button {
+                float: none;
+                margin: 0.5rem 0 1.5rem;
             }
         }
         // TXT 2
@@ -60,15 +66,37 @@
             & > div > img.purple {
                 display: initial;
             }
+            .cache {
+                left: 29rem;
+                top: 7rem;
+            }
             .head {
-                left: 1.5rem; top: 5.5rem;
-                width: 15em;
+                left: 1.5rem; top: 2.5rem;
+                width: 18em;
             }
             .text {
-                color: gray;
                 font-size: 15px;
-                left: 27rem; top: 7rem;
-                width: 22em;
+                height: 10rem; width: 54rem;
+                left: 27rem; top: 1.5rem;
+                text-align: center;
+
+                hr {
+                    border: 1px solid #bbb;
+                    border-width: 0 0 0 1px;
+                    clear: right;
+                    float: left;
+                    height: 18rem;
+                    width: 0;
+                }
+                p {
+                    clear: right;
+                    float: left;
+                    margin: 1rem;
+                    width: 19.5em;
+                }
+                a {
+                    display: none;
+                }
             }
         }
         // TXT 3
@@ -77,14 +105,19 @@
                 display: initial;
             }
             .head {
-                left: 1.5rem; top: 5.5rem;
-                width: 15em;
+                left: 1.5rem; top: 6.3rem;
+                width: 16rem;
             }
             .text {
-                color: gray;
                 font-size: 15px;
-                left: 27rem; top: 7rem;
-                width: 22em;
+                left: 24rem; top: 6rem;
+                width: 25em;
+                br + br {
+                    display: none;
+                }
+            }
+            button {
+                margin-right: 4em;
             }
         }
         // TXT 4
@@ -92,15 +125,21 @@
             & > div > img.plum {
                 display: initial;
             }
+            .cache {
+                left: 26rem;
+            }
             .head {
-                left: 1.5rem; top: 5.5rem;
+                left: 1.5rem; top: 7.3rem;
                 width: 15em;
             }
             .text {
-                color: gray;
                 font-size: 15px;
-                left: 27rem; top: 7rem;
-                width: 22em;
+                left: 26rem; top: 3rem;
+                width: 37rem;
+            }
+            button {
+                position: relative;
+                right: -17rem; top: 5rem;
             }
         }
         // TXT 5
@@ -113,7 +152,6 @@
                 width: 15em;
             }
             .text {
-                color: gray;
                 font-size: 15px;
                 left: 27rem; top: 7rem;
                 width: 22em;
