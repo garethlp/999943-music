@@ -1,21 +1,6 @@
-@import "__def";
-@import "__fun";
-/* EXTENDS */
-/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-%ani {
-    @include backface-visibility( hidden );
-    @include perspective( 1000 );
-    @include transform( scale(1) translate3d(0,0,0) rotate(0) );
-    @include transform-style( preserve-3d );
-    @include transition( all 0.125s ease-out 0 );
-}
+/* ext */
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - //
 
-%control {
-    @include nosel();
-}
-%bulge {
-    @include transform( translate(0px, 1px) scale(1.1)  );
-}
 //font
 
 %lolax0 { font-family: 'Lola Light'            ; }
@@ -42,4 +27,4 @@
     font-family: "FS Lola Bold", FSLola-Bold;
 }
 
-/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - //

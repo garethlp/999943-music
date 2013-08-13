@@ -1,12 +1,7 @@
+/* mix */
 @import "__fun";
-@import "animation";
-
-$layers: '../images/layers';
-$resp: 800px;
-$debug: 1;
-
-
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - //
+
 @mixin graygrad(){
     @include vgrad( #fefefe, #ddd);
 }

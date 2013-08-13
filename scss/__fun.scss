@@ -1,12 +1,13 @@
 /* fun */
 @import "__def";
-
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - //
 //functional
 
 @function gM($num: 1){
     @return $rem * $num;
 }
 
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - //
 //fundamental
 
 @mixin dpix($prop, $rem){
@@ -39,4 +40,4 @@ $fontServ3: 'http://www.wellsfargomedia.com/lib/fonts/';
     @return local($nom), url( $src + $nom + '.woff') format('woff');
 }
 
-//
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - //
