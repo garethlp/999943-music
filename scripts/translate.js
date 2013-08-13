@@ -65,7 +65,7 @@ var Translate;
         }
     }
 
-    function _resetReveals(jq, sect) {
+    function _reveal(jq, sect) {
         $('.reveal').animate({
             height: '1px',
         }, function () {
@@ -100,7 +100,7 @@ var Translate;
         if (self.inited(true)) {
             return null;
         }
-        _resetReveals();
+        _reveal();
         _retile();
         Df.flip = $(Df.flip);
         Df.flip.on('click', _change);
@@ -114,7 +114,7 @@ var Translate;
         init: _init,
         run: _retile,
         change: _change,
-        open: _resetReveals,
+        open: _reveal,
     });
 
 }(window));

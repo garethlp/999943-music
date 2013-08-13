@@ -15,25 +15,45 @@ var Control;
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
     /// INTERNAL
 
+    function _reset() {
+        $('.control').removeClass('tilted').addClass('tilt') //
+        .attr({
+            title: 'Reveal',
+        });
+    }
+
     function _groom() {
         $('.control').each(function () {
-            var me = $(this),
+            var ctrl = $(this),
                 sect, level, reveal;
 
             // get my sect (last class of closest td)
-            sect = me.closest('td').attr('class').split(' ').pop();
+            sect = ctrl.closest('td').attr('class').split(' ').pop();
 
             // get my level (class of closest tr) [upper/lower]
-            level = me.closest('tr').attr('class').split(' ').pop();
+            level = ctrl.closest('tr').attr('class').split(' ').pop();
 
-            // level: find the reveal
+            // find which reveal
             reveal = $('.reveal.' + level);
 
-            W.debug > 0 && C.debug(name + '_groom', sect, level, reveal[0]);
+            ctrl.click(function () {
+                var tilt = ctrl.is('.tilted');
+                // store state and restore defaults
+                _reset();
 
-            me.click(function () {
-                Translate.open(reveal, sect);
+                if (tilt) {
+                    Translate.open(); // open nothing
+                } else {
+                    Translate.open(reveal, sect);
+                    ctrl.addClass('tilted').removeClass('tilt') //
+                    .attr({
+                        title: 'Close',
+                    });
+                }
             });
+
+            _reset();
+            W.debug > 1 && C.debug(name + '_groom', sect, level, reveal[0]);
         });
     }
 
@@ -58,18 +78,7 @@ var Control;
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 /*
-make a turn style control widget
-    and methods
-
-when tilted title "Reveal" ==> "Return"
-    <img class="control tilt" alt="Reveal" src="./images/controls/right.png">
-    <img class="control tilted" alt="Return" src="./images/controls/down.png">
-
 prep controls
-    find '.control'
     is '.big'? skip for now
-    set for '.tilt'
-    title='Reveal'
-    setsource
 
 */
