@@ -31,8 +31,10 @@
         width: 55px;
     }
     h1 {
-        color: transparent;
+        color: white !important;
         font-size: 1px;
+        position: relative;
+        z-index: -1;
     }
     h2 {
         @extend %myriad;

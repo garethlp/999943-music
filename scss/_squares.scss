@@ -5,7 +5,7 @@
     tr.collapse {
         display: none;
     }
-    td:not(.reveal)  {
+    td.tile  {
         @include nosel();
 
         &.babe {

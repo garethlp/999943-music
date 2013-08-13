@@ -3,6 +3,7 @@
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - //
 
 @mixin graygrad(){
+    background-color: #ddd;
     @include vgrad( #fefefe, #ddd);
 }
 @mixin textshadow() {
@@ -15,9 +16,11 @@
     }
 }
 @mixin buttongrad1(){
+    background-color: $button1;
     @include background-image( linear-gradient(top, $button1 50%, $button2 53%) );
 }
 @mixin buttongrad2(){
+    background-color: $button2;
     @include background-image( linear-gradient(top, $button2 50%, $button1 53%) );
 }
 
