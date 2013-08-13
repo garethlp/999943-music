@@ -5,7 +5,6 @@
     td.reveal {
         background-image: url(../images/features/_bkgr.png);
         height: 257px;
-        overflow: hidden;
 
         & > div > img {
             display: none;
@@ -35,10 +34,10 @@
         // TXT 1
         &.upper.red {
             & > div > img.red {
-                display: initial;
+                display: block;
             }
             .head {
-                @include rex('width', 25);
+                @include rex('width', 22);
             }
             .text {
                 @include pos(27, 3.4);
@@ -48,7 +47,7 @@
         // TXT 1
         &.lower.green {
             & > div > img.green {
-                display: initial;
+                display: block;
             }
             .head {
                 @include rex('width', 21);
@@ -67,7 +66,7 @@
         // TXT 2
         &.lower.purple {
             & > div > img.purple {
-                display: initial;
+                display: block;
             }
             .cache {
                 @include pos(29, 7);
@@ -104,7 +103,7 @@
         // TXT 3
         &.lower.amber {
             & > div > img.amber {
-                display: initial;
+                display: block;
             }
             .head {
                 @include pos(1.5, 6.3);
@@ -124,7 +123,7 @@
         // TXT 4
         &.lower.plum {
             & > div > img.plum {
-                display: initial;
+                display: block;
             }
             .cache {
                 @include rex('left', 26);
@@ -146,7 +145,7 @@
         // TXT 5
         &.lower.teal {
             & > div > img.teal {
-                display: initial;
+                display: block;
             }
             .head {
                 @include rex('width', 22);
