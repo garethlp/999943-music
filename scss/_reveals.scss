@@ -18,12 +18,16 @@
             float: right;
             margin: 2em;
         }
-
+        & > div > img {
+            display: none;
+        }
         // next row
 
         // TXT 1
         &.upper.red {
-/*            background-image: url(../images/reveals/t1.png);*/
+            & > div > img.red {
+                display: initial;
+            }
             .head {
                 left: 1.5rem; top: 5.5rem;
                 width: 18em;
@@ -37,6 +41,9 @@
         }
         // TXT 1
         &.lower.green {
+            & > div > img.green {
+                display: initial;
+            }
             .head {
                 left: 1.5rem; top: 5.5rem;
                 width: 15em;
@@ -50,6 +57,9 @@
         }
         // TXT 2
         &.lower.purple {
+            & > div > img.purple {
+                display: initial;
+            }
             .head {
                 left: 1.5rem; top: 5.5rem;
                 width: 15em;
@@ -63,6 +73,9 @@
         }
         // TXT 3
         &.lower.amber {
+            & > div > img.amber {
+                display: initial;
+            }
             .head {
                 left: 1.5rem; top: 5.5rem;
                 width: 15em;
@@ -76,6 +89,9 @@
         }
         // TXT 4
         &.lower.plum {
+            & > div > img.plum {
+                display: initial;
+            }
             .head {
                 left: 1.5rem; top: 5.5rem;
                 width: 15em;
@@ -89,7 +105,9 @@
         }
         // TXT 5
         &.lower.teal {
-/*            background-image: url(../images/reveals/b5.png);*/
+            & > div > img.teal {
+                display: initial;
+            }
             .head {
                 left: 1.5rem; top: 5.5rem;
                 width: 15em;
