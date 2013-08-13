@@ -82,7 +82,7 @@ var Translate;
 
     function _setLang(str) {
         Df.current = str;
-        Df.flip.text( str === 'eng' ? 'Spanish' : 'English' );
+        Df.flip.text( str === 'eng' ? 'Español' : 'English' );
         _retile();
     }
 

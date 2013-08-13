@@ -6,7 +6,7 @@
     /* foo foo foo */
     @include backface-visibility( hidden );
     @include perspective( 1000 );
-    @include transform( scale(1) translate3d(0,0,0) rotate(0) );
+    @include transform( scale(1) translate3d(0,0,0) rotate(0deg) );
     @include transform-style( preserve-3d );
     @include transition( all 0.125s ease-out 0 );
 }
@@ -57,10 +57,10 @@ img.control {
     height: 52px; width: 55px;
 
     &.tilt {
-            @include transform( rotate(0deg) );
+/*        @include transform( rotate(0deg) );*/
     }
     &.tilted {
-            @include transform( rotate(90deg) );
+        @include transform( rotate(90deg) );
     }
 }
 .control {
@@ -99,8 +99,8 @@ img.control {
     }
 }
 @include keyframes(thumpy) {
-    70% { @include transform( rotate(-1deg) ); }
-    80% { @include transform( rotate(2deg) scale(0.95) ); }
+    70% { @include transform( scale(1) ); }
+    80% { @include transform( scale(0.95) ); }
 }
 @include keyframes(wiggly) {
     40% { @include transform( rotate(-5deg) ); }

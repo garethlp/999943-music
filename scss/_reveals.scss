@@ -5,6 +5,7 @@
     td.reveal {
         background-image: url(../images/features/_bkgr.png);
         height: 257px;
+        overflow: hidden;
 
         & > div > img {
             display: none;
@@ -15,7 +16,7 @@
         }
         h3 {
             color: $red;
-            font-size: 200%;
+            font-size: 190%;
         }
         .head, .text {
             padding: 0;
@@ -26,7 +27,7 @@
         }
         .text {
             color: gray;
-            font-size: 15px;
+            font-size: 14px;
         }
 
         // next row
@@ -42,7 +43,6 @@
             .text {
                 @include pos(27, 3.4);
                 @include rex('width', 26.5);
-                font-size: 14.5px;
             }
         }
         // TXT 1
@@ -54,7 +54,7 @@
                 @include rex('width', 21);
             }
             .text {
-                @include pos(27.4, 1.8);
+                @include pos(26, 1.8);
                 @include rex('width', 26);
             }
             button {
@@ -80,7 +80,6 @@
                 @include pos(27, 1.5);
                 @include rex('width', 54);
                 @include rex('height', 10);
-                font-size: 15px;
                 text-align: center;
 
                 hr {
@@ -114,7 +113,6 @@
             .text {
                 @include pos(24, 6);
                 @include rex('width', 32);
-                font-size: 15px;
                 br + br {
                     display: none;
                 }
@@ -138,7 +136,6 @@
             .text {
                 @include pos(26, 3);
                 @include rex('width', 37);
-                font-size: 15px;
             }
             button {
                 position: relative;
@@ -157,7 +154,6 @@
             .text {
                 @include pos(27, 7);
                 @include rex('width', 26);
-                font-size: 15px;
             }
         }
     }
