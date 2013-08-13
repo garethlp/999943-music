@@ -58,6 +58,18 @@ div.control {
         background-image: url(../images/controls/down.png);
     }
 }
+img.control {
+    bottom: 0; right: 0;
+    height: 52px; width: 55px;
+    position: absolute;
+
+    &.tilt {
+            @include transform( rotate(0deg) );
+    }
+    &.tilted {
+            @include transform( rotate(90deg) );
+    }
+}
 .control {
     @extend %control;
 
@@ -82,13 +94,13 @@ div.control {
         @include transform( rotate(0deg) );
         @include transform-origin( 34% 36% 0 );
 
-        opacity: 0.5;
+        opacity: 1;
 
         &:active {
             @include transform( rotate(-90deg) );
         }
         &.tilted:hover {
-            opacity: 1;
+            opacity: 0.5;
         }
     }
 }
