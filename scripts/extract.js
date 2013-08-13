@@ -53,16 +53,16 @@ var Extract;
 
             row$.each(function () { // ie "red" section
                 var $row = $(this),
-                    type = $row.attr('class').trim(),
-                    typeO = {};
+                    kind = $.trim($row.attr('class')),
+                    kindO = {};
                 // new obj for remaining class name (ie "red tile" => tile)
                 $row.find('td').each(function () {
                     var me = $(this),
-                        lang = me.attr('class').trim();
+                        lang = $.trim(me.attr('class'));
                     // prop: lang{string} takes html from that cell
-                    typeO[lang] = me.html();
+                    kindO[lang] = me.html();
                 });
-                sectO[type] = typeO;
+                sectO[kind] = kindO;
             });
             Df.dat[sect] = sectO;
         });
