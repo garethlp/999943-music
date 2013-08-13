@@ -46,38 +46,49 @@ footer button {
     color: gray;
     text-decoration: underline;
 }
-img.control {
+div.control {
+    bottom: 0; right: 0;
+    height: 38px; width: 38px;
+    position: absolute;
+
+    &.tilt {
+        background-image: url(../images/controls/right.png);
+    }
+    &.tilted {
+        background-image: url(../images/controls/down.png);
+    }
+}
+.control {
     @extend %control;
 
-    &.tilted {
-        opacity: 0.5;
-    }
-    &.tilted:hover {
-        opacity: 1;
-    }
     &.tilt {
         @extend %ani;
         @include transform( rotate(0deg)  );
         @include transform-origin( 34% 36% 0 );
 
+        &:active {
+            @include animation(none!important);
+            @include transform( rotate(90deg) );
+        }
         &:hover {
             @include animation(wiggly .3s ease-in-out 9);
         }
         &.big:hover {
             @include animation(thumpy .5s ease-in-out 9);
         }
-        &:active {
-            @include animation(none!important);
-            @include transform( rotate(90deg) );
-        }
     }
     &.tilted {
         @extend %ani;
-        @include transform( rotate(0deg)  );
+        @include transform( rotate(0deg) );
         @include transform-origin( 34% 36% 0 );
+
+        opacity: 0.5;
 
         &:active {
             @include transform( rotate(-90deg) );
+        }
+        &.tilted:hover {
+            opacity: 1;
         }
     }
 }
