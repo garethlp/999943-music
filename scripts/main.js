@@ -37,6 +37,7 @@ Modernizr.load([
 },
 {
     both: [
+        './scripts/control.js',
         './scripts/decache.js',
         './scripts/extract.js',
         './scripts/translate.js',
@@ -80,6 +81,7 @@ function Main(W) {
 
         Extract.init(Translate.init);
         Decache.init();
+        Control.init();
         _binding();
     }
 

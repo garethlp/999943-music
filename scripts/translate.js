@@ -41,12 +41,11 @@ var Translate;
         return arr;
     }
 
-    function _retile() {
+    function _retile(jq) {
         var eles, data = Extract.data();
 
         debug > 0 && C.debug(name, data);
-        _resetReveals();
-        eles = $('.head, .text');
+        eles = $(jq || '#Layout').find('.head, .text');
 
         eles.each(function () {
             var me = $(this),
@@ -57,17 +56,25 @@ var Translate;
         });
     }
 
-    function _resetReveals(b) {
+    function _classic(jq, sect) {
+        // remove sects and add sect
+        if (jq && jq.length) {
+            _retile(jq);
+            jq.removeClass('cgray red green purple amber plum teal legal exit');
+            jq.addClass(sect);
+        }
+    }
+
+    function _resetReveals(jq, sect) {
         $('.reveal').animate({
-            height: '33px',
+            height: '1px',
         }, function () {
             $(this).parent().hide();
-            if (b) {
-                _resetReveals();
-                $(b).parent().show().end().animate({
+            if (jq) {
+                jq = $(jq);
+                _classic(jq, sect);
+                jq.parent().show().end().animate({
                     height: '257px',
-                }, function () {
-                    $(this);
                 });
             }
         });
@@ -93,6 +100,7 @@ var Translate;
         if (self.inited(true)) {
             return null;
         }
+        _resetReveals();
         _retile();
         Df.flip = $(Df.flip);
         Df.flip.on('click', _change);
