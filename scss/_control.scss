@@ -61,11 +61,15 @@ div.control {
             background-image: url(../images/controls/down-round.png);
         }
     }
+    &:not(:hover) {
+        @include transform( rotate(0) );
+    }
+
 }
 .control {
     @include nosel();
     @include transform-origin( 34% 36% 0 );
-    @include transform( rotate(0deg) );
+    @include transform( rotate(0) );
 
     bottom: 0; right: 0;
     position: absolute;
@@ -74,7 +78,7 @@ div.control {
         @extend %ani;
 
         &:active {
-            @include animation(none!important);
+            @include animation(none);
             @include transform( rotate(90deg) );
         }
         &:hover {
@@ -93,17 +97,18 @@ div.control {
             @include transform( rotate(-90deg) );
         }
         &.tilted:hover {
+            @include animation(none);
             opacity: 0.5;
         }
     }
 }
 @include keyframes(thumpy) {
-    70% { @include transform( scale(1) ); }
+    70% { @include transform( scale(1.00) ); }
     80% { @include transform( scale(0.95) ); }
 }
 @include keyframes(wiggly) {
     40% { @include transform( rotate(-5deg) ); }
-    80% { @include transform( rotate(5deg) ); }
+    80% { @include transform( rotate( 5deg) ); }
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
