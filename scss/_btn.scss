@@ -15,7 +15,6 @@
 }
 button.orange {
     @include nosel();
-
     @include buttongrad1();
     @include textshadow();
 
@@ -47,20 +46,20 @@ div.control {
     height: 38px; width: 38px;
 
     &.tilt {
-        background-image: url(../images/controls/right.png);
+        background-image: url(../images/controls/right-arrow.png);
     }
     &.tilted {
-        background-image: url(../images/controls/down.png);
+        background-image: url(../images/controls/down-arrow.png);
     }
-}
-img.control {
-    height: 52px; width: 55px;
+    &.round {
+        height: 52px; width: 55px;
 
-    &.tilt {
-/*        @include transform( rotate(0deg) );*/
-    }
-    &.tilted {
-        @include transform( rotate(90deg) );
+        &.tilt {
+            background-image: url(../images/controls/right-round.png);
+        }
+        &.tilted {
+            background-image: url(../images/controls/down-round.png);
+        }
     }
 }
 .control {
@@ -81,7 +80,7 @@ img.control {
         &:hover {
             @include animation(wiggly .3s ease-in-out 9);
         }
-        &.big:hover {
+        &.round:hover {
             @include animation(thumpy .5s ease-in-out 9);
         }
     }
