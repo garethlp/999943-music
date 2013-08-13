@@ -1,12 +1,14 @@
-/* IE */
+/* MSIE */
 @import "__mix";
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-.badbrowser {
-    &::before {
-        content: 'scold';
-    }
-    &::after {
-        content: 'spank';
+.msie {
+    .badbrowser {
+        &::before {
+            content: 'scold';
+        }
+        &::after {
+            content: 'spank';
+        }
     }
 }
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
