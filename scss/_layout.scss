@@ -74,19 +74,19 @@ div.text, div.head {
     color: white;
     font-size: 18px;
     line-height: 1.35;
-    padding: 1rem;
+    @include rex('padding', 1);
 
     p {
         @extend %myriad;
         margin: 0;
-        margin-right: 1em;
+        @include rex('margin-right', 0.5);
     }
 }
 footer {
+    @include rex('bottom', -2);
     color: gray;
     font-size: 11px;
     position: absolute;
-    bottom: -2rem;
     vertical-align: baseline;
     width: 100%;
 }

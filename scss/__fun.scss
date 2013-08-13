@@ -10,10 +10,6 @@
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - //
 //fundamental
 
-@mixin dpix($prop, $rem){
-    #{$prop}: $rem * 1px;
-    #{$prop}: $rem * 1rem;
-}
 @mixin clearfix(){
     &:after {
         clear: both;
@@ -22,6 +18,10 @@
         /* clearfix */
     }
 }
+@function gM($num: 1){
+    @return $rem * $num;
+}
+
 @mixin nosel(){
     -webkit-user-drag: none;
     @include user-select(none);

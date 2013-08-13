@@ -65,14 +65,14 @@ img.control {
 }
 .control {
     @include nosel();
+    @include transform-origin( 34% 36% 0 );
+    @include transform( rotate(0deg) );
 
     bottom: 0; right: 0;
     position: absolute;
 
     &.tilt {
         @extend %ani;
-        @include transform( rotate(0deg)  );
-        @include transform-origin( 34% 36% 0 );
 
         &:active {
             @include animation(none!important);
@@ -87,8 +87,6 @@ img.control {
     }
     &.tilted {
         @extend %ani;
-        @include transform( rotate(0deg) );
-        @include transform-origin( 34% 36% 0 );
 
         opacity: 1;
 
