@@ -10,14 +10,11 @@
     @include transform-style( preserve-3d );
     @include transition( all 0.125s ease-out 0 );
 }
-%control {
-    @include nosel();
-}
 %bulge {
     @include transform( translate(0px, 1px) scale(1.1)  );
 }
 button.orange {
-    @extend %control;
+    @include nosel();
 
     @include buttongrad1();
     @include textshadow();
@@ -47,9 +44,7 @@ footer button {
     text-decoration: underline;
 }
 div.control {
-    bottom: 0; right: 0;
     height: 38px; width: 38px;
-    position: absolute;
 
     &.tilt {
         background-image: url(../images/controls/right.png);
@@ -59,9 +54,7 @@ div.control {
     }
 }
 img.control {
-    bottom: 0; right: 0;
     height: 52px; width: 55px;
-    position: absolute;
 
     &.tilt {
             @include transform( rotate(0deg) );
@@ -71,7 +64,10 @@ img.control {
     }
 }
 .control {
-    @extend %control;
+    @include nosel();
+
+    bottom: 0; right: 0;
+    position: absolute;
 
     &.tilt {
         @extend %ani;
