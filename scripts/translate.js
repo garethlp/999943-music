@@ -42,7 +42,7 @@ var Translate;
     }
 
     function _retile(jq) {
-        var eles, data = Extract.data();
+        var eles, data = Df.dat = Extract.data();
 
         debug > 0 && C.debug(name, data);
         eles = $(jq || '#Layout').find('.head, .text');
@@ -60,7 +60,7 @@ var Translate;
         // remove sects and add sect
         if (jq && jq.length) {
             _retile(jq);
-            jq.removeClass('cgray red green purple amber plum teal legal exit');
+            jq.removeClass('cgray red green purple amber plum teal');
             jq.addClass(sect);
         }
     }
@@ -94,6 +94,13 @@ var Translate;
         }
     }
 
+    function _text(kind) {
+        var str = Df.dat[kind].text[Df.current];
+        str = $(str).text();
+        debug > 0 && C.debug(name + '_text', str);
+        return str;
+    }
+
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
     function _init() {
@@ -115,6 +122,15 @@ var Translate;
         run: _retile,
         change: _change,
         open: _reveal,
+        exit: function () {
+            return _text('exit');
+        },
+        legal: function () {
+            return _text('legal');
+        },
+        slug: function () {
+            return _text('slug');
+        },
     });
 
 }(window));
