@@ -13,6 +13,9 @@
 %bulge {
     @include transform( translate(0px, 1px) scale(1.1)  );
 }
+button, .control {
+    cursor: pointer !important;
+}
 button.orange {
     @include nosel();
     @include buttongrad1();

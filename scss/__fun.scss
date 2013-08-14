@@ -25,6 +25,7 @@
 @mixin nosel(){
     -webkit-user-drag: none;
     @include user-select(none);
+    cursor: move;
 }
 @mixin vgrad($clr1: white, $clr2: black){
     @include background-image( linear-gradient(top, $clr1 33%, $clr2 100%) );
