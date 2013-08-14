@@ -13,6 +13,21 @@
 %bulge {
     @include transform( translate(0px, 1px) scale(1.1)  );
 }
+tr.lower, tr.upper {
+    @extend %ani;
+
+    td {
+        background-size: 100%;
+        background-position: 50%;
+        @include transition( all 0.25s ease-out 1.5s );
+    }
+    td:hover {
+        @include textshadow();
+        background-size: 96%;
+        opacity: 0.9;
+        -webkit-transform: rotate(-9deg);
+    }
+}
 button, .control {
     cursor: pointer !important;
 }

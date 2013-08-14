@@ -2,6 +2,9 @@
 @import "__mix";
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 #Layout {
+    td.lower, td.upper {
+        z-index: -1;
+    }
     td.reveal {
         background-image: url(../images/features/_bkgr.png);
         height: 257px;
