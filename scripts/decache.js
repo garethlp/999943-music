@@ -18,7 +18,10 @@ var Decache;
     function _decache() {
         $('img.cache').each(function () {
             var me = $(this);
-            me.attr('src', me.data().src);
+            me.attr({
+                'src': me.data().src,
+                'data-src': '',
+            });
         });
     }
 
