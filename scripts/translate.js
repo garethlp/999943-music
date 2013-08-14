@@ -14,6 +14,7 @@ var Translate;
         current: 'esp',
         flip: '.fliplang',
         partsUrl: 'data.html',
+        tiles: '.head, .text',
     };
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
     /// INTERNAL
@@ -27,16 +28,20 @@ var Translate;
         });
         return foo;
     }
+    function _split(str) {
+        return str = str ? str.split(' ') : []
+    }
 
     function _classify(jq) {
         // constuct array for drilling path
-        var a0 = jq.parent().attr('class').split(' '),
-            a1 = jq.attr('class').split(' '),
+        var a0 = _split(jq.parent().attr('class')),
+            a1 = _split(jq.attr('class')),
             arr;
         if (a0[0] === 'tile') {
             a1[1] = 'tile'; // tile text
         }
         arr = [a0.slice(-1).pop(), a1.slice(-1).pop()];
+        debug > 1 && C.debug(name + '_classify', arr);
         arr.push(Df.current); // include language tag
         return arr;
     }
@@ -45,13 +50,13 @@ var Translate;
         var eles, data = Df.dat = Extract.data();
 
         debug > 0 && C.debug(name, data);
-        eles = $(jq || '#Layout').find('.head, .text');
+        eles = $(jq || 'body').find(Df.tiles);
 
         eles.each(function () {
             var me = $(this),
                 txt = _deref(data, _classify(me));
             me.fadeOut(function () {
-                $(this).html(txt).fadeIn();
+                $(this).html(txt).fadeIn()//.addClass(Df.current);
             });
         });
     }
@@ -109,8 +114,7 @@ var Translate;
         }
         _reveal();
         _retile();
-        Df.flip = $(Df.flip);
-        Df.flip.on('click', _change);
+        Df.flip = $(Df.flip).on('click', _change);
         return self;
     }
 
