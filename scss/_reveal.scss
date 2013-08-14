@@ -28,6 +28,8 @@
             @include pos(1.5, 5.5);
         }
         .text {
+            @extend %ani;
+            @include transition( all 0.25s ease-out 0.25s );
             color: gray;
             font-size: 14px;
         }
@@ -58,6 +60,10 @@
             .text {
                 @include pos(26, 1.8);
                 @include rex('width', 26);
+
+                .eng & {
+                    @include pos(26, 5.8);
+                }
             }
             button {
                 @include rex('margin', 0);

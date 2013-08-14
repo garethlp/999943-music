@@ -49,14 +49,14 @@ var Translate;
     function _retile(jq) {
         var eles, data = Df.dat = Extract.data();
 
-        debug > 0 && C.debug(name, data);
         eles = $(jq || 'body').find(Df.tiles);
+        debug > 0 && C.debug(name + '_retile', jq, eles);
 
         eles.each(function () {
             var me = $(this),
                 txt = _deref(data, _classify(me));
             me.fadeOut(function () {
-                $(this).html(txt).fadeIn()//.addClass(Df.current);
+                $(this).html(txt).fadeIn();
             });
         });
     }
@@ -89,6 +89,7 @@ var Translate;
         Df.current = str;
         Df.flip.text( str === 'eng' ? 'Español' : 'English' );
         _retile();
+        $('body').removeClass('eng esp').addClass(str);
     }
 
     function _change() {
