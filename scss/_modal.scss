@@ -1,0 +1,32 @@
+/* MODALS */
+@import "__mix";
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+.modal {
+    background-color: rgba(33,33,33,.33);
+    display: none;
+    height: 100%;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+
+    > * {
+        left: 50%;
+        margin-left: -25%;
+        margin-top: -25%;
+        position: absolute;
+        top: 50%;
+        width: 50%;
+    }
+    .text {
+        background-color: white;
+        border: 1px solid gray;
+        border-radius: 3px;
+        box-shadow: inset -1px -1px 9px gray;
+        line-height: 150%;
+        margin-bottom: 3em;
+        padding: 2em 3em;
+    }
+}
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */

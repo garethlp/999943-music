@@ -42,6 +42,7 @@ Modernizr.load([
         './scripts/decache.js',
         './scripts/extract.js',
         './scripts/translate.js',
+        './scripts/modal.js',
     ],
     complete: function () {
         Main(W).init();
@@ -71,11 +72,14 @@ function Main(W) {
         if ($.browser.mozilla) {
             $('td').drt_cellophy()
         }
+        $('.disclose').on('click', function () {
+            $('.modal').trigger('show.Modal');
+        });
     }
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
     function _init() {
-        debug > 0 && C.error('init @ ' + Date());
+        debug > 0 && C.error('init @ ' + Date() + ' debug:', debug);
         if (self.inited(true)) {
             return null;
         }
@@ -83,6 +87,7 @@ function Main(W) {
         Extract.init(_binding);
         Decache.init();
         Control.init();
+        Modal.init();
     }
 
     W[name] = $.extend(true, self, {
