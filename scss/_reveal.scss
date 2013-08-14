@@ -33,7 +33,7 @@
 
         // TXT 1
         &.upper.red {
-            & > div > img.red {
+            div > img.red {
                 display: block;
             }
             .head {
@@ -46,7 +46,7 @@
         }
         // TXT 1
         &.lower.green {
-            & > div > img.green {
+            div > img.green {
                 display: block;
             }
             .head {
@@ -65,7 +65,7 @@
         }
         // TXT 2
         &.lower.purple {
-            & > div > img.purple {
+            div > img.purple {
                 display: block;
             }
             .cache {
@@ -102,7 +102,7 @@
         }
         // TXT 3
         &.lower.amber {
-            & > div > img.amber {
+            div > img.amber {
                 display: block;
             }
             .head {
@@ -122,7 +122,7 @@
         }
         // TXT 4
         &.lower.plum {
-            & > div > img.plum {
+            div > img.plum {
                 display: block;
             }
             .cache {
@@ -144,7 +144,7 @@
         }
         // TXT 5
         &.lower.teal {
-            & > div > img.teal {
+            div > img.teal {
                 display: block;
             }
             .head {

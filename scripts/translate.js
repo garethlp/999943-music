@@ -131,23 +131,4 @@ Track current lang
     + findAll()
         - what is eligible
 
-find tiles
-    transplant para
-
-find reveals
-    deal head and text
-    add class for sect
-
-activate tiles automatically
-    run fill on each
-
-when activating reveal
-    fill(this)
-
-tranlate wants to know
-    clas ... if not given, find from current
-
-
-
-
 */

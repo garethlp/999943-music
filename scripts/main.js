@@ -66,6 +66,8 @@ function Main(W) {
     };
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
     function _binding() {
+        Translate.init();
+
         if ($.browser.mozilla) {
             $('td').drt_cellophy()
         }
@@ -78,10 +80,9 @@ function Main(W) {
             return null;
         }
 
-        Extract.init(Translate.init);
+        Extract.init(_binding);
         Decache.init();
         Control.init();
-        W.setTimeout(_binding, 999);
     }
 
     W[name] = $.extend(true, self, {
