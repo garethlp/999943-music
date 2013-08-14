@@ -1,5 +1,5 @@
 /*jslint es5:true, white:false */
-/*globals $, Global, Translate, window */
+/*globals $, Global, window */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 var Extract;
 
@@ -13,7 +13,7 @@ var Extract;
         dat: {},
         partsUrl: 'data.html',
         // cycle
-        keyList: ['cgray', 'red', 'green', 'purple', 'amber', 'plum', 'teal', 'legal', 'exit'],
+        keyList: ['cgray', 'red', 'green', 'purple', 'amber', 'plum', 'teal', 'exit', 'legal', 'slug'],
     };
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
     /// INTERNAL
