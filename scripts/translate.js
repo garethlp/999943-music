@@ -34,7 +34,7 @@ var Translate;
 
     function _classify(jq) {
         // constuct array for drilling path
-        var a0 = _split(jq.parent().attr('class')),
+        var a0 = _split(jq.closest('footer, section, td').attr('class')),
             a1 = _split(jq.attr('class')),
             arr;
         if (a0[0] === 'tile') {

@@ -29,11 +29,11 @@ var Modal;
 
     function _show() {
         var me = $(this);
-        me.show();
+        me.slideDown();
     }
     function _hide() {
         var me = $(this);
-        me.hide();
+        me.fadeOut();
     }
 
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
