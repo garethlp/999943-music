@@ -19,13 +19,13 @@ tr.lower, tr.upper {
     td {
         background-size: 100%;
         background-position: 50%;
-        @include transition( all 0.25s ease-out 1.5s );
+        @include transition( all 0.25s ease-out 0.15s );
     }
     td:hover {
         @include textshadow();
         background-size: 96%;
         opacity: 0.9;
-        -webkit-transform: rotate(-9deg);
+        /* -webkit-transform: rotate(3deg); */
     }
 }
 button, .control {
