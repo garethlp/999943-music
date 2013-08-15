@@ -9,67 +9,6 @@ $lolaUrl: $fontServ3 + 'lola/';
     @return woffSrc($nom, $lolaUrl);
 }
 
-@font-face {
-    font-family: 'Lola Regular' ;
-    font-style: normal;
-    font-weight: 400;
-    src: lolaSrc('FSLola');
-}
-@font-face {
-    font-family: 'Lola Bold' ;
-    font-style: normal;
-    font-weight: 600;
-    src: lolaSrc('FSLola-Bold');
-}
-@font-face {
-    font-family: 'Lola Light' ;
-    font-style: normal;
-    font-weight: 200;
-    src: lolaSrc('FSLola-Light');
-}
-@font-face {
-    font-family: 'Lola Medium' ;
-    font-style: normal;
-    font-weight: 500;
-    src: lolaSrc('FSLola-Medium');
-}
-@font-face {
-    font-family: 'Lola ExtraBold' ;
-    font-style: normal;
-    font-weight: 800;
-    src: lolaSrc('FSLola-ExtraBold');
-}
-@font-face {
-    font-family: 'Lola Regular Italic' ;
-    font-style: normal;
-    font-weight: 400;
-    src: lolaSrc('FSLola-Italic');
-}
-@font-face {
-    font-family: 'Lola Bold Italic' ;
-    font-style: normal;
-    font-weight: 600;
-    src: lolaSrc('FSLola-BoldItalic');
-}
-@font-face {
-    font-family: 'Lola Light Italic' ;
-    font-style: normal;
-    font-weight: 200;
-    src: lolaSrc('FSLola-LightItalic');
-}
-@font-face {
-    font-family: 'Lola Medium Italic' ;
-    font-style: normal;
-    font-weight: 500;
-    src: lolaSrc('FSLola-MediumItalic');
-}
-@font-face {
-    font-family: 'Lola ExtraBold Italic' ;
-    font-style: normal;
-    font-weight: 800;
-    src: lolaSrc('FSLola-ExtraBoldItalic');
-}
-
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
 @font-face {

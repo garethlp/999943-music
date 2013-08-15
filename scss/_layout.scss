@@ -5,6 +5,7 @@
     font-family: "Myriad Pro", Verdana, Geneva, sans-serif;
 }
 %archer {
+    @include nosel();
     font-family: "Archer", 'Archer Book', Georgia, Times, serif;
 }
 #Page {
