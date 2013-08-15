@@ -15,6 +15,14 @@
     position: relative;
     width: 984px;
 
+    .mobile & {
+        width: 496px;
+
+        .desktop {
+            display: none;
+        }
+    }
+
     div.aturitmo {
         background-image: url(../images/header/aturitmo.png);
         height: 40px;
