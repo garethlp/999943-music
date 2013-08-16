@@ -22,6 +22,24 @@ var Control;
         });
     }
 
+    function _scroll(ele) {
+        var $me = $(ele);
+
+        // look before leap
+        if ($me.length) {
+            $(W.isIE ? 'html' : 'body').stop().animate({
+                scrollTop: $me.offset().top,
+            }, 333);
+        }
+    }
+
+    function _soon(x) {
+        // delay scroll
+        W.setTimeout(function () {
+            _scroll(x);
+        }, 333);
+    }
+
     function _groom() {
         $('.control').each(function () {
             var ctrl = $(this),
@@ -42,13 +60,20 @@ var Control;
                 _reset();
 
                 if (tilt) {
-                    Translate.open(); // open nothing
+                    // open nothing
+                    Translate.open();
+
+                    // scroll to top
+                    _soon('#Top');
                 } else {
                     Translate.open(reveal, sect);
                     ctrl.addClass('tilted').removeClass('tilt') //
                     .attr({
                         title: 'Close',
                     });
+
+                    // scroll to top of tile
+                    _soon(this);
                 }
             });
 
