@@ -57,11 +57,17 @@ button.orange {
         opacity: 0.8;
     }
 }
-footer button {
-    background: none;
-    border: 0;
-    color: gray;
-    text-decoration: underline;
+footer {
+    line-height: 22px;
+
+    button {
+        background: none;
+        border: 0;
+        color: gray;
+        margin-top: -4px;
+        text-decoration: underline;
+        vertical-align: middle;
+    }
 }
 div.control {
     background-repeat: no-repeat;

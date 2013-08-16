@@ -116,7 +116,8 @@ header {
 footer {
     @include rex('bottom', -2);
     color: gray;
-    font-size: 11px;
+    font-size: 10px;
+    padding: 0 6px;
     position: absolute;
     vertical-align: baseline;
     width: 100%;
