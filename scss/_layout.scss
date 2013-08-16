@@ -92,6 +92,10 @@ div.text, div.head {
         @include rex('margin-right', 0.5);
     }
 }
+header {
+    position: relative;
+    z-index: 9;
+}
 footer {
     @include rex('bottom', -2);
     color: gray;

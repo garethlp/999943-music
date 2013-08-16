@@ -26,8 +26,6 @@ var Respond;
 
     function _setSize(str) {
         Df.current = str;
-        //Df.flip.text( str === 'eng' ? 'Español' : 'English' );
-        //_retile();
         $('body').removeClass('desktop mobile').addClass(str);
     }
 
