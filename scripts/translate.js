@@ -29,6 +29,7 @@ var Translate;
         });
         return foo;
     }
+
     function _split(str) {
         return str = str ? str.split(' ') : []
     }
