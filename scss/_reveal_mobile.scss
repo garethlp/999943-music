@@ -1,0 +1,36 @@
+/* REVEALS */
+@import "__mix";
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+.mobile #Layout {
+    td.reveal {
+        button {
+            @include rex('margin', 3);
+        }
+        .head {
+            h3 {
+                font-size: 120%;
+                width: 50%;
+            }
+        }
+        .text {
+            @include rex('margin-left', -12);
+            @include rex('margin-top', -1);
+            p {
+                width: 80%;
+            }
+        }
+        // next row
+
+        // TXT 2
+        &.lower.purple {
+            .text {
+                @include rex('width', 25);
+                hr {
+                    @include rex('width', 22);
+                    height: 0;
+                }
+            }
+        }
+    }
+}
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */

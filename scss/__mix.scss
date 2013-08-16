@@ -3,7 +3,7 @@
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - //
 @mixin rex($prop, $rem){
     #{$prop}: $rem * $remx;
-    #{$prop}: $rem * 1rem;
+    //#{$prop}: $rem * 1rem;
 }
 @mixin pos($x:0, $y:0){
     @include rex('left', $x);
