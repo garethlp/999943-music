@@ -1,0 +1,70 @@
+/* TEXT */
+@import "__mix";
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+// LOLA SPECIFIC
+
+$lolaUrl: $fontServ3 + 'lola/';
+
+@function lolaSrc( $nom: 'FSLola' ){
+    @return woffSrc($nom, $lolaUrl);
+}
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+@font-face {
+    font-family: "Archer Semibold";
+    src: url("/lib/fonts/archer/archer-semibold.eot");
+    src: url("/lib/fonts/archer/archer-semibold.eot?#iefix") format("embedded-opentype"),
+    url("/lib/fonts/archer/archer-semibold.woff") format("woff"),
+    url("/lib/fonts/archer/archer-semibold.ttf") format("truetype"),
+    url("/lib/fonts/archer/archer-semibold.svg#ArcherSemibold") format("svg")
+}
+@font-face {
+    font-family: "Archer Bold";
+    src: url("/lib/fonts/archer/archer-bold.eot");
+    src: url("/lib/fonts/archer/archer-bold.eot?#iefix") format("embedded-opentype"),
+    url("/lib/fonts/archer/archer-bold.woff") format("woff"),
+    url("/lib/fonts/archer/archer-bold.ttf") format("truetype"),
+    url("/lib/fonts/archer/archer-bold.svg#ArcherBbold") format("svg")
+}
+@font-face {
+    font-family: "Archer Medium";
+    src: url("/lib/fonts/archer/archer-medium.eot");
+    src: url("/lib/fonts/archer/archer-medium.eot?#iefix") format("embedded-opentype"),
+    url("/lib/fonts/archer/archer-medium.woff") format("woff"),
+    url("/lib/fonts/archer/archer-medium.ttf") format("truetype"),
+    url("/lib/fonts/archer/archer-medium.svg#ArcherMedium") format("svg")
+}
+@font-face {
+    font-family: "Archer Book";
+    src: url("/lib/fonts/archer/archer-book.eot");
+    src: url("/lib/fonts/archer/archer-book.eot?#iefix") format("embedded-opentype"),
+    url("/lib/fonts/archer/archer-book.woff") format("woff"),
+    url("/lib/fonts/archer/archer-book.ttf") format("truetype"),
+    url("/lib/fonts/archer/archer-book.svg#ArcherBook") format("svg")
+}
+@font-face {
+    font-family: 'Myriad Pro';
+    src: url('/lib/fonts/myriadpro/myriadpro-regular.eot');
+    src: url('/lib/fonts/myriadpro/myriadpro-regular.eot?#iefix') format('embedded-opentype'),
+    url('/lib/fonts/myriadpro/myriadpro-regular.woff') format('woff'),
+    url('/lib/fonts/myriadpro/myriadpro-regular.ttf') format('truetype'),
+    url('/lib/fonts/myriadpro/myriadpro-regular.svg#MyriadProRegular') format('svg')
+}
+@font-face {
+    font-family: 'Myriad Pro Semibold';
+    src: url('/lib/fonts/myriadpro/myriadpro-semibold.eot');
+    src: url('/lib/fonts/myriadpro/myriadpro-semibold.eot?#iefix') format('embedded-opentype'),
+    url('/lib/fonts/myriadpro/myriadpro-semibold.woff') format('woff'),
+    url('/lib/fonts/myriadpro/myriadpro-semibold.ttf') format('truetype'),
+    url('/lib/fonts/myriadpro/myriadpro-semibold.svg#MyriadProSemibold') format('svg')
+}
+@font-face {
+    font-family: 'Myriad Pro Bold';
+    src: url('/lib/fonts/myriadpro/myriadpro-bold.eot');
+    src: url('/lib/fonts/myriadpro/myriadpro-bold.eot?#iefix') format('embedded-opentype'),
+    url('/lib/fonts/myriadpro/myriadpro-bold.woff') format('woff'),
+    url('/lib/fonts/myriadpro/myriadpro-bold.ttf') format('truetype'),
+    url('/lib/fonts/myriadpro/myriadpro-bold.svg#MyriadProBold') format('svg')
+}
+

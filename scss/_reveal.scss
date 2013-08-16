@@ -1,0 +1,195 @@
+/* REVEALS */
+@import "__mix";
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+#Layout {
+    td.lower, td.upper {
+        z-index: -1;
+    }
+    td.reveal {
+        background-image: url(../images/features/_bkgr.png);
+        height: 257px;
+
+        & > div > img {
+            display: none;
+        }
+        button {
+            @include rex('margin', 2);
+            float: right;
+            .mobile & {
+                @include rex('margin', 3);
+            }
+        }
+        .head, .text {
+            padding: 0;
+            position: absolute;
+        }
+        .head {
+            @include pos(1.5, 5.5);
+            h3 {
+                color: $red;
+                font-size: 190%;
+
+                .mobile & {
+                    font-size: 120%;
+                    width: 50%;
+                }
+            }
+        }
+        .text {
+            @extend %ani;
+            @include transition( all 0.25s ease-out 0.25s );
+
+            color: gray;
+            font-size: 14px;
+
+            .mobile & {
+                @include rex('margin-left', -12);
+                @include rex('margin-top', -1);
+                p {
+                    width: 80%;
+                }
+            }
+        }
+
+        // next row
+
+        // TXT 1
+        &.upper.red {
+            div > img.red {
+                display: block;
+            }
+            .head {
+                @include rex('width', 22);
+            }
+            .text {
+                @include pos(27, 3.4);
+                @include rex('width', 26.5);
+            }
+        }
+        // TXT 1
+        &.lower.green {
+            div > img.green {
+                display: block;
+            }
+            .head {
+                @include rex('width', 21);
+            }
+            .text {
+                @include pos(26, 1.8);
+                @include rex('width', 26);
+
+                .eng & {
+                    @include pos(26, 5.8);
+                }
+            }
+            button {
+                @include rex('margin', 0);
+                @include rex('margin-top', 0.5);
+                @include rex('margin-bottom', 1.5);
+                float: none;
+            }
+        }
+        // TXT 2
+        &.lower.purple {
+            div > img.purple {
+                display: block;
+            }
+            .cache {
+                @include pos(29, 7);
+            }
+            .head {
+                @include pos(1.5, 2.5);
+                @include rex('width', 26);
+            }
+            .text {
+                @include pos(27, 1.5);
+                @include rex('width', 54);
+                @include rex('height', 10);
+                text-align: center;
+
+                .mobile & {
+                    @include rex('width', 25);
+                }
+
+                hr {
+                    @include rex('height', 18);
+                    border: 1px solid #bbb;
+                    border-width: 0 0 1px 1px;
+                    clear: right;
+                    float: left;
+                    width: 0;
+
+                    .mobile & {
+                        @include rex('width', 22);
+                        height: 0;
+                    }
+                }
+                p {
+                    @include rex('margin', 1);
+                    @include rex('margin-left', 2);
+                    clear: right;
+                    float: left;
+                }
+                a:not(.mobile) {
+                    display: none;
+                }
+            }
+        }
+        // TXT 3
+        &.lower.amber {
+            div > img.amber {
+                display: block;
+            }
+            .head {
+                @include pos(1.5, 6.3);
+                @include rex('width', 16);
+            }
+            .text {
+                @include pos(24, 6);
+                @include rex('width', 32);
+                br + br {
+                    display: none;
+                }
+            }
+            button {
+                @include rex('margin-right', 5);
+            }
+        }
+        // TXT 4
+        &.lower.plum {
+            div > img.plum {
+                display: block;
+            }
+            .cache {
+                @include rex('left', 26);
+            }
+            .head {
+                @include pos(1.5, 7.3);
+                @include rex('width', 22);
+            }
+            .text {
+                @include pos(26, 3);
+                @include rex('width', 37);
+            }
+            button {
+                position: relative;
+                @include rex('right', -17);
+                @include rex('top', 5);
+            }
+        }
+        // TXT 5
+        &.lower.teal {
+            div > img.teal {
+                display: block;
+            }
+            .head {
+                @include rex('width', 22);
+            }
+            .text {
+                @include pos(27, 7);
+                @include rex('width', 26);
+            }
+        }
+    }
+}
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
