@@ -4,19 +4,25 @@
 .mobile #Layout {
     td.reveal {
         button {
-            @include rex('margin', 3);
+            @include rex('margin', 1);
         }
         .head {
+            left: 15px !important;
+            top: 15px !important;
+
             h3 {
                 font-size: 120%;
-                width: 50%;
+                width: 440px;
             }
         }
         .text {
-            @include rex('margin-left', -12);
-            @include rex('margin-top', -1);
+            left: 15px !important;
+            top: 85px !important;
+
             p {
-                width: 80%;
+                line-height: 1;
+                margin: 15px 0 !important;
+                width: 410px;
             }
         }
         // next row
@@ -24,9 +30,9 @@
         // TXT 2
         &.lower.purple {
             .text {
-                @include rex('width', 25);
+/*                @include rex('width', 25);*/
                 hr {
-                    @include rex('width', 22);
+                    width: 410px;
                     height: 0;
                 }
             }
