@@ -93,6 +93,7 @@ var Translate;
 
         body.removeClass('eng esp').addClass(str);
         Df.flip.text( str === 'eng' ? 'Español' : 'English' );
+        Df.current = str;
         _retile();
 
         if (str === 'eng') {
@@ -100,7 +101,6 @@ var Translate;
         } else if (str === 'esp') {
             html.attr('lang', 'es');
         }
-        Df.current = str;
     }
 
     function _toggle() {
