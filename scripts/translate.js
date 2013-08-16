@@ -11,6 +11,7 @@ var Translate;
 
     Df = { // DEFAULTS
         dat: {},
+        revealpx: '257px',
         current: 'esp',
         flip: '.fliplang',
         partsUrl: 'data.html',
@@ -79,7 +80,7 @@ var Translate;
                 jq = $(jq);
                 _classic(jq, sect);
                 jq.parent().show().end().animate({
-                    height: '257px',
+                    height: Df.revealpx,
                 });
             }
         });
