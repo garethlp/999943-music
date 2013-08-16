@@ -1,0 +1,125 @@
+/* LAYOUT */
+@import "__mix";
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+%myriad {
+    font-family: "Myriad Pro", Verdana, Geneva, sans-serif;
+}
+%archer {
+    @include nosel();
+    font-family: "Archer", 'Archer Book', Georgia, Times, serif;
+}
+body {
+    padding: 9px;
+
+    &.mobile {
+        padding: 0;
+    }
+}
+#Page {
+    background-color: white;
+    box-shadow: 3px 333px 333px $shad1;
+    margin: auto;
+    position: relative;
+    width: 984px;
+
+    .mobile & {
+        width: 480px;
+
+        .desktop {
+            display: none;
+        }
+    }
+
+    div.aturitmo {
+        background-image: url(../images/header/aturitmo.png);
+        height: 40px;
+        left: 10px;
+        position: absolute;
+        top: 26px;
+        width: 315px;
+    }
+    div.logo {
+        background-image: url(../images/header/logo.png);
+        height: 55px;
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        width: 55px;
+    }
+    h1 {
+        color: white !important;
+        font-size: 1px;
+        position: relative;
+        z-index: -1;
+    }
+    h2 {
+        @extend %myriad;
+        font-size: 210%;
+    }
+    h3 {
+        @extend %archer;
+        font-size: 155%;
+        font-style: italic;
+    }
+}
+#Layout {
+    border-collapse: separate;
+    border-spacing: 10px;
+    margin-bottom: 80px;
+    padding-top: 80px;
+    position: relative;
+    z-index: 1;
+
+    .mobile & {
+        border-spacing: 6px;
+    }
+
+    td {
+        background-repeat: no-repeat;
+        height: 152px;
+        position: relative;
+        vertical-align: top;
+        width: 152px;
+
+        a {
+            text-decoration: none;
+        }
+        img {
+            bottom: 0;
+            position: absolute;
+            right: 0;
+        }
+    }
+}
+div.text, div.head {
+    color: white;
+    font-size: 18px;
+    line-height: 1.35;
+
+    @include rex('padding', 1);
+
+    body:not(.mobile) & {
+        @media (max-width: 800px) {
+            @include rex('padding', 0.5);
+        }
+    }
+    p {
+        @extend %myriad;
+        margin: 0;
+        @include rex('margin-right', 0.5);
+    }
+}
+header {
+    position: relative;
+    z-index: 9;
+}
+footer {
+    @include rex('bottom', -2);
+    color: gray;
+    font-size: 10px;
+    padding: 0 6px;
+    position: absolute;
+    vertical-align: baseline;
+    width: 100%;
+}
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
