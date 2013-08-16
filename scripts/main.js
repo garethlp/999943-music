@@ -75,6 +75,9 @@ function Main(W) {
         $('.disclose').on('click', function () {
             $('.modal').trigger('show.Modal');
         });
+        $('.slug .left').on('click', function () {
+            $('body').toggleClass('mobile');
+        });
     }
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
