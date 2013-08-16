@@ -41,8 +41,9 @@ Modernizr.load([
         './scripts/control.js',
         './scripts/decache.js',
         './scripts/extract.js',
-        './scripts/translate.js',
         './scripts/modal.js',
+        './scripts/respond.js',
+        './scripts/translate.js',
     ],
     complete: function () {
         Main(W).init();
@@ -91,6 +92,7 @@ function Main(W) {
         Decache.init();
         Control.init();
         Modal.init();
+        Respond.init();
     }
 
     W[name] = $.extend(true, self, {
