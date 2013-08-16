@@ -8,6 +8,13 @@
     @include nosel();
     font-family: "Archer", 'Archer Book', Georgia, Times, serif;
 }
+body {
+    padding: 9px;
+
+    &.mobile {
+        padding: 0;
+    }
+}
 #Page {
     background-color: white;
     box-shadow: 3px 333px 333px $shad1;
@@ -16,7 +23,7 @@
     width: 984px;
 
     .mobile & {
-        width: 496px;
+        width: 480px;
 
         .desktop {
             display: none;
@@ -51,7 +58,7 @@
     }
     h3 {
         @extend %archer;
-        font-size: 160%;
+        font-size: 155%;
         font-style: italic;
     }
 }
@@ -62,6 +69,10 @@
     padding-top: 80px;
     position: relative;
     z-index: 1;
+
+    .mobile & {
+        border-spacing: 6px;
+    }
 
     td {
         background-repeat: no-repeat;
@@ -84,8 +95,14 @@ div.text, div.head {
     color: white;
     font-size: 18px;
     line-height: 1.35;
+
     @include rex('padding', 1);
 
+    body:not(.mobile) & {
+        @media (max-width: 800px) {
+            @include rex('padding', 0.5);
+        }
+    }
     p {
         @extend %myriad;
         margin: 0;

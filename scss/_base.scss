@@ -9,7 +9,6 @@ html {
     body {
         @include graygrad();
         background-attachment: fixed;
-        padding: 9px;
 
         a {
             &.hover, &:hover {

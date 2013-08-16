@@ -44,10 +44,10 @@ var Respond;
             w = W.document.documentElement.clientWidth;
             // good god -- the only way to get width in IE?
 
-        if ((w <= 500 && !r) || (w <= 900 && r)) {
+        if ((w <= 600 && !r) || (w <= 1200 && r)) {
             C.debug('mobile');
             _change('mobile');
-        } else if ((w > 500 && !r) || (w > 900 && r)) {
+        } else if ((w > 600 && !r) || (w > 1200 && r)) {
             C.debug('desktop');
             _change('desktop');
         }
@@ -61,9 +61,12 @@ var Respond;
         }
         _detect();
 
+        $(W).bind('resize orientationchange', _.throttle(_detect, 333));
+
         Df.flip = $(Df.flip).on('click', function () {
             _change(); // eventless arg
         });
+
         return self;
     }
 
