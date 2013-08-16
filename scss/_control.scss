@@ -25,7 +25,10 @@ tr.lower, tr.upper {
         @include textshadow();
         background-size: 96%;
         opacity: 0.9;
-        /* -webkit-transform: rotate(3deg); */
+    }
+    td.freek:hover, td.phones:hover {
+        background-size: 100%;
+        opacity: 1;
     }
 }
 button, .control {
