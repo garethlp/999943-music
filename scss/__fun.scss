@@ -1,0 +1,43 @@
+/* fun */
+@import "__def";
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - //
+//functional
+
+@function gM($num: 1){
+    @return $rem * $num;
+}
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - //
+//fundamental
+
+@mixin clearfix(){
+    &:after {
+        clear: both;
+        content: "";
+        display: table;
+        /* clearfix */
+    }
+}
+@function gM($num: 1){
+    @return $rem * $num;
+}
+
+@mixin nosel(){
+    -webkit-user-drag: none;
+    @include user-select(none);
+}
+@mixin vgrad($clr1: white, $clr2: black){
+    @include background-image( linear-gradient(top, $clr1 33%, $clr2 100%) );
+}
+
+// GENERIC FONT HELPER
+
+$fontServ1: '../../../lib/fonts/';
+$fontServ2: 'http://10.89.101.100/lib/fonts/';
+$fontServ3: 'http://www.wellsfargomedia.com/lib/fonts/';
+
+@function woffSrc( $nom: 'Foo', $src: './' ){
+    @return local($nom), url( $src + $nom + '.woff') format('woff');
+}
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - //
