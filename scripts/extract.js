@@ -19,7 +19,7 @@ var Extract;
     /// INTERNAL
 
     function _load(cb, notify) {
-        C.debug(name + '_load');
+        W.debug > 0 && C.debug(name + '_load');
         Df.jqCache = $('<div>').load(Df.partsUrl, function (html, stat) {
             if (stat !== 'success') {
                 throw new Error('Cannot load from parts.html');

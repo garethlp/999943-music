@@ -45,10 +45,10 @@ var Respond;
             // good god -- the only way to get width in IE?
 
         if ((w <= 600 && !r) || (w <= 1200 && r)) {
-            C.debug('mobile');
+            W.debug > 0 && C.debug('mobile');
             _change('mobile');
         } else if ((w > 600 && !r) || (w > 1200 && r)) {
-            C.debug('desktop');
+            W.debug > 0 && C.debug('desktop');
             _change('desktop');
         }
     }

@@ -81,7 +81,7 @@ function Main(W) {
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
     function _init() {
-        debug > 0 && C.error('init @ ' + Date() + ' debug:', debug);
+        W.debug > 0 && C.error('init @ ' + Date() + ' debug:', debug);
         if (self.inited(true)) {
             return null;
         }

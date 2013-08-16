@@ -42,7 +42,7 @@ var Translate;
             a1[1] = 'tile'; // tile text
         }
         arr = [a0.slice(-1).pop(), a1.slice(-1).pop()];
-        debug > 1 && C.debug(name + '_classify', arr);
+        W.debug > 1 && C.debug(name + '_classify', arr);
         arr.push(Df.current); // include language tag
         return arr;
     }
@@ -51,7 +51,7 @@ var Translate;
         var eles, data = Df.dat = Extract.data();
 
         eles = $(jq || 'body').find(Df.tiles);
-        debug > 0 && C.debug(name + '_retile', jq, eles);
+        W.debug > 1 && C.debug(name + '_retile', jq, eles);
 
         eles.each(function () {
             var me = $(this),
@@ -113,7 +113,7 @@ var Translate;
     function _text(kind) {
         var str = Df.dat[kind].text[Df.current];
         str = $(str).text();
-        debug > 0 && C.debug(name + '_text', str);
+        W.debug > 0 && C.debug(name + '_text', str);
         return str;
     }
 
