@@ -36,7 +36,7 @@ var Control;
             // find which reveal
             reveal = $('.reveal.' + level);
 
-            ctrl.click(function () {
+            ctrl.parent().click(function () {
                 var tilt = ctrl.is('.tilted');
                 // store state and restore defaults
                 _reset();
