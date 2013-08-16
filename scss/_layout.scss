@@ -121,5 +121,24 @@ footer {
     position: absolute;
     vertical-align: baseline;
     width: 100%;
+
+    &.fixed .right {
+        background-color: $shad3;
+        bottom: 0;
+        font-size: 133%;
+        padding: 6px 36px 12px 18px;
+        position: fixed;
+        right: 0;
+        text-align: right;
+        z-index: 99;
+
+        * {
+            color: white;
+            text-shadow: 1px 1px 2px black;
+        }
+    }
+    button:hover {
+        text-decoration: none;
+    }
 }
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
