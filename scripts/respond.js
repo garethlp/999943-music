@@ -29,13 +29,27 @@ var Respond;
         $('body').removeClass('desktop mobile').addClass(str);
     }
 
-    function _change() {
-        if (Df.current === 'mobile') {
+    function _change(str) {
+        if (str === 'desktop' || (!str && Df.current === 'mobile')) {
             _setSize('desktop')
             _recolumn(6)
-        } else {
+        } else if (str === 'mobile' || (!str && Df.current === 'desktop')) {
             _setSize('mobile');
             _recolumn(3)
+        }
+    }
+
+    function _detect() {
+        var r = $('html').is('.retina'),
+            w = W.document.documentElement.clientWidth;
+            // good god -- the only way to get width in IE?
+
+        if ((w <= 500 && !r) || (w <= 900 && r)) {
+            C.debug('mobile');
+            _change('mobile');
+        } else if ((w > 500 && !r) || (w > 900 && r)) {
+            C.debug('desktop');
+            _change('desktop');
         }
     }
 
@@ -45,7 +59,11 @@ var Respond;
         if (self.inited(true)) {
             return null;
         }
-        Df.flip = $(Df.flip).on('click', _change);
+        _detect();
+
+        Df.flip = $(Df.flip).on('click', function () {
+            _change(); // eventless arg
+        });
         return self;
     }
 

@@ -69,6 +69,7 @@ function Main(W) {
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
     function _binding() {
         Translate.init();
+        Respond.init();
 
         if ($.browser.mozilla) {
             $('td').drt_cellophy()
@@ -89,7 +90,6 @@ function Main(W) {
         Decache.init();
         Control.init();
         Modal.init();
-        Respond.init();
     }
 
     W[name] = $.extend(true, self, {
