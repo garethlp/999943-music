@@ -19,7 +19,7 @@ var Respond;
     /// INTERNAL
 
     function _recolumn(num) {
-        $('.filler').attr({
+        $('.filler, .reveal').attr({
             colspan: num,
         });
     }

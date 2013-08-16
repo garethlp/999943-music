@@ -87,13 +87,22 @@ var Translate;
     }
 
     function _setLang(str) {
-        Df.current = str;
+        var body = $('body'),
+            html = $('html');
+
+        body.removeClass('eng esp').addClass(str);
         Df.flip.text( str === 'eng' ? 'Español' : 'English' );
         _retile();
-        $('body').removeClass('eng esp').addClass(str);
+
+        if (str === 'eng') {
+            html.attr('lang', 'en');
+        } else if (str === 'esp') {
+            html.attr('lang', 'es');
+        }
+        Df.current = str;
     }
 
-    function _change() {
+    function _toggle() {
         if (Df.current === 'eng') {
             _setLang('esp')
         } else {
@@ -116,7 +125,7 @@ var Translate;
         }
         _reveal();
         _retile();
-        Df.flip = $(Df.flip).on('click', _change);
+        Df.flip = $(Df.flip).on('click', _toggle);
         return self;
     }
 
@@ -126,7 +135,7 @@ var Translate;
         },
         init: _init,
         run: _retile,
-        change: _change,
+        change: _toggle,
         open: _reveal,
         exit: function () {
             return _text('exit');
