@@ -136,7 +136,7 @@
                 display: block;
             }
             .cache {
-                @include rex('left', 26);
+                @include pos(26, 8);
             }
             .head {
                 @include pos(1.5, 7.3);
