@@ -2,7 +2,7 @@
 @import "__mix";
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 %myriad {
-    font-family: "Myriad Pro", Verdana, Geneva, sans-serif;
+    font-family: "Myriad", "Myriad Pro", Verdana, Geneva, sans-serif;
 }
 %archer {
     @include nosel();
