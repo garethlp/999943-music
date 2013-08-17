@@ -6,31 +6,58 @@
         button {
             @include rex('margin', 1);
         }
+
+        &.reveal {
+            background-repeat: repeat-y;
+            background-position: 0% 75%;
+        }
+
         .head {
-            left: 15px !important;
-            top: 15px !important;
+            left: 15px  !important;
+            top: 15px   !important;
+            width: 80%  !important;
 
             h3 {
-                font-size: 120%;
-                width: 440px;
+                font-size: 166%;
             }
         }
         .text {
-            left: 15px !important;
-            top: 85px !important;
+
+            left: 15px  !important;
+            top: 105px   !important;
+            width: auto !important;
 
             p {
-                line-height: 1;
+                font-size: 100%;
+                line-height: 1.2;
                 margin: 15px 0 !important;
                 width: 410px;
             }
         }
+
+        // TXT 1
+
+        &.upper.red {
+            .head {
+            }
+            .text {
+            }
+        }
+
         // next row
+        // TXT 1
+        &.lower.green {
+            .head {
+            }
+        }
 
         // TXT 2
         &.lower.purple {
+            .head {
+                font-size: 133%;
+            }
+
             .text {
-/*                @include rex('width', 25);*/
                 hr {
                     width: 410px;
                     height: 0;
