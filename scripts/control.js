@@ -44,16 +44,30 @@ var Control;
         }, 333);
     }
 
+    function _listLook(arr, val){
+        return _.indexOf(arr, val) + 1;
+    }
+
+    function _getSect(ctrl){
+        return ctrl.closest('td').attr('class').split(' ').pop();
+    }
+
+    function _getLevel(ctrl){
+        return ctrl.closest('tr').attr('class').split(' ').pop();
+    }
+
     function _groom() {
         $('.control').each(function () {
             var ctrl = $(this),
                 sect, level, reveal;
 
             // get my sect (last class of closest td)
-            sect = ctrl.closest('td').attr('class').split(' ').pop();
+            sect = _getSect(ctrl);
 
             // get my level (class of closest tr) [upper/lower]
-            level = ctrl.closest('tr').attr('class').split(' ').pop();
+            level = _getLevel(ctrl)
+
+            C.debug(name + '_groom', sect, level);
 
             // find which reveal
             reveal = $('.reveal.' + level);
