@@ -29,7 +29,7 @@ var Respond;
     }
 
     function _change(str) {
-        Translate.open();
+        Translate.reveal(false);
 
         if (str === 'desktop' || (!str && Df.current === 'mobile')) {
             _setSize('desktop')

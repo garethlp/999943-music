@@ -139,7 +139,7 @@ var Translate;
         init: _init,
         run: _retile,
         change: _toggle,
-        open: _reveal,
+        reveal: _reveal,
         exit: function () {
             return _text('exit');
         },

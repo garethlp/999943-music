@@ -72,19 +72,19 @@ var Control;
             // find which reveal
             reveal = $('.reveal.' + level);
 
-            ctrl.parent().click(function () {
+            ctrl.parent().on('click', function () {
                 var tilt = ctrl.is('.tilted');
                 // store state and restore defaults
                 _reset();
 
                 if (tilt) {
                     // open nothing
-                    Translate.open();
+                    Translate.reveal();
 
                     // scroll to top
                     _soon('#Top');
                 } else {
-                    Translate.open(reveal, sect);
+                    Translate.reveal(reveal, sect);
                     ctrl.addClass('tilted').removeClass('tilt') //
                     .attr({
                         title: 'Close',
