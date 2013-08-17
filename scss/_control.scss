@@ -5,18 +5,30 @@ tr.lower, tr.upper {
     @extend %ani;
 
     td {
-        background-size: 100%;
+        background-size: 100% 100%;
         background-position: 50%;
-        @include transition( all 0.25s ease-out 0.15s );
+        @include transition( all 0.25s ease-out 0.1s );
     }
     td:hover {
         @include textshadow();
-        background-size: 96%;
+        background-size: 96% 96%;
         opacity: 0.9;
     }
-    td.freek:hover, td.phones:hover {
-        background-size: 100%;
-        opacity: 1;
+    td.freek, td.phones {
+        background-size: 100% 100%;
+
+        &:hover {
+            background-size: 100% 100%;
+            opacity: 1;
+        }
+        .mobile & {
+            background-size: 107% 100%;
+            width: 125px !important;
+
+            &:hover {
+                background-size: 107% 100%;
+            }
+        }
     }
 }
 button, .control {

@@ -26,7 +26,7 @@ body {
     width: 984px;
 
     .mobile & {
-        width: 480px;
+        width: 472px;
 
         .desktop {
             display: none;
@@ -74,15 +74,14 @@ body {
     z-index: 1;
 
     .mobile & {
-        border-spacing: 6px;
+        border-spacing: 7px;
     }
 
     td {
         background-repeat: no-repeat;
-        height: 152px;
+        height: 152px; width: 152px;
         position: relative;
         vertical-align: top;
-        width: 152px;
 
         a {
             text-decoration: none;
