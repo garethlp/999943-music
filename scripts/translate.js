@@ -14,6 +14,7 @@ var Translate;
         revealpx: 257,
         current: 'esp',
         flip: '.fliplang',
+        open: true,
         partsUrl: 'data.html',
         tiles: '.head, .text',
     };
@@ -67,14 +68,18 @@ var Translate;
         // remove sects and add sect
         if (jq && jq.length) {
             _retile(jq);
-            jq.removeClass('cgray red green purple amber plum teal');
+            jq.removeClass('cgray red green purple amber plum teal'); // Main.sects().join(' ')?
             jq.addClass(sect);
         }
     }
 
     function _reveal(jq, sect) {
-        W.debug > 1 && C.debug(name + '_reveal', jq, sect);
+        W.debug > 0 && C.debug(name + '_reveal', Df.open, [jq, sect]);
 
+        if (!jq && !Df.open) {
+            return;
+        }
+        Df.open = false;
         $('.reveal').animate({
             height: '1px',
         }, function () {
@@ -84,6 +89,8 @@ var Translate;
                 _classic(jq, sect);
                 jq.parent().show().end().animate({
                     height: Df.revealpx * (Respond.mobile() ? 1.5 : 1),
+                }, function () {
+                    Df.open = true;
                 });
             }
         });
