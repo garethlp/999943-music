@@ -1,5 +1,5 @@
 /*jslint es5:true, white:false */
-/*globals $, Extract, Global, debug, window */
+/*globals $, Extract, Global, Respond, window */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 var Translate;
 
@@ -11,7 +11,7 @@ var Translate;
 
     Df = { // DEFAULTS
         dat: {},
-        revealpx: '257px',
+        revealpx: 257,
         current: 'esp',
         flip: '.fliplang',
         partsUrl: 'data.html',
@@ -73,6 +73,8 @@ var Translate;
     }
 
     function _reveal(jq, sect) {
+        W.debug > 1 && C.debug(name + '_reveal', jq, sect);
+
         $('.reveal').animate({
             height: '1px',
         }, function () {
@@ -81,7 +83,7 @@ var Translate;
                 jq = $(jq);
                 _classic(jq, sect);
                 jq.parent().show().end().animate({
-                    height: Df.revealpx,
+                    height: Df.revealpx * (Respond.mobile() ? 1.5 : 1),
                 });
             }
         });

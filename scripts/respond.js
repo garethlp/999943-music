@@ -1,5 +1,5 @@
 /*jslint es5:true, white:false */
-/*globals $, Global, debug, window */
+/*globals $, Global, Translate, window */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 var Respond;
 
@@ -11,7 +11,6 @@ var Respond;
 
     Df = { // DEFAULTS
         dat: {},
-        revealpx: '257px',
         current: 'mobile',
         flip: '.aturitmo',
     };
@@ -30,6 +29,8 @@ var Respond;
     }
 
     function _change(str) {
+        Translate.open();
+
         if (str === 'desktop' || (!str && Df.current === 'mobile')) {
             _setSize('desktop')
             _recolumn(6)
@@ -76,6 +77,9 @@ var Respond;
         },
         init: _init,
         change: _change,
+        mobile: function () {
+            return (Df.current === 'mobile');
+        },
     });
 
 }(window));
