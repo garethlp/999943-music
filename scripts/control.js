@@ -77,7 +77,7 @@ var Control;
                     });
 
                     // scroll to top of tile
-                    _soon(this);
+                    _soon(ctrl);
                 }
             });
 
