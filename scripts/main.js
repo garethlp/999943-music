@@ -1,5 +1,5 @@
 /*jslint es5:true, white:false */
-/*globals $, Decache, Extract, Global, Main, Modernizr, Translate, debug, window */
+/*globals $, Control, Decache, Extract, Global, Main:true, Modal, Modernizr, Respond, Translate, window */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 var Data, CDN, W = (W || window);
 
@@ -65,6 +65,14 @@ function Main(W) {
 
     Df = { // DEFAULTS
         flip: '.fliplang',
+        sects: 'cgray red green purple amber plum teal exit legal slug',
+        inits: function (cb) {
+            this.sects = this.sects.split(' ');
+            Extract.init(Df, cb);
+            Decache.init();
+            Control.init(Df);
+            Modal.init();
+        },
     };
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
     function _binding() {
@@ -72,7 +80,7 @@ function Main(W) {
         Respond.init();
 
         if ($.browser.mozilla) {
-            $('td').drt_cellophy()
+            $('td').drt_cellophy();
         }
         $('.disclose').on('click', function () {
             $('.modal').trigger('show.Modal');
@@ -81,15 +89,13 @@ function Main(W) {
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
     function _init() {
-        W.debug > 0 && C.error('init @ ' + Date() + ' debug:', debug);
+        W.debug > 0 && C.error('init @ ' + Date() + ' debug:', W.debug);
+
         if (self.inited(true)) {
             return null;
         }
 
-        Extract.init(_binding);
-        Decache.init();
-        Control.init();
-        Modal.init();
+        Df.inits(_binding);
     }
 
     W[name] = $.extend(true, self, {
