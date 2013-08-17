@@ -11,6 +11,10 @@ var Control;
 
     Df = { // DEFAULTS
         dat: {},
+        glob: null,
+        sects: function () {
+            return this.glob.sects;
+        },
     };
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
     /// INTERNAL
@@ -84,7 +88,8 @@ var Control;
 
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-    function _init() {
+    function _init(glob) {
+        Df.glob = glob;
         if (self.inited(true)) {
             return null;
         }

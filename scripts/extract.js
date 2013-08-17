@@ -11,9 +11,11 @@ var Extract;
 
     Df = { // DEFAULTS
         dat: {},
+        glob: null,
         partsUrl: 'data.html',
-        // cycle
-        keyList: ['cgray', 'red', 'green', 'purple', 'amber', 'plum', 'teal', 'exit', 'legal', 'slug'],
+        sects: function () {
+            return this.glob.sects;
+        },
     };
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
     /// INTERNAL
@@ -44,7 +46,7 @@ var Extract;
         _linkButtons($load);
 
         // for each in keylist
-        $.each(Df.keyList, function (i, sect) {
+        $.each(Df.sects(), function (i, sect) {
             var sectO = {},
                 row$;
 
@@ -70,7 +72,8 @@ var Extract;
 
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-    function _init(cb) {
+    function _init(glob, cb) {
+        Df.glob = glob;
         if (self.inited(true)) {
             return null;
         }
