@@ -43,6 +43,7 @@ Modernizr.load([
         './scripts/extract.js',
         './scripts/modal.js',
         './scripts/respond.js',
+        './scripts/reveal.js',
         './scripts/translate.js',
     ],
     complete: function () {

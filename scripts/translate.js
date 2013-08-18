@@ -1,5 +1,5 @@
 /*jslint es5:true, white:false */
-/*globals $, Extract, Global, Respond, window */
+/*globals $, Extract, Global, window */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 var Translate;
 
@@ -11,10 +11,8 @@ var Translate;
 
     Df = { // DEFAULTS
         dat: {},
-        revealpx: 257,
         current: 'esp',
         flip: '.fliplang',
-        open: true,
         partsUrl: 'data.html',
         tiles: '.head, .text',
     };
@@ -74,26 +72,7 @@ var Translate;
     }
 
     function _reveal(jq, sect) {
-        W.debug > 0 && C.debug(name + '_reveal', Df.open, [jq, sect]);
-
-        if (!jq && !Df.open) {
-            return;
-        }
-        Df.open = false;
-        $('.reveal').animate({
-            height: '1px',
-        }, function () {
-            $(this).parent().hide();
-            if (jq) {
-                jq = $(jq);
-                _classic(jq, sect);
-                jq.parent().show().end().animate({
-                    height: Df.revealpx * (Respond.mobile() ? 1.5 : 1),
-                }, function () {
-                    Df.open = true;
-                });
-            }
-        });
+        Reveal.expand(jq, sect, _classic);
     }
 
     function _setLang(str) {
