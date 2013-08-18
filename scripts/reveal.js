@@ -19,6 +19,21 @@ var Reveal;
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
     /// INTERNAL
 
+    function _class(jq, sect) {
+        // remove sects and add sect
+        jq.removeClass('cgray red green purple amber plum teal'); // Main.sects().join(' ')?
+        jq.addClass(sect);
+        _reexpand(jq)
+    }
+
+    function _reexpand(jq) {
+        jq.parent().show().end().animate({
+            height: Df.revealpx * (Respond.mobile() ? 1.5 : 1),
+        }, function () {
+            Df.open = true;
+        });
+    }
+
     function _expand(jq, sect, cb) {
         void W.debug > 0 && C.debug(name + '_expand', Df.open, [jq, sect]);
 
@@ -30,16 +45,14 @@ var Reveal;
             height: '1px',
         }, function () {
             $(this).parent().hide();
+
             if (!jq) {
                 return;
+            } else {
+                jq = $(jq);
+                cb(jq);
+                if (jq.length) _class(jq, sect);
             }
-            jq = $(jq);
-            cb(jq, sect);
-            jq.parent().show().end().animate({
-                height: Df.revealpx * (Respond.mobile() ? 1.5 : 1),
-            }, function () {
-                Df.open = true;
-            });
         });
     }
 

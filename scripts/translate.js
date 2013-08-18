@@ -62,17 +62,8 @@ var Translate;
         });
     }
 
-    function _classic(jq, sect) {
-        // remove sects and add sect
-        if (jq && jq.length) {
-            _retile(jq);
-            jq.removeClass('cgray red green purple amber plum teal'); // Main.sects().join(' ')?
-            jq.addClass(sect);
-        }
-    }
-
     function _reveal(jq, sect) {
-        Reveal.expand(jq, sect, _classic);
+        Reveal.expand(jq, sect, _retile);
     }
 
     function _setLang(str) {
