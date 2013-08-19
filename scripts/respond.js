@@ -12,7 +12,6 @@ var Respond;
     Df = { // DEFAULTS
         dat: {},
         current: 'mobile',
-        flip: '.aturitmo',
     };
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
     /// INTERNAL
@@ -63,10 +62,6 @@ var Respond;
         _detect();
 
         $(W).bind('resize orientationchange', _.throttle(_detect, 333));
-
-        Df.flip = $(Df.flip).on('click', function () {
-            _change(); // eventless arg
-        });
 
         return self;
     }

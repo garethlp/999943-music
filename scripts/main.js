@@ -83,8 +83,13 @@ function Main(W) {
         if ($.browser.mozilla) {
             $('td').drt_cellophy();
         }
+
         $('.disclose').on('click', function () {
             $('.modal').trigger('show.Modal');
+        });
+
+        $('.aturitmo').on('click', function () {
+            Respond.change(); // eventless arg
         });
     }
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
