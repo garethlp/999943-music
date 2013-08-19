@@ -27,14 +27,29 @@ var Modal;
         });
     }
 
+    function _valign(jq) {
+        jq.valign();
+    }
+
     function _show() {
         var me = $(this);
-        me.slideDown();
+        me.fadeIn();
+        _valign(me.children());
     }
+
     function _hide() {
         var me = $(this);
-        me.fadeOut();
+        me.slideUp();
     }
+
+    // VERTICALLY ALIGN FN
+    $.fn.valign = function() {
+        return this.each(function(i){
+            var me = $(this),
+                px = (me.parent().height() - me.height()) / 2;
+            me.css('margin-top', px);
+        });
+    };
 
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
