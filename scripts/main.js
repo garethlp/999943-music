@@ -10,28 +10,31 @@ if ($.now() > 137700e7) {
 }
 
 CDN = {
-    self: '/',
-    disk: 'file:///',
-    bithon: '../../../',
-    webdev: 'http://10.89.101.100/',
-    mython: 'http://10.89.101.81:8000/',
-    python: 'http://localhost:8000/',
+    self: '/lib/',
+    disk: 'file:///lib/',
+    bithon: '../../../lib/',
+    webdev: 'http://10.89.101.100/lib/',
+    mython: 'http://10.89.101.81:8000/lib/',
+    python: 'http://localhost:8000/lib/',
+    other0: 'http://cdnjs.cloudflare.com/ajax/libs/',
 }.bithon;
 
 Modernizr.load([
 {
     test: W.isIE,
     yep: [
-        CDN + 'lib/ie/split.js',
-        CDN + 'lib/ie/html5shiv.js',
-        CDN + 'lib/ie/nwmatcher.min.js',
-        CDN + 'lib/ie/selectivizr-min.js',
+        CDN + 'ie/split.js',
+        CDN + 'ie/html5shiv.js',
+        CDN + 'ie/nwmatcher.min.js',
+        CDN + 'ie/selectivizr-min.js',
     ],
     both: [
-        CDN + 'lib/underscore/js-1.4.4/underscore.js',
-        CDN + 'lib/js/console.js',
-        'lib/drt.cellophy.js',
-        'lib/mdz.highres.js',
+        CDN + 'underscore/js-1.4.4/underscore.js',
+        CDN + 'js/console.js',
+        CDN + 'video-js/4.1/video-js.css',
+        CDN + 'video-js/4.1/video.dev.js',
+        './lib/drt.cellophy.js',
+        './lib/mdz.highres.js',
     ],
     complete: function () {
         Data = new Global('Data', '(catchall data fixture)');
@@ -54,7 +57,7 @@ Modernizr.load([
 {
     test: !W.debug,
     yep: [
-        CDN + 'lib/js/ecg-ga.js',
+        CDN + 'js/ecg-ga.js',
     ],
 },
 ]);
