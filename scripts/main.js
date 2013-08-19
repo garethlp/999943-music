@@ -95,7 +95,7 @@ function Main(W) {
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
     function _init() {
-        W.debug > 0 && C.error('init @ ' + Date() + ' debug:', W.debug);
+        C.error('init @ ' + Date() + ' debug:', W.debug);
 
         if (self.inited(true)) {
             return null;
