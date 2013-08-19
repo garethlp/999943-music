@@ -123,3 +123,22 @@ Modernizr.addTest('highres', function() {
     // not highres
     return isHighRes;
 });
+
+function msieResizeFilter() {
+    var currheight = true;
+
+    if (!W.isIE) {
+        return function () {
+            return currheight;
+        };
+    } else {
+        return function makeFilter() {
+            var val = W.document.documentElement.clientHeight;
+
+            if (currheight !== val) {
+                currheight = val;
+                return currheight;
+            }
+        }
+    }
+}
