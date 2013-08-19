@@ -64,6 +64,12 @@
             background-image: url(../images/photos/filler.png);
             height: 315px;
         }
+
+        &:hover {
+            &.red, &.green, &.purple, &.amber, &.plum, &.teal {
+                cursor: pointer !important;
+            }
+        }
     }
 }
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
