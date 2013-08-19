@@ -41,10 +41,11 @@ var Reveal;
             return;
         }
         Df.open = false;
-        $(Df.host).animate({
+
+        $(Df.host).animate({ // ANIMATE
             height: '1px',
         }, function () {
-            $(this).parent().hide();
+            $(this).parent().hide(); // TR?
 
             if (!jq) {
                 return;
@@ -83,11 +84,8 @@ Reveal
     store props
         -amount
     track state
-        -expanded?
-    anchor meths
-        +toggle
-        +close
-        +open
-
+        -revealpx
+    expose meths
+        +expand
 
 */

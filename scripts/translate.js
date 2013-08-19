@@ -61,6 +61,7 @@ var Translate;
         texts.each(function () {
             var me = $(this),
                 txt = _deref(Df.dat, _classify(me));
+
             me.fadeOut(function () {
                 $(this).html(txt).fadeIn();
             });
@@ -135,15 +136,6 @@ var Translate;
         change: _toggle,
         reveal: _reveal,
         self: _pop,
-        exit: function () {
-            return _text('exit');
-        },
-        legal: function () {
-            return _text('legal');
-        },
-        slug: function () {
-            return _text('slug');
-        },
     });
 
 }(window));
