@@ -5,12 +5,13 @@ var Decache;
 
 (function (W) { //IIFE
     var name = 'Decache',
-        self = new Global(name, '(load images after doc)'),
+        self = new Global(name, '(load images from data-src after doc)'),
         C = W.console,
         Df;
 
     Df = { // DEFAULTS
         dat: {},
+        auto: null, // add cache to these upon init
     };
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
     /// INTERNAL
@@ -25,11 +26,18 @@ var Decache;
         });
     }
 
+    function _auto(jq) {
+        jq.find('img').addClass('cache');
+    }
+
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-    function _init() {
+    function _init(sel) {
         if (self.inited(true)) {
             return null;
+        }
+        if (sel) {
+            _auto($(sel || Df.auto));
         }
         _decache();
         return self;

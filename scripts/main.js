@@ -73,7 +73,7 @@ function Main(W) {
         sects: 'cgray red green purple amber plum teal exit legal slug',
         inits: function (cb) {
             Extract.init(Df, cb);
-            Decache.init();
+            Decache.init('.desktop');
             Control.init(Df);
             Modal.init();
         },
