@@ -30,29 +30,25 @@ var Translate;
     }
 
     function _classify(jq) {
-        W.debug > 0 && C.debug(name + '_classify', jq);
-
         // constuct array for drilling path
         var par = jq.closest('footer, section, td'),
-            kind = jq.attr('class'),
             sect = Extract.sect(par),
-            arr;
+            kind;
 
         if (par.is('.tile')) {
-            kind = 'tile'; // tile text
-        } else if (par.is('.text')) {
+            kind = 'tile'; // (.tile > .text)
+        } else if (jq.is('.text')) {
             kind = 'text';
-        } else if (par.is('.head')) {
+        } else if (jq.is('.head')) {
             kind = 'head';
         }
-        arr = [sect, kind, Df.current];
-        W.debug > 0 && C.debug(name + '_classify [sect,kind]', arr);
-        // include language tag
-        return arr;
-    }
 
-    // dat.tile == tile > text
-    // dat.text == reveal > text
+        // include language tag
+        W.debug > 1 && C.debug(name + '_classify',
+            '[jq: sect,kind,lang]', [jq, sect, kind, Df.current]);
+
+        return [sect, kind, Df.current];
+    }
 
     function _retile(jq) {
         var texts;
