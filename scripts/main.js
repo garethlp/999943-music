@@ -89,6 +89,19 @@ function Main(W) {
 
         $('.disclose').on('click', function () {
             $('.modal').trigger('show.Modal');
+            $('#Legal').show();
+        });
+
+        $('img.purple').on('click', function (evt) {
+            var vid = $(this).data('vid');
+
+            $('#Video').children().hide();
+            $('#' + vid).show().click(function (evt) {
+                evt.stopPropagation();
+            });
+
+            $('.modal').trigger('show.Modal');
+            $('#Video').show();
         });
 
         $('.aturitmo').on('click', function () {
