@@ -1,19 +1,6 @@
 /* MISC */
 @import "__mix";
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-.cache {
-    display: none;
-}
-.show {
-    display: initial !important;
-}
-.left {
-    float: left;
-}
-.right {
-    float: right;
-}
-
 body {
     @media (max-width: 1600px) {
         zoom: 1;
@@ -35,6 +22,19 @@ body {
     }
     @media (max-width: 475px) {
         zoom: 0.8;
+    }
+
+    .cache {
+        display: none;
+    }
+    .show {
+        display: initial !important;
+    }
+    .left {
+        float: left;
+    }
+    .right {
+        float: right;
     }
 }
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
