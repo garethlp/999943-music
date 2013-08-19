@@ -10,7 +10,7 @@ var Translate;
         Df;
 
     Df = { // DEFAULTS
-        dat: {},
+        dat: null,
         current: 'esp',
         flip: '.fliplang',
         partsUrl: 'data.html',
@@ -29,33 +29,42 @@ var Translate;
         return foo;
     }
 
-    function _split(str) {
-        return str = str ? str.split(' ') : []
-    }
-
     function _classify(jq) {
+        W.debug > 0 && C.debug(name + '_classify', jq);
+
         // constuct array for drilling path
-        var a0 = _split(jq.closest('footer, section, td').attr('class')),
-            a1 = _split(jq.attr('class')),
+        var par = jq.closest('footer, section, td'),
+            kind = jq.attr('class'),
+            sect = Extract.sect(par),
             arr;
-        if (a0[0] === 'tile') {
-            a1[1] = 'tile'; // tile text
+
+        if (par.is('.tile')) {
+            kind = 'tile'; // tile text
+        } else if (par.is('.text')) {
+            kind = 'text';
+        } else if (par.is('.head')) {
+            kind = 'head';
         }
-        arr = [a0.slice(-1).pop(), a1.slice(-1).pop()];
-        W.debug > 1 && C.debug(name + '_classify', arr);
-        arr.push(Df.current); // include language tag
+        arr = [sect, kind, Df.current];
+        W.debug > 0 && C.debug(name + '_classify [sect,kind]', arr);
+        // include language tag
         return arr;
     }
 
+    // dat.tile == tile > text
+    // dat.text == reveal > text
+
     function _retile(jq) {
-        var eles, data = Df.dat = Extract.data();
+        var texts;
 
-        eles = $(jq || 'body').find(Df.tiles);
-        W.debug > 1 && C.debug(name + '_retile', jq, eles);
+        Df.dat = (Df.dat || Extract.data());
 
-        eles.each(function () {
+        texts = $(jq || 'body').find(Df.tiles); // one or all
+        W.debug > 1 && C.debug(name + '_retile', jq, texts);
+
+        texts.each(function () {
             var me = $(this),
-                txt = _deref(data, _classify(me));
+                txt = _deref(Df.dat, _classify(me));
             me.fadeOut(function () {
                 $(this).html(txt).fadeIn();
             });
@@ -90,16 +99,28 @@ var Translate;
         }
     }
 
-    function _text(kind) {
-        var str = Df.dat[kind].text[Df.current];
+    function _pop(sect, kind) {
+        var str = Df.dat[sect][kind][Df.current];
+
         str = $(str).text();
         W.debug > 0 && C.debug(name + '_text', str);
         return str;
     }
 
+    function _text(sect) {
+        return _pop(sect, 'text');
+    }
+    function _tile(sect) {
+        return _pop(sect, 'tile');
+    }
+    function _head(sect) {
+        return _pop(sect, 'head');
+    }
+
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-    function _init() {
+    function _init(glob) {
+        Df.glob = glob;
         if (self.inited(true)) {
             return null;
         }
@@ -117,6 +138,7 @@ var Translate;
         run: _retile,
         change: _toggle,
         reveal: _reveal,
+        self: _pop,
         exit: function () {
             return _text('exit');
         },
@@ -141,5 +163,15 @@ Track current lang
     + change button
     + findAll()
         - what is eligible
+
+        establish tile text/head data
+        custom events to populate
+
+    change language sends event update
+    triggers each element with this listener to
+    run _pop(self.sect, self,kind, current lang)
+
+? need to update with (?, 'tile')
+
 
 */
