@@ -42,16 +42,20 @@ var Respond;
 
     function _detect() {
         var r = Modernizr.highres, // $('html').is('.retina'),
+            d = Df.current,
             w = W.document.documentElement.clientWidth;
             // good god -- the only way to get width in IE?
 
         if ((w <= 600 && !r) || (w <= 1200 && r)) {
-            void W.debug > 0 && C.debug(name + '_detect', 'mobile');
-            void Df.current === 'mobile' || _change('mobile');
+            d = 'mobile';
         } else if ((w > 600 && !r) || (w > 1200 && r)) {
-            void W.debug > 0 && C.debug(name + '_detect', 'desktop');
-            void Df.current === 'desktop' || _change('desktop');
+            d = 'desktop';
         }
+        if (d !== Df.current) {
+            W.debug > 0 && C.debug(name + '_detect', d);
+            _change(d);
+        }
+        return Df.current;
     }
 
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
@@ -73,6 +77,7 @@ var Respond;
         },
         init: _init,
         change: _change,
+        check: _detect,
         mobile: function () {
             return (Df.current === 'mobile');
         },
@@ -97,7 +102,7 @@ Track current devide
 
     don`t expect classes to stay orderly!
 
-*/
+ */
 
 Modernizr.addTest('highres', function() {
     // for opera
