@@ -69,7 +69,6 @@ function Main(W) {
         flip: '.fliplang',
         sects: 'cgray red green purple amber plum teal exit legal slug',
         inits: function (cb) {
-            this.sects = this.sects.split(' ');
             Extract.init(Df, cb);
             Decache.init();
             Control.init(Df);
@@ -105,6 +104,12 @@ function Main(W) {
             return Df;
         },
         init: _init,
+        sectStr: function () {
+            return Df.sects;
+        },
+        sectArr: function () {
+            return Df.sects.split(' ');
+        },
     });
     return self;
 }

@@ -21,7 +21,7 @@ var Reveal;
 
     function _class(jq, sect) {
         // remove sects and add sect
-        jq.removeClass('cgray red green purple amber plum teal'); // Main.sects().join(' ')?
+        jq.removeClass(Main.sectStr());
         jq.addClass(sect);
         _reexpand(jq)
     }

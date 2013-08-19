@@ -12,9 +12,6 @@ var Control;
     Df = { // DEFAULTS
         dat: {},
         glob: null,
-        sects: function () {
-            return this.glob.sects;
-        },
     };
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
     /// INTERNAL
@@ -42,10 +39,6 @@ var Control;
         W.setTimeout(function () {
             _scroll(x);
         }, 333);
-    }
-
-    function _listLook(arr, val){
-        return _.indexOf(arr, val) + 1;
     }
 
     function _getSect(ctrl){

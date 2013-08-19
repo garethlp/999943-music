@@ -13,9 +13,6 @@ var Extract;
         dat: {},
         glob: null,
         partsUrl: 'data.html',
-        sects: function () {
-            return this.glob.sects;
-        },
     };
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
     /// INTERNAL
@@ -46,7 +43,7 @@ var Extract;
         _linkButtons($load);
 
         // for each in keylist
-        $.each(Df.sects(), function (i, sect) {
+        $.each(Main.sectArr(), function (i, sect) {
             var sectO = {},
                 row$;
 
@@ -70,6 +67,32 @@ var Extract;
         });
     }
 
+    function _split(str) {
+        return str = str ? str.split(' ') : []
+    }
+
+    function _classes(ele) {
+        return _split($(ele).attr('class'));
+    }
+
+    function _listLook(arr, val){
+        return _.indexOf(arr, val) + 1;
+    }
+
+    function _lookSect(ele){
+        var cls = _classes(ele),
+            arr = Main.sectArr(),
+            str, num;
+
+        while (cls.length) {
+            str = cls.pop();
+            num = _listLook(arr, str);
+            if (num) {
+                return str;
+            };
+        }
+    }
+
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
     function _init(glob, cb) {
@@ -89,6 +112,7 @@ var Extract;
         data: function () {
             return Df.dat;
         },
+        sect: _lookSect,
     });
 
 }(window));
