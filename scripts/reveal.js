@@ -74,6 +74,9 @@ var Reveal;
         },
         init: _init,
         expand: _expand,
+        contract: function () {
+            _expand();
+        }
     });
 
 }(window));

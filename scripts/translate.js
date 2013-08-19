@@ -68,7 +68,7 @@ var Translate;
         });
     }
 
-    function _reveal(jq, sect) {
+    function _update(jq, sect) {
         Reveal.expand(jq, sect, _retile);
     }
 
@@ -121,7 +121,7 @@ var Translate;
         if (self.inited(true)) {
             return null;
         }
-        _reveal();
+        _update();
         _retile();
         Df.flip = $(Df.flip).on('click', _toggle);
         return self;
@@ -134,7 +134,7 @@ var Translate;
         init: _init,
         run: _retile,
         change: _toggle,
-        reveal: _reveal,
+        update: _update,
         self: _pop,
     });
 

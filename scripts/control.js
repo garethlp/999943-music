@@ -54,7 +54,7 @@ var Control;
         return ctrl.closest('tr').attr('class').split(' ').pop();
     }
 
-    function _groom() {
+    function _binding() {
         $('.control').each(function () {
             var ctrl = $(this),
                 sect, level, reveal;
@@ -65,7 +65,7 @@ var Control;
             // get my level (class of closest tr) [upper/lower]
             level = _getLevel(ctrl)
 
-            C.debug(name + '_groom', sect, level);
+            C.debug(name + '_binding', sect, level);
 
             // find which reveal
             reveal = $('.reveal.' + level);
@@ -75,7 +75,7 @@ var Control;
 
                 if (ctrl.is('.tilted')) {
                     // open nothing
-                    Reveal.expand(); // was Translate.update();
+                    Reveal.contract();
                     // scroll to top
                     _soon('#Top');
                     _reset();
@@ -99,7 +99,7 @@ var Control;
         if (self.inited(true)) {
             return null;
         }
-        _groom();
+        _binding();
         return self;
     }
 
