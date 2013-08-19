@@ -1,5 +1,5 @@
 /*jslint es5:true, white:false */
-/*globals $, Global, Translate, window */
+/*globals $, Control, Global, Reveal, window */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 var Respond;
 
@@ -28,7 +28,8 @@ var Respond;
     }
 
     function _change(str) {
-        Translate.update(false);
+        Reveal.contract();
+        Control.reset();
 
         if (str === 'desktop' || (!str && Df.current === 'mobile')) {
             _setSize('desktop')
