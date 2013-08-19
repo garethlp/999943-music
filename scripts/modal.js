@@ -16,14 +16,14 @@ var Modal;
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
     /// INTERNAL
 
-    function _foo() {
+    function _binding() {
         Df.all.each(function () {
             var me = $(this)
             .on('show.Modal', _show)
             .on('hide.Modal', _hide);
             me.on('click', _hide)
 
-            W.debug > 0 && C.debug(name + '_foo', me);
+            W.debug > 0 && C.debug(name + '_binding', me);
         });
     }
 
@@ -33,6 +33,7 @@ var Modal;
 
     function _show() {
         var me = $(this);
+        me.children().hide();
         me.fadeIn();
         _valign(me.children());
     }
@@ -58,7 +59,7 @@ var Modal;
             return null;
         }
         Df.all = $(Df.all);
-        _foo();
+        _binding();
         return self;
     }
 

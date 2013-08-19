@@ -9,10 +9,12 @@
     position: fixed;
     z-index: 999;
 
-    > * {
-        margin: 1em auto;
+    & > div {
         min-width: 400px;
+    }
+    #Legal {
         width: 60%;
+        margin: 1em auto;
     }
     .text {
         background-color: white;
