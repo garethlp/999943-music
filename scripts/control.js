@@ -16,11 +16,16 @@ var Control;
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
     /// INTERNAL
 
-    function _reset() {
-        $('.control').removeClass('tilted').addClass('tilt') //
-        .attr({
-            title: 'Reveal',
-        });
+    function _reset(jq) {
+        $('.control').removeClass('tilted') //
+        .addClass('tilt') //
+        .attr('title', 'Reveal');
+
+        if (jq) {
+            jq.addClass('tilted') //
+            .removeClass('tilt') //
+            .attr('title', 'Close');
+        }
     }
 
     function _scroll(ele) {
@@ -66,25 +71,19 @@ var Control;
             reveal = $('.reveal.' + level);
 
             ctrl.parent().on('click', function () {
-                var tilt = ctrl.is('.tilted');
                 // store state and restore defaults
-                _reset();
 
-                if (tilt) {
+                if (ctrl.is('.tilted')) {
                     // open nothing
-                    Translate.reveal();
-
+                    Reveal.expand(); // was Translate.update();
                     // scroll to top
                     _soon('#Top');
+                    _reset();
                 } else {
-                    Translate.reveal(reveal, sect);
-                    ctrl.addClass('tilted').removeClass('tilt') //
-                    .attr({
-                        title: 'Close',
-                    });
-
+                    Translate.update(reveal, sect);
                     // scroll to top of tile
                     _soon(ctrl);
+                    _reset(ctrl);
                 }
             });
 
@@ -109,6 +108,7 @@ var Control;
             return Df;
         },
         init: _init,
+        reset: _reset,
     });
 
 }(window));
