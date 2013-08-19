@@ -83,10 +83,11 @@
             }
             .head {
                 @include pos(1.5, 2.5);
-                @include rex('width', 26);
+                @include rex('width', 21);
+                font-size: 130%;
             }
             .text {
-                @include pos(27, 1.5);
+                @include pos(24, 1.5);
                 @include rex('width', 54);
                 @include rex('height', 10);
                 text-align: center;
