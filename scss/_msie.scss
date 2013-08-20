@@ -2,6 +2,9 @@
 @import "__mix";
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 html.msie {
+    .modal {
+        background-image: url(../images/colors/masq.png);
+    }
     .badbrowser {
         &::before {
             content: 'scold';
