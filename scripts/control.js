@@ -65,7 +65,7 @@ var Control;
             // get my level (class of closest tr) [upper/lower]
             level = _getLevel(ctrl)
 
-            C.debug(name + '_binding', sect, level);
+            W.debug > 0 && C.debug(name + '_binding', sect, level);
 
             // find which reveal
             reveal = $('.reveal.' + level);
