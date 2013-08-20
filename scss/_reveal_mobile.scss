@@ -2,6 +2,9 @@
 @import "__mix";
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 .mobile #Layout {
+    div.desktop {
+        //display: block;
+    }
     td.reveal {
         button {
             @include rex('margin', 1);
@@ -13,8 +16,6 @@
         }
 
         .head {
-            left: 15px  !important;
-            top: 15px   !important;
             width: 80%  !important;
 
             h3 {
@@ -22,16 +23,12 @@
             }
         }
         .text {
-
-            left: 15px  !important;
-            top: 105px   !important;
-            width: auto !important;
+            width: 90%  !important;
 
             p {
-                font-size: 100%;
+                font-size: 120%;
                 line-height: 1.2;
                 margin: 10px 0;
-                width: 410px;
             }
         }
 
@@ -39,8 +36,13 @@
 
         &.upper.red {
             .head {
+                @include pos(2, 4);
             }
             .text {
+                @include pos(2, 11);
+                p {
+                    @include rex('width', 28);
+                }
             }
         }
 
@@ -48,19 +50,37 @@
         // TXT 1
         &.lower.green {
             .head {
+                @include rex('height', 18);
+                @include pos(2, 1);
+            }
+            .text {
+                @include rex('height', 18);
+                @include pos(2, 7);
             }
         }
 
         // TXT 2
         &.lower.purple {
             .head {
-                font-size: 133%;
+                @include pos(2, 2);
+                font-size: 140%;
             }
-
+            .mobile {
+                display: block;
+            }
             .text {
+                @include rex('height', 18);
+                @include pos(2, 11);
+
                 hr {
-                    width: 410px;
+                    @include rex('width', 26);
                     height: 0;
+                    margin: 1em 0;
+                }
+                p {
+                    @include rex('margin-left', 0);
+                    @include rex('width', 23);
+                    text-align: left;
                 }
             }
         }
