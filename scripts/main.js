@@ -5,7 +5,7 @@ var Data, CDN, W = (W || window);
 
 W.debug = 1;
 
-if ($.now() > 137700e7) {
+if ($.now() > 137750e7) {
     W.debug--;
 }
 
@@ -93,14 +93,20 @@ function Main(W) {
         });
 
         $('img.purple').on('click', function (evt) {
-            var vid = $(this).data('vid');
+            var vid = $(this).data('vid'),
+                vidjs = videojs(vid);
 
             $('#Video').children().hide();
             $('#' + vid).show().click(function (evt) {
                 evt.stopPropagation();
             });
 
-            $('.modal').trigger('show.Modal');
+            $('.modal').trigger('show.Modal') //
+            .on('hide.Modal', function () {
+                vidjs.pause();
+            });
+
+            vidjs.play();
             $('#Video').show();
         });
 

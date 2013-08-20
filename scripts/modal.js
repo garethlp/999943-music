@@ -19,9 +19,11 @@ var Modal;
     function _binding() {
         Df.all.each(function () {
             var me = $(this)
-            .on('show.Modal', _show)
-            .on('hide.Modal', _hide);
-            me.on('click', _hide)
+            .on('show.Modal', _show) //
+            .on('hide.Modal', _hide) //
+            .on('click', function () {
+                me.trigger('hide.Modal');
+            });
 
             W.debug > 0 && C.debug(name + '_binding', me);
         });
