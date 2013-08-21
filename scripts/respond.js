@@ -11,7 +11,7 @@ var Respond;
 
     Df = { // DEFAULTS
         dat: {},
-        current: 'mobile',
+        current: '',
     };
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
     /// INTERNAL
@@ -51,9 +51,15 @@ var Respond;
         } else if ((w > 600 && !r) || (w > 1200 && r)) {
             d = 'desktop';
         }
+
         if (d !== Df.current) {
             W.debug > 0 && C.debug(name + '_detect', d);
-            _change(d);
+
+            if (W.isIE && d === 'mobile' && Df.current === 'desktop') {
+                W.location.reload(); // refresh to respond to shrinking
+            } else {
+                _change(d);
+            }
         }
         return Df.current;
     }
@@ -103,47 +109,3 @@ Track current devide
     don`t expect classes to stay orderly!
 
  */
-
-Modernizr.addTest('highres', function() {
-    // for opera
-    var ratio = '2.99/2';
-    // for webkit
-    var num = '1.499';
-    var mqs = [
-    'only screen and (-o-min-device-pixel-ratio:' + ratio + ')',
-    'only screen and (min--moz-device-pixel-ratio:' + num + ')',
-    'only screen and (-webkit-min-device-pixel-ratio:' + num + ')',
-    'only screen and (min-device-pixel-ratio:' + num + ')'
-    ];
-    var isHighRes = false;
-
-    // loop through vendors, checking non-prefixed first
-    for (var i = mqs.length - 1; i >= 0; i--) {
-        isHighRes = Modernizr.mq( mqs[i] );
-        // if found one, return early
-        if ( isHighRes ) {
-            return isHighRes;
-        }
-    }
-    // not highres
-    return isHighRes;
-});
-
-function msieResizeFilter() {
-    var currheight = true;
-
-    if (!W.isIE) {
-        return function () {
-            return currheight;
-        };
-    } else {
-        return function makeFilter() {
-            var val = W.document.documentElement.clientHeight;
-
-            if (currheight !== val) {
-                currheight = val;
-                return currheight;
-            }
-        }
-    }
-}
