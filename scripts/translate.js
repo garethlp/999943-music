@@ -96,22 +96,29 @@ var Translate;
         }
     }
 
-    function _pop(sect, kind) {
-        var str = Df.dat[sect][kind][Df.current];
+    function _lookup(sect, kind) {
+        var str;
 
-        str = $(str).text();
-        W.debug > 0 && C.debug(name + '_text', str);
-        return str;
+        try {
+            str = Df.dat[sect][kind][Df.current];
+            str = $(str).text();
+
+            W.debug > 0 && C.debug(name, '_lookup', str);
+            return str;
+        } catch (err) {
+            C.error(err);
+            return 'N/A';
+        }
     }
 
     function _text(sect) {
-        return _pop(sect, 'text');
+        return _lookup(sect, 'text');
     }
     function _tile(sect) {
-        return _pop(sect, 'tile');
+        return _lookup(sect, 'tile');
     }
     function _head(sect) {
-        return _pop(sect, 'head');
+        return _lookup(sect, 'head');
     }
 
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
@@ -135,7 +142,7 @@ var Translate;
         run: _retile,
         change: _toggle,
         update: _update,
-        self: _pop,
+        self: _lookup,
     });
 
 }(window));
@@ -157,7 +164,7 @@ Track current lang
 
     change language sends event update
     triggers each element with this listener to
-    run _pop(self.sect, self,kind, current lang)
+    run _lookup(self.sect, self,kind, current lang)
 
 ? need to update with (?, 'tile')
 
