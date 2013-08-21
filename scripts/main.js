@@ -33,8 +33,8 @@ Modernizr.load([
         CDN + 'js/console.js',
         CDN + 'video-js/4.1/video-js.css',
         CDN + 'video-js/4.1/video.dev.js',
-        './lib/drt.cellophy.js',
-        './lib/mdz.highres.js',
+        './lib/drt-cellophy.js',
+        './lib/mzr-highres.js',
     ],
     complete: function () {
         Data = new Global('Data', '(catchall data fixture)');
