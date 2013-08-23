@@ -72,7 +72,7 @@ var Translate;
     }
 
     function _update(jq, sect) {
-        C.error('_update');
+        W.debug > 0 && C.debug(name, '_update');
         Reveal.expand(jq, sect, _retile);
     }
 

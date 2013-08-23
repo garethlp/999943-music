@@ -1,5 +1,5 @@
 /*jslint es5:true, white:false */
-/*globals $, Control, Decache, Extract, Global, Main:true, Modal, Modernizr, Respond, Translate, window */
+/*globals $, Control, Decache, Extract, Global, Main:true, Modal, Modernizr, Respond, Reveal, Translate, window */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 var Data, CDN, W = (W || window);
 
@@ -82,6 +82,7 @@ function Main(W) {
     function _binding() {
         Translate.init();
         Respond.init();
+        Reveal.init();
 
         if ($.browser.mozilla) {
             $('td').drt_cellophy();
