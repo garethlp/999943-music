@@ -3,6 +3,7 @@
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 body {
     padding: 9px;
+    overflow-y: scroll;
 
     &.mobile {
         padding: 0;
@@ -23,7 +24,7 @@ body {
     }
     footer {
         @include rex('margin-top', 0.333);
-        @include rex('height', 12);
+        @include rex('height', 4);
         color: gray;
         font-size: 10px;
         padding: 0 6px;
