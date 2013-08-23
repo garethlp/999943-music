@@ -11,9 +11,10 @@ var Reveal;
 
     Df = { // DEFAULTS
         dat: {},
-        glob: null,
         open: '',
         sect: '',
+        speed: 666,
+        tile: '',
         revealpx: 257,
         reveals: '.reveal',
     };
@@ -21,10 +22,14 @@ var Reveal;
     /// INTERNAL
 
     function _reexpand(jq) {
-        Df.finish(jq); /// from Translate/retile
+        if (Df.finish) {
+            Df.finish(jq); /// from Translate/retile
+        } else {
+            return;
+        }
 
         jq.closest('tr').show().end() //
-        .children().show().end() //
+        .children().fadeIn(Df.speed).end() //
         .animate({
             height: Df.revealpx * (Respond.mobile() ? 1.5 : 1),
         }, function () {
@@ -42,24 +47,35 @@ var Reveal;
         }
     }
 
-    function _toggle(tile, sect, cb) {
-        W.debug > 0 && C.debug(name + '_toggle', Df, [tile, sect, cb]);
+    function _closed() {
+        Df.open = '';
 
-        if (!tile && !Df.open) {
+        if (Df.tile) { //
+            _expand(Df.tile);
+        }
+    }
+
+    function _toggle(tile, sect, cb) {
+        Df.tile = tile || Df.tile;
+
+        if (!Df.tile && !Df.open) {
             return; // nothing to do!
         }
+        Df.sect = sect;
+        Df.finish = cb;
 
-        $(Df.open || Df.reveals).first().animate({
-            height: '1px',
-        }, function () {
-            $(this).closest('tr').hide().end() //
-            .children().hide();
-            if (tile) { //
-                Df.sect = sect;
-                Df.finish = cb;
-                _expand(tile);
-            }
-        });
+        W.debug > 0 && C.debug(name + '_toggle', Df);
+        if (Df.open) {
+            Df.open.children().fadeOut().end() //
+            .animate({
+                height: '1px',
+            }, Df.speed, function () {
+                $(this).closest('tr').hide();
+                _closed();
+            });
+        } else {
+            _closed(); // ALREADY
+        }
     }
 
     function _contractAll() {
@@ -74,9 +90,7 @@ var Reveal;
 
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-    function _init(glob) {
-        Df.glob = glob;
-
+    function _init() {
         if (self.inited(true)) {
             return null;
         }

@@ -114,6 +114,11 @@ function Main(W) {
         $('.aturitmo').on('click', function () {
             Respond.change(); // eventless arg
         });
+
+        $('.upper.reveal').one('click', 'button', function (evt) {
+            evt.preventDefault();
+            $('.disclose').click();
+        });
     }
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
