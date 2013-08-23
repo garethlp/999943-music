@@ -107,7 +107,7 @@ function Main(W) {
                 vidjs.pause();
             });
 
-            vidjs.play();
+            vidjs.currentTime(0).play();
             $('#Video').show();
         });
 

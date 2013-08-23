@@ -21,11 +21,14 @@ var Reveal;
     /// INTERNAL
 
     function _reexpand(jq) {
-        jq.parent().show().end().animate({
+        Df.finish(jq); /// from Translate/retile
+
+        jq.closest('tr').show().end() //
+        .children().show().end() //
+        .animate({
             height: Df.revealpx * (Respond.mobile() ? 1.5 : 1),
         }, function () {
             Df.open = jq;
-            Df.finish(jq); /// from Translate/retile
         });
     }
 
@@ -34,37 +37,39 @@ var Reveal;
 
         if (jq.length) {
             // remove sects and add sect
-            jq.removeClass(Main.sectStr());
-            jq.addClass(Df.sect);
+            jq.removeClass(Main.sectStr()).addClass(Df.sect);
             _reexpand(jq);
         }
     }
 
-    function _toggle(btn, sect, cb) {
-        W.debug > 0 && C.debug(name + '_toggle', Df, [btn, sect, cb]);
+    function _toggle(tile, sect, cb) {
+        W.debug > 0 && C.debug(name + '_toggle', Df, [tile, sect, cb]);
 
-        if (!btn && !Df.open) {
+        if (!tile && !Df.open) {
             return; // nothing to do!
         }
 
         $(Df.open || Df.reveals).first().animate({
             height: '1px',
         }, function () {
-            $(this).closest('tr').hide();
-            if (btn) { //
+            $(this).closest('tr').hide().end() //
+            .children().hide();
+            if (tile) { //
                 Df.sect = sect;
                 Df.finish = cb;
-                _expand(btn);
+                _expand(tile);
             }
         });
     }
 
     function _contractAll() {
-        W.debug > 0 && C.debug(name, '_contract');
+        var all = $(Df.reveals);
+        W.debug > 0 && C.debug(name, '_contract', all.children());
 
-        $(Df.reveals).css({
+        all.css({
             height: '1px',
-        }).closest('tr').hide();
+        }).children().fadeOut().end() //
+        .closest('tr').hide();
     }
 
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */

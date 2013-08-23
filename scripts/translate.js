@@ -55,9 +55,7 @@ var Translate;
         var tile = $(isNaN(sel) ? sel : this),
             text = _deref(_classify(tile));
 
-        tile.fadeOut(function () {
-            tile.html(text).fadeIn();
-        });
+        tile.html(text)
     }
 
     function _retile(jq) {
