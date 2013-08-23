@@ -14,8 +14,8 @@
             display: none;
         }
         button {
-            @include rex('margin', 2);
             float: right;
+            margin: 12px 0 18px 0;
         }
         .head, .text {
             padding: 0;
@@ -50,6 +50,9 @@
                 @include pos(27, 3.4);
                 @include rex('width', 26.5);
             }
+            button {
+                @include rex('margin-right', 3);
+            }
         }
         // TXT 1
         &.lower.green {
@@ -68,8 +71,7 @@
                 }
             }
             button {
-                @include rex('margin', 0);
-                @include rex('margin-bottom', 1.5);
+                margin: 6px 0 18px 0;
                 float: none;
             }
         }
@@ -125,7 +127,7 @@
             }
             .head {
                 @include pos(1.5, 6.3);
-                @include rex('width', 16);
+                @include rex('width', 18);
             }
             .text {
                 @include pos(24, 6);
@@ -151,13 +153,13 @@
                 @include rex('width', 22);
             }
             .text {
-                @include pos(26, 3);
+                @include pos(26, 2);
                 @include rex('width', 37);
             }
             button {
                 position: relative;
-                @include rex('right', -17);
-                @include rex('top', 5);
+                @include rex('right', -15);
+                @include rex('top', 6);
             }
         }
         // TXT 5
