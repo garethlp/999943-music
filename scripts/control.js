@@ -16,8 +16,8 @@ var Control;
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
     /// INTERNAL
 
-    function _reset(jq) {
-        $('.control').removeClass('tilted') //
+    function _reset(jq, not) {
+        $('.control').not(not).removeClass('tilted') //
         .addClass('tilt') //
         .attr('title', 'Reveal');
 
@@ -56,9 +56,9 @@ var Control;
 
     function _tilter(ctrl, reveal, sect) {
         if (ctrl.is('.tilted')) {
-            Reveal.contract(); // open nothing
+            Reveal.contract(_reset); // open nothing
             _soon('#Top'); // scroll to top
-            _reset();
+            _reset('', ctrl);
         } else {
             Translate.update(reveal, sect);
             _soon(ctrl); // scroll to tile

@@ -22,19 +22,21 @@ var Reveal;
     /// INTERNAL
 
     function _reexpand(jq) {
+        var mobile = Respond.mobile();
+
         if (Df.finish) {
             Df.finish(jq); /// from Translate/retile
         } else {
-            return;
+            return true;
         }
 
         jq.closest('tr').show().end() //
-        .children().fadeIn(Df.speed).end() //
         .animate({
-            height: Df.revealpx * (Respond.mobile() ? 1.5 : 1),
+            height: Df.revealpx * (mobile ? 1.5 : 1),
         }, function () {
             Df.open = jq;
-        });
+        }).children() //
+        .not(mobile ? '.desktop' : 'foo').fadeIn(Df.speed);
     }
 
     function _expand(jq) {
@@ -58,7 +60,7 @@ var Reveal;
     function _toggle(tile, sect, cb) {
         Df.tile = tile || Df.tile;
 
-        if (!Df.tile && !Df.open) {
+        if (!tile && !Df.open) {
             return; // nothing to do!
         }
         Df.sect = sect;
@@ -105,8 +107,9 @@ var Reveal;
         },
         init: _init,
         expand: _toggle,
-        contract: function () {
+        contract: function (cb) {
             _toggle();
+            cb && !Df.sect && cb();
         },
     });
 
