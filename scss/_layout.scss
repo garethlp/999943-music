@@ -22,7 +22,8 @@ body {
         z-index: 9;
     }
     footer {
-        @include rex('bottom', -2);
+        @include rex('margin-top', 0.333);
+        @include rex('height', 12);
         color: gray;
         font-size: 10px;
         padding: 0 6px;
@@ -100,7 +101,6 @@ body {
 #Layout {
     border-collapse: separate;
     border-spacing: 10px;
-    margin-bottom: 80px;
     padding-top: 80px;
     position: relative;
     z-index: 1;
