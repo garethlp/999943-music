@@ -1,5 +1,5 @@
 /*jslint es5:true, white:false */
-/*globals $, Global, Translate, window */
+/*globals $, Global, Reveal, Translate, window */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 var Control;
 
@@ -46,12 +46,24 @@ var Control;
         }, 333);
     }
 
-    function _getSect(ctrl){
+    function _getSect(ctrl) {
         return ctrl.closest('td').attr('class').split(' ').pop();
     }
 
-    function _getLevel(ctrl){
+    function _getLevel(ctrl) {
         return ctrl.closest('tr').attr('class').split(' ').pop();
+    }
+
+    function _tilter(ctrl, reveal, sect) {
+        if (ctrl.is('.tilted')) {
+            Reveal.contract(); // open nothing
+            _soon('#Top'); // scroll to top
+            _reset();
+        } else {
+            Translate.update(reveal, sect);
+            _soon(ctrl); // scroll to tile
+            _reset(ctrl);
+        }
     }
 
     function _binding() {
@@ -61,34 +73,19 @@ var Control;
 
             // get my sect (last class of closest td)
             sect = _getSect(ctrl);
-
             // get my level (class of closest tr) [upper/lower]
-            level = _getLevel(ctrl)
-
-            W.debug > 0 && C.debug(name + '_binding', sect, level);
+            level = _getLevel(ctrl);
 
             // find which reveal
             reveal = $('.reveal.' + level);
 
             ctrl.parent().on('click', function () {
                 // store state and restore defaults
-
-                if (ctrl.is('.tilted')) {
-                    // open nothing
-                    Reveal.contract();
-                    // scroll to top
-                    _soon('#Top');
-                    _reset();
-                } else {
-                    Translate.update(reveal, sect);
-                    // scroll to top of tile
-                    _soon(ctrl);
-                    _reset(ctrl);
-                }
+                _tilter(ctrl, reveal, sect);
             });
 
             _reset();
-            W.debug > 1 && C.debug(name + '_groom', sect, level, reveal[0]);
+            W.debug > 0 && C.debug(name + '_binding', sect, level, reveal[0]);
         });
     }
 
