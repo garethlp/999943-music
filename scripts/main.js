@@ -117,6 +117,7 @@ function Main(W) {
 
         $('.upper.reveal').one('click', 'button', function (evt) {
             evt.preventDefault();
+            evt.stopImmediatePropagation();
             $('.disclose').click();
         });
     }

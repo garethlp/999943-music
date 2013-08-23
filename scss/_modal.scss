@@ -32,13 +32,13 @@
             color: transparent;
             cursor: pointer;
             display: inline-block;
-            float: left;
-            margin: 1em 0 0 1em;
-            opacity: 0.5;
+            float: right;
+            margin: 2em;
+            opacity: 1;
             width: 32px; height: 32px;
 
             &:hover {
-                opacity: 1;
+                opacity: 0.5;
             }
             &:before {
                 content: 'X';

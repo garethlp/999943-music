@@ -41,21 +41,25 @@ var Extract;
         W.debug > 0 && C.debug(name + '_opener', anc);
 
         W.setTimeout(function () {
-            W.location.href = anc.attr('href');
+            anc.get(0).click();
         }, 333);
     }
 
     function _linkButtons(jq) {
         var refs = jq.find('a');
 
-        refs.each(_link2button);
-
         $('#Layout').on('click', Df.btnSel, function (evt) {
             if (W.isIE) {
                 evt.preventDefault();
-                _opener($(this).parent());
+                _opener($(evt.target).parent());
             }
         });
+
+        refs.each(_link2button);
+        refs.attr({
+            target: '_blank',
+        });
+
     }
 
     function _parse($load) {
