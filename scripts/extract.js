@@ -13,6 +13,7 @@ var Extract;
         dat: {},
         glob: null,
         partsUrl: 'data.html',
+        btnSel: '.orange',
     };
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
     /// INTERNAL
@@ -30,13 +31,29 @@ var Extract;
 
     function _link2button() {
         var jq = $(this),
-            neo = $('<button>').addClass('orange').text(jq.text());
-        jq.html(neo);
+            neo = $('<button>').addClass(Df.btnSel.slice(1));
+
+        neo.text(jq.text());
+        jq.text('').append(neo);
     }
 
     function _linkButtons(jq) {
         var refs = jq.find('a');
         refs.each(_link2button);
+        $('body').on('click', Df.btnSel, function (evt) {
+            if (W.isIE) {
+                evt.preventDefault();
+                _opener($(this).parent());
+            }
+        });
+    }
+
+    function _opener(anc) {
+        W.debug > 0 && C.debug(name + '_opener', anc);
+
+        W.setTimeout(function () {
+            W.location.href = anc.attr('href');
+        }, 333);
     }
 
     function _parse($load) {
@@ -87,9 +104,10 @@ var Extract;
         while (cls.length) {
             str = cls.pop();
             num = _listLook(arr, str);
+
             if (num) {
                 return str;
-            };
+            }
         }
     }
 
