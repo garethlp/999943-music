@@ -12,7 +12,7 @@
 @mixin nosel(){
     -webkit-user-drag: none;
     @include user-select(none);
-    cursor: move;
+    // cursor: move;
 }
 @mixin rex($prop, $rem){
     #{$prop}: $rem * $remx;

@@ -35,9 +35,9 @@ var Modal;
 
     function _show() {
         var me = $(this);
-        me.children().hide();
+        me.children().not('aside').hide();
         me.fadeIn();
-        _valign(me.children());
+        _valign(me.children().not('aside'));
     }
 
     function _hide() {

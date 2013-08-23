@@ -25,5 +25,42 @@
         margin-bottom: 2em;
         padding: 1em 1.5em;
     }
+    aside {
+        &.icon {
+            background-image: url(../images/controls/close.png);
+            background-repeat: no-repeat;
+            color: transparent;
+            cursor: pointer;
+            display: inline-block;
+            float: left;
+            margin: 1em 0 0 1em;
+            opacity: 0.5;
+            width: 32px; height: 32px;
+
+            &:hover {
+                opacity: 1;
+            }
+            &:before {
+                content: 'X';
+            }
+        }
+        &.text {
+            background-color: $shad3;
+            bottom: 3px;
+            color: white;
+            left: 50%;
+            letter-spacing: 3px;
+            margin: 0 -222px;
+            padding: 0.5em;
+            position: absolute;
+            text-align: center;
+            text-transform: uppercase;
+            width: 444px;
+
+            &:before {
+                content: 'click to dismiss / eliminar superposición';
+            }
+        }
+    }
 }
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
