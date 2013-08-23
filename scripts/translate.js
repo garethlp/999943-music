@@ -1,5 +1,5 @@
 /*jslint es5:true, white:false */
-/*globals $, Extract, Global, window */
+/*globals $, Extract, Global, Reveal, window */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 var Translate;
 
@@ -18,9 +18,11 @@ var Translate;
     };
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
     /// INTERNAL
+    var body = $('body'),
+        html = $('html');
 
-    function _deref(obj, arr) {
-        var foo = obj;
+    function _deref(arr) {
+        var foo = Df.dat;
 
         $.each(arr, function (i, e) {
             // drill or stay put
@@ -33,7 +35,7 @@ var Translate;
         // constuct array for drilling path
         var par = jq.closest('footer, section, td'),
             sect = Extract.sect(par),
-            kind;
+            kind, rtn;
 
         if (par.is('.tile')) {
             kind = 'tile'; // (.tile > .text)
@@ -43,11 +45,19 @@ var Translate;
             kind = 'head';
         }
 
-        // include language tag
-        W.debug > 1 && C.debug(name + '_classify',
-            '[jq: sect,kind,lang]', [jq, sect, kind, Df.current]);
+        rtn = [sect, kind, Df.current]; // include language tag
+        W.debug > 1 && C.debug(name + '_classify', '[jq:sect,kind,lang]', [jq].concat(rtn));
 
-        return [sect, kind, Df.current];
+        return rtn;
+    }
+
+    function _trans(sel) {
+        var tile = $(isNaN(sel) ? sel : this),
+            text = _deref(_classify(tile));
+
+        tile.fadeOut(function () {
+            tile.html(text).fadeIn();
+        });
     }
 
     function _retile(jq) {
@@ -58,45 +68,38 @@ var Translate;
         texts = $(jq || 'body').find(Df.tiles); // one or all
         W.debug > 1 && C.debug(name + '_retile', jq, texts);
 
-        texts.each(function () {
-            var me = $(this),
-                txt = _deref(Df.dat, _classify(me));
-
-            me.fadeOut(function () {
-                $(this).html(txt).fadeIn();
-            });
-        });
+        texts.each(_trans);
     }
 
     function _update(jq, sect) {
+        C.error('_update');
         Reveal.expand(jq, sect, _retile);
     }
 
     function _setLang(str) {
-        var body = $('body'),
-            html = $('html');
+        Df.current = str;
+        // rename toggle-link
+        Df.flip.text(str === 'eng' ? 'Español' : 'English');
 
         body.removeClass('eng esp').addClass(str);
-        Df.flip.text( str === 'eng' ? 'Español' : 'English' );
-        Df.current = str;
-        _retile();
 
         if (str === 'eng') {
             html.attr('lang', 'en');
         } else if (str === 'esp') {
             html.attr('lang', 'es');
         }
+        _retile();
     }
 
     function _toggle() {
         if (Df.current === 'eng') {
-            _setLang('esp')
+            _setLang('esp');
         } else {
             _setLang('eng');
         }
     }
 
-    function _lookup(sect, kind) {
+    function _lookup(sect, kind) { // kind [text / tile / head]
         var str;
 
         try {
@@ -111,16 +114,6 @@ var Translate;
         }
     }
 
-    function _text(sect) {
-        return _lookup(sect, 'text');
-    }
-    function _tile(sect) {
-        return _lookup(sect, 'tile');
-    }
-    function _head(sect) {
-        return _lookup(sect, 'head');
-    }
-
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
     function _init(glob) {
@@ -128,9 +121,9 @@ var Translate;
         if (self.inited(true)) {
             return null;
         }
-        _update();
-        _retile();
         Df.flip = $(Df.flip).on('click', _toggle);
+        //_update();
+        _retile();
         return self;
     }
 
@@ -142,31 +135,19 @@ var Translate;
         run: _retile,
         change: _toggle,
         update: _update,
-        self: _lookup,
+        trans: _trans,
     });
 
 }(window));
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 /*
+begin fadeOut
+    conceal
 
-Track current lang
-    - current
-    + fill(ele, clas)
-            uses current lang (seeks class of ele)
-    + set (lang)
-    + change button
-    + findAll()
-        - what is eligible
+translate
 
-        establish tile text/head data
-        custom events to populate
-
-    change language sends event update
-    triggers each element with this listener to
-    run _lookup(self.sect, self,kind, current lang)
-
-? need to update with (?, 'tile')
-
+begin fadeIn
+    reveal
 
 */
