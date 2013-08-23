@@ -1,5 +1,5 @@
 /*jslint es5:true, white:false */
-/*globals $, Global, window */
+/*globals $, Global, Main, _, window */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 var Extract;
 
@@ -37,23 +37,25 @@ var Extract;
         jq.text('').append(neo);
     }
 
-    function _linkButtons(jq) {
-        var refs = jq.find('a');
-        refs.each(_link2button);
-        $('body').on('click', Df.btnSel, function (evt) {
-            if (W.isIE) {
-                evt.preventDefault();
-                _opener($(this).parent());
-            }
-        });
-    }
-
     function _opener(anc) {
         W.debug > 0 && C.debug(name + '_opener', anc);
 
         W.setTimeout(function () {
             W.location.href = anc.attr('href');
         }, 333);
+    }
+
+    function _linkButtons(jq) {
+        var refs = jq.find('a');
+
+        refs.each(_link2button);
+
+        $('#Layout').on('click', Df.btnSel, function (evt) {
+            if (W.isIE) {
+                evt.preventDefault();
+                _opener($(this).parent());
+            }
+        });
     }
 
     function _parse($load) {
@@ -85,18 +87,18 @@ var Extract;
     }
 
     function _split(str) {
-        return str = str ? str.split(' ') : []
+        return (str = (str ? str.split(' ') : []));
     }
 
     function _classes(ele) {
         return _split($(ele).attr('class'));
     }
 
-    function _listLook(arr, val){
+    function _listLook(arr, val) {
         return _.indexOf(arr, val) + 1;
     }
 
-    function _lookSect(ele){
+    function _lookSect(ele) {
         var cls = _classes(ele),
             arr = Main.sectArr(),
             str, num;
@@ -137,33 +139,6 @@ var Extract;
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 /*
-Extract(sect, type, lang)
 
-i need text for ( sect, all/[text,tile,head]], both/[eng,esp] )
 
-return { // (green) / (green, all, all)
-    green: { // sect
-        head: { // type
-            eng: '...',
-            esp: '...',
-        },
-        text: { // type
-            eng: '...',
-            esp: '...',
-        },
-        tile: { // type
-        lang: {
-            eng: '...',
-            esp: '...',
-            },
-        },
-    },
-};
-return { // (red, head, eng)
-    red: { // sect
-        head: { // type
-            eng: '...',
-        },
-    },
-};
 */

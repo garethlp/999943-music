@@ -140,12 +140,6 @@ var Translate;
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 /*
-begin fadeOut
-    conceal
 
-translate
-
-begin fadeIn
-    reveal
 
 */
