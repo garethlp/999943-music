@@ -66,7 +66,7 @@ var Reveal;
         Df.sect = sect;
         Df.finish = cb;
 
-        W.debug > 0 && C.debug(name + '_toggle', Df);
+        W.debug > 0 && C.debug(name + '_toggle', '\n', Df);
         if (Df.open) {
             Df.open.children().fadeOut().end() //
             .animate({
@@ -82,7 +82,7 @@ var Reveal;
 
     function _contractAll() {
         var all = $(Df.reveals);
-        W.debug > 0 && C.debug(name, '_contract', all.children());
+        W.debug > 0 && C.debug(name + '_contract', '\n', all.children());
 
         all.css({
             height: '1px',

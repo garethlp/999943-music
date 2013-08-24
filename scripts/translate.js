@@ -46,7 +46,7 @@ var Translate;
         }
 
         rtn = [sect, kind, Df.current]; // include language tag
-        W.debug > 1 && C.debug(name + '_classify', '[jq:sect,kind,lang]', [jq].concat(rtn));
+        W.debug > 1 && C.debug(name + '_classify', '\n', '[jq:sect,kind,lang]', [jq].concat(rtn));
 
         return rtn;
     }
@@ -64,13 +64,13 @@ var Translate;
         Df.dat = (Df.dat || Extract.data());
 
         texts = $(jq || 'body').find(Df.tiles); // one or all
-        W.debug > 1 && C.debug(name + '_retile', jq, texts);
+        W.debug > 1 && C.debug(name + '_retile', '\n', jq, texts);
 
         texts.each(_trans);
     }
 
     function _update(jq, sect) {
-        W.debug > 0 && C.debug(name, '_update');
+        W.debug > 0 && C.debug(name + '_update', '\n', sect);
         Reveal.expand(jq, sect, _retile);
     }
 

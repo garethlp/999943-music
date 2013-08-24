@@ -53,7 +53,7 @@ var Respond;
         }
 
         if (d !== Df.current) {
-            W.debug > 0 && C.debug(name + '_detect', d);
+            W.debug > 0 && C.debug(name + '_detect', '\n', d);
 
             if (W.isIE && d === 'mobile' && Df.current === 'desktop') {
                 W.location.reload(); // refresh to respond to shrinking

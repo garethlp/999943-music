@@ -80,7 +80,7 @@ var Control;
             _soon(ctrl); // scroll to tile
             _reset(ctrl);
         }
-        W.debug > 0 && C.debug(name + '_tilter', sect, [ctrl, reveal]);
+        W.debug > 0 && C.debug(name + '_tilter', '\n', sect, [ctrl, reveal]);
     }
 
     function _binding() {

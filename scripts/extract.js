@@ -38,7 +38,7 @@ var Extract;
     }
 
     function _opener(anc) {
-        W.debug > 0 && C.debug(name + '_opener', anc);
+        W.debug > 0 && C.debug(name + '_opener', '\n', anc);
 
         W.setTimeout(function () {
             anc.get(0).click();

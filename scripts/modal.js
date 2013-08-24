@@ -25,7 +25,7 @@ var Modal;
                 me.trigger('hide.Modal');
             });
 
-            W.debug > 0 && C.debug(name + '_binding', me);
+            W.debug > 0 && C.debug(name + '_binding', '\n', me);
         });
     }
 
