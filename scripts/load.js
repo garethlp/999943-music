@@ -34,6 +34,7 @@ var LOAD = {
         CDN + 'video-js/4.1/video-js.css',
         CDN + 'video-js/4.1/video.dev.js',
         './lib/drt-cellophy.js',
+        './lib/jq-help.js',
         './lib/mzr-highres.js',
         ],
         complete: function () {

@@ -86,7 +86,7 @@ var Reveal;
 
         all.css({
             height: '1px',
-        }).children().fadeOut().end() //
+        }).children().fadeTo(0.1).end() //
         .closest('tr').hide();
     }
 
