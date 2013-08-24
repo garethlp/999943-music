@@ -11,19 +11,22 @@ var Control;
 
     Df = { // DEFAULTS
         dat: {},
-        glob: null,
+        cnom: {
+            active: 'tilted',
+            normal: 'tilt',
+        },
     };
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
     /// INTERNAL
 
     function _reset(jq, not) {
-        $('.control').not(not).removeClass('tilted') //
-        .addClass('tilt') //
+        $('.control').not(not).removeClass(Df.cnom.active) //
+        .addClass(Df.cnom.normal) //
         .attr('title', 'Reveal');
 
         if (jq) {
-            jq.addClass('tilted') //
-            .removeClass('tilt') //
+            jq.addClass(Df.cnom.active) //
+            .removeClass(Df.cnom.normal) //
             .attr('title', 'Close');
         }
     }
@@ -39,60 +42,62 @@ var Control;
         }
     }
 
-    function _soon(x) {
+    function _soon(ele) {
         // delay scroll
         W.setTimeout(function () {
-            _scroll(x);
+            _scroll(ele);
         }, 333);
     }
 
-    function _getSect(ctrl) {
+    function _getSect(ctrl) { // who am i
         return ctrl.closest('td').attr('class').split(' ').pop();
     }
 
-    function _getLevel(ctrl) {
+    function _getLevel(ctrl) { // who am i
         return ctrl.closest('tr').attr('class').split(' ').pop();
     }
 
-    function _tilter(ctrl, reveal, sect) {
-        if (ctrl.is('.tilted')) {
+    function _getReveal(level) { // who am i
+        return $('.reveal.' + level);
+    }
+
+    function _isActive(ele) {
+        return $(ele).is('.'+ Df.cnom.active);
+    }
+
+    function _tilter(ctrl) {
+        var sect = _getSect(ctrl),
+            reveal = '(closed)';
+
+        if (_isActive(ctrl)) {
             Reveal.contract(_reset); // open nothing
             _soon('#Top'); // scroll to top
             _reset('', ctrl);
         } else {
+            reveal = _getReveal(_getLevel(ctrl)); // td
+
             Translate.update(reveal, sect);
             _soon(ctrl); // scroll to tile
             _reset(ctrl);
         }
+        W.debug > 0 && C.debug(name + '_tilter', sect, [ctrl, reveal]);
     }
 
     function _binding() {
         $('.control').each(function () {
-            var ctrl = $(this),
-                sect, level, reveal;
-
-            // get my sect (last class of closest td)
-            sect = _getSect(ctrl);
-            // get my level (class of closest tr) [upper/lower]
-            level = _getLevel(ctrl);
-
-            // find which reveal
-            reveal = $('.reveal.' + level);
+            var ctrl = $(this);
 
             ctrl.parent().on('click', function () {
-                // store state and restore defaults
-                _tilter(ctrl, reveal, sect);
+                _tilter(ctrl);
             });
 
             _reset();
-            W.debug > 0 && C.debug(name + '_binding', sect, level, reveal[0]);
         });
     }
 
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-    function _init(glob) {
-        Df.glob = glob;
+    function _init() {
         if (self.inited(true)) {
             return null;
         }
