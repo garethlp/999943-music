@@ -2,8 +2,8 @@
 @import "__mix";
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 #Video > div {
+    @include box-sizing(content-box);
     border: 10px solid white;
-    box-sizing: content-box;
     color: #ccc;
     margin: auto;
 
