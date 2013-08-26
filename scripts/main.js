@@ -21,6 +21,11 @@ function Main(W) {
     };
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
+    function _refresh() {
+        Respond.check();
+        Modal.hide();
+    }
+
     function _timer() {
         var str = new Date().toLocaleString() + ' ';
         return (str += ($.now().toString().match(/^\d{6}/)));
@@ -28,6 +33,7 @@ function Main(W) {
 
     function _scroll(ele, mult) {
         var $me = $(ele);
+
         // look before leap
         if ($me.length) {
             $(W.isIE ? 'html' : 'body').stop().animate({
@@ -35,6 +41,8 @@ function Main(W) {
             }, Main.delay * (mult || 1));
         }
     }
+
+    /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
     function _binding() {
         Translate.init();
@@ -78,6 +86,7 @@ function Main(W) {
             $('.disclose').click();
         });
 
+        $(W).bind('resize orientationchange', _.throttle(_refresh, 333));
     }
 
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */

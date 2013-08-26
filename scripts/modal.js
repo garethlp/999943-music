@@ -43,6 +43,7 @@ var Modal;
 
     function _hide() {
         var me = $(this);
+
         me.slideUp(Main.delay);
     }
 
@@ -62,6 +63,9 @@ var Modal;
             return Df;
         },
         init: _init,
+        hide: function () {
+            Df.all.trigger('hide.Modal');
+        },
     });
 
 }(window));

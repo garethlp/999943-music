@@ -72,8 +72,6 @@ var Respond;
         }
         _detect();
 
-        $(W).bind('resize orientationchange', _.throttle(_detect, 333));
-
         return self;
     }
 
