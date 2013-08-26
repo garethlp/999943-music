@@ -62,6 +62,17 @@ function Main(W) {
             $('.disclose').click();
         });
     }
+    function _scroll(ele) {
+        var $me = $(ele);
+
+        // look before leap
+        if ($me.length) {
+            $(W.isIE ? 'html' : 'body').stop().animate({
+                scrollTop: $me.offset().top,
+            }, Main.delay);
+        }
+    }
+
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
     function _init() {
@@ -70,8 +81,8 @@ function Main(W) {
         if (self.inited(true)) {
             return null;
         }
-
         Df.inits(_binding);
+        _scroll('#Top');
     }
 
     W[name] = $.extend(true, self, {
@@ -80,6 +91,7 @@ function Main(W) {
         },
         init: _init,
         delay: Df.delay,
+        scroll: _scroll,
         sectStr: function () {
             return Df.sects;
         },

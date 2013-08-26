@@ -31,23 +31,12 @@ var Control;
         }
     }
 
-    function _scroll(ele) {
-        var $me = $(ele);
-
-        // look before leap
-        if ($me.length) {
-            $(W.isIE ? 'html' : 'body').stop().animate({
-                scrollTop: $me.offset().top,
-            }, Main.delay);
-        }
-    }
-
     function _soon(ele) {
         ele = $(ele).get(0);
         W.debug > 0 && C.debug(name + '_soon', '\n', ele);
         // delay scroll
         W.setTimeout(function () {
-            _scroll(ele);
+            Main.scroll(ele);
         }, Main.delay * 2);
     }
 
