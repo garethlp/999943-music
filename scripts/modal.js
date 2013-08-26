@@ -29,15 +29,16 @@ var Modal;
         });
     }
 
-    function _valign(jq) {
-        jq.valign();
-    }
-
     function _show() {
-        var me = $(this);
-        me.children().not('aside').hide();
-        me.fadeIn();
-        _valign(me.children().not('aside'));
+        var me = $(this),
+            blocks = me.children().not('aside'),
+            button = $('aside.icon').hide();
+
+        me.fadeIn(Main.delay, function () {
+            button.fadeIn(Main.delay) //
+            .cornerOf(blocks.filter(':visible').first());
+        });
+        blocks.hide().valign();
     }
 
     function _hide() {
@@ -47,11 +48,25 @@ var Modal;
 
     // VERTICALLY ALIGN FN
     $.fn.valign = function() {
-        return this.each(function(i){
+        return this.each(function(i,e){
             var me = $(this),
                 px = (me.parent().height() - me.height()) / 2;
             me.css('margin-top', px);
         });
+    };
+
+    // CALC CLOSE BUTTON
+    $.fn.cornerOf = function(ele) {
+        var me = $(this),
+            box = $(ele),
+            pos = box.children(':visible').first().offset();
+
+        pos.left = pos.left - me.width() / 2;
+        pos.position = 'absolute';
+        // uses the top margin as set by valign
+        pos.top = parseInt(box.css('margin-top')) - me.height() / 2;
+
+        me.css(pos);
     };
 
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */

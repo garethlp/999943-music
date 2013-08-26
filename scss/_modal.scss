@@ -16,6 +16,9 @@
         width: 60%;
         margin: 1em auto;
     }
+    #Video {
+        margin: 1em auto;
+    }
     .text {
         background-color: white;
         border: 1px solid gray;
@@ -33,12 +36,13 @@
             cursor: pointer;
             display: inline-block;
             float: right;
-            margin: 2em;
-            opacity: 1;
+            margin: 3px;
+            opacity: 0.75;
             width: 32px; height: 32px;
+            z-index: 9;
 
             &:hover {
-                opacity: 0.5;
+                opacity: 1;
             }
             &:before {
                 content: 'X';
