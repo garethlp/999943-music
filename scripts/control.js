@@ -62,7 +62,7 @@ var Control;
 
         if (_isActive(ctrl)) {
             Reveal.contract(_reset); // open nothing
-            _soon('#Top'); // scroll to top
+            Main.scroll('#Top'); // scroll to top
             _reset('', ctrl);
         } else {
             reveal = _getReveal(_getLevel(ctrl)); // td

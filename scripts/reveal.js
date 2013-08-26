@@ -32,10 +32,10 @@ var Reveal;
         jq.closest('tr').show().end() //
         .animate({
             height: Df.revealpx * (mobile ? 1.5 : 1),
-        }, (Main.delay * 2), function () {
+        }, Main.delay, function () {
             Df.open = jq;
         }).children() //
-        .not(mobile ? '.desktop' : 'foo').fadeIn(Main.delay * 3);
+        .not(mobile ? '.desktop' : 'foo').fadeIn(Main.delay * 2);
     }
 
     function _expand(jq) {

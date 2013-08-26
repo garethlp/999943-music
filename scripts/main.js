@@ -56,7 +56,7 @@ function Main(W) {
             Respond.change(); // eventless arg
         });
 
-        $('.upper.reveal').one('click', 'button', function (evt) {
+        $('.reveal').one('click', 'button', function (evt) {
             evt.preventDefault();
             evt.stopImmediatePropagation();
             $('.disclose').click();
@@ -68,14 +68,14 @@ function Main(W) {
         return (str += ($.now().toString().match(/^\d{6}/)));
     }
 
-    function _scroll(ele) {
+    function _scroll(ele, mult) {
         var $me = $(ele);
 
         // look before leap
         if ($me.length) {
             $(W.isIE ? 'html' : 'body').stop().animate({
                 scrollTop: $me.offset().top,
-            }, Main.delay);
+            }, Main.delay * (mult || 1));
         }
     }
 
