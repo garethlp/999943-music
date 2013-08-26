@@ -20,6 +20,22 @@ function Main(W) {
         },
     };
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+    function _timer() {
+        var str = new Date().toLocaleString() + ' ';
+        return (str += ($.now().toString().match(/^\d{6}/)));
+    }
+
+    function _scroll(ele, mult) {
+        var $me = $(ele);
+        // look before leap
+        if ($me.length) {
+            $(W.isIE ? 'html' : 'body').stop().animate({
+                scrollTop: $me.offset().top,
+            }, Main.delay * (mult || 1));
+        }
+    }
+
     function _binding() {
         Translate.init();
         Respond.init();
@@ -61,22 +77,7 @@ function Main(W) {
             evt.stopImmediatePropagation();
             $('.disclose').click();
         });
-    }
 
-    function _timer() {
-        var str = new Date().toLocaleString() + ' ';
-        return (str += ($.now().toString().match(/^\d{6}/)));
-    }
-
-    function _scroll(ele, mult) {
-        var $me = $(ele);
-
-        // look before leap
-        if ($me.length) {
-            $(W.isIE ? 'html' : 'body').stop().animate({
-                scrollTop: $me.offset().top,
-            }, Main.delay * (mult || 1));
-        }
     }
 
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
