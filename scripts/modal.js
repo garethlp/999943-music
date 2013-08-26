@@ -46,29 +46,6 @@ var Modal;
         me.slideUp(Main.delay);
     }
 
-    // VERTICALLY ALIGN FN
-    $.fn.valign = function() {
-        return this.each(function(i,e){
-            var me = $(this),
-                px = (me.parent().height() - me.height()) / 2;
-            me.css('margin-top', px);
-        });
-    };
-
-    // CALC CLOSE BUTTON
-    $.fn.cornerOf = function(ele) {
-        var me = $(this),
-            box = $(ele),
-            pos = box.children(':visible').first().offset();
-
-        pos.left = pos.left - me.width() / 2;
-        pos.position = 'absolute';
-        // uses the top margin as set by valign
-        pos.top = parseInt(box.css('margin-top')) - me.height() / 2;
-
-        me.css(pos);
-    };
-
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
     function _init() {
