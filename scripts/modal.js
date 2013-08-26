@@ -25,7 +25,7 @@ var Modal;
                 me.trigger('hide.Modal');
             });
 
-            W.debug > 0 && C.debug(name + '_binding', '\n', me);
+            W.debug > 1 && C.debug(name + '_binding', '\n', me);
         });
     }
 
@@ -42,7 +42,7 @@ var Modal;
 
     function _hide() {
         var me = $(this);
-        me.slideUp();
+        me.slideUp(Main.delay);
     }
 
     // VERTICALLY ALIGN FN

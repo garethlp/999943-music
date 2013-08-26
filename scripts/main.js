@@ -9,6 +9,7 @@ function Main(W) {
         Df;
 
     Df = { // DEFAULTS
+        delay: 333,
         flip: '.fliplang',
         sects: 'cgray red green purple amber plum teal exit legal slug',
         inits: function (cb) {
@@ -78,6 +79,7 @@ function Main(W) {
             return Df;
         },
         init: _init,
+        delay: Df.delay,
         sectStr: function () {
             return Df.sects;
         },

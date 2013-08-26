@@ -13,7 +13,6 @@ var Reveal;
         dat: {},
         open: '',
         sect: '',
-        speed: 666,
         tile: '',
         revealpx: 257,
         reveals: '.reveal',
@@ -33,10 +32,10 @@ var Reveal;
         jq.closest('tr').show().end() //
         .animate({
             height: Df.revealpx * (mobile ? 1.5 : 1),
-        }, function () {
+        }, (Main.delay * 2), function () {
             Df.open = jq;
         }).children() //
-        .not(mobile ? '.desktop' : 'foo').fadeIn(Df.speed);
+        .not(mobile ? '.desktop' : 'foo').fadeIn(Main.delay * 3);
     }
 
     function _expand(jq) {
@@ -66,12 +65,12 @@ var Reveal;
         Df.sect = sect;
         Df.finish = cb;
 
-        W.debug > 0 && C.debug(name + '_toggle', '\n', Df);
+        W.debug > 1 && C.debug(name + '_toggle', '\n', Df);
         if (Df.open) {
             Df.open.children().fadeOut().end() //
             .animate({
                 height: '1px',
-            }, Df.speed, function () {
+            }, (Main.delay * 2), function () {
                 $(this).closest('tr').hide();
                 _closed();
             });
@@ -82,7 +81,7 @@ var Reveal;
 
     function _contractAll() {
         var all = $(Df.reveals);
-        W.debug > 0 && C.debug(name + '_contract', '\n', all.children());
+        W.debug > 0 && C.debug(name + '_contract', '\n', [all.children()]);
 
         all.css({
             height: '1px',

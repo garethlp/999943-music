@@ -38,15 +38,17 @@ var Control;
         if ($me.length) {
             $(W.isIE ? 'html' : 'body').stop().animate({
                 scrollTop: $me.offset().top,
-            }, 333);
+            }, Main.delay);
         }
     }
 
     function _soon(ele) {
+        ele = $(ele).get(0);
+        W.debug > 0 && C.debug(name + '_soon', '\n', ele);
         // delay scroll
         W.setTimeout(function () {
             _scroll(ele);
-        }, 333);
+        }, Main.delay * 2);
     }
 
     function _getSect(ctrl) { // who am i
@@ -111,6 +113,7 @@ var Control;
         },
         init: _init,
         reset: _reset,
+        soon: _soon,
     });
 
 }(window));
