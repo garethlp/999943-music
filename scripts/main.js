@@ -62,6 +62,12 @@ function Main(W) {
             $('.disclose').click();
         });
     }
+
+    function _timer() {
+        var str = new Date().toLocaleString() + ' ';
+        return (str += ($.now().toString().match(/^\d{6}/)));
+    }
+
     function _scroll(ele) {
         var $me = $(ele);
 
@@ -76,7 +82,7 @@ function Main(W) {
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
     function _init() {
-        C.error('init @ ' + Date() + ' debug:', W.debug);
+        C.error('init @ ' + _timer() + ' debug:', W.debug);
 
         if (self.inited(true)) {
             return null;
