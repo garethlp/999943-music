@@ -40,11 +40,11 @@ var Control;
         }, Main.delay * 2);
     }
 
-    function _getSect(ctrl) { // who am i
+    function _getSect(ctrl) { // who am i (too fragile...popping class)
         return ctrl.closest('td').attr('class').split(' ').pop();
     }
 
-    function _getLevel(ctrl) { // who am i
+    function _getLevel(ctrl) { // who am i (too fragile...popping class)
         return ctrl.closest('tr').attr('class').split(' ').pop();
     }
 
