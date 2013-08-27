@@ -8,6 +8,9 @@ W.debug = 1;
 if ($.now() > 137780e7) {
     W.debug--;
 }
+if (W.isIE) {
+    W.debug--;
+}
 
 CDN = {
     self: '/lib/',
