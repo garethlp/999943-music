@@ -80,10 +80,14 @@ function Main(W) {
             Respond.change(); // eventless arg
         });
 
-        $('.reveal').one('click', 'button', function (evt) {
+        $('.reveal.upper').on('click', 'button', function (evt) {
+            C.error(evt)
             evt.preventDefault();
             evt.stopImmediatePropagation();
             $('.disclose').click();
+            W.setTimeout(function () {
+                W.open($(evt.target).parent().attr('href'));
+            }, 3333);
         });
 
         $(W).bind('resize orientationchange', _.throttle(_refresh, 333));
